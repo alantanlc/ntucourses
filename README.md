@@ -11,7 +11,7 @@ Information on NTU [course content](https://wish.wis.ntu.edu.sg/webexe/owa/aus_s
 Help is very much appreciated! Refer to our [contributing guideline](https://github.com/zulip/zulip-electron/blob/master/CONTRIBUTING.md).
 
 ## Built with
-A quick overview of our Tech Stack below. You might also want to learn more about the [differences between frontend and backend](https://www.geeksforgeeks.org/frontend-vs-backend/).
+A quick overview of our tech stack below. Learn more about the [differences between frontend and backend](https://www.geeksforgeeks.org/frontend-vs-backend/).
 
 Frontend:
 - [React](https://electron.atom.io) - Frontend Library
