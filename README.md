@@ -11,20 +11,25 @@ Information on NTU [course content](https://wish.wis.ntu.edu.sg/webexe/owa/aus_s
 Help is very much appreciated! Refer to our [contributing guideline](https://github.com/zulip/zulip-electron/blob/master/CONTRIBUTING.md).
 
 ## Built with
-A quick overview of our Tech Stack:
+A quick overview of our Tech Stack below. You might also want to learn more about the [differences between frontend and backend](https://www.geeksforgeeks.org/frontend-vs-backend/).
+
+Frontend:
 - [React](https://electron.atom.io) - Frontend Library
 - [Redux](https://redux.js.org) - State Management Tool
 - [Bootstrap](https://getbootstrap.com) - Frontend Component
+
+Backend:
 - [Django](https://www.djangoproject.com) - Server
+- [Django REST Framework](https://www.django-rest-framework.org/) - Web APIs
 - [PostgreSQL](https://www.postgresql.org) - Database
-- [Swagger](https://django-rest-swagger.readthedocs.io/en/latest/) - Swagger/OpenAPI Documentation
+- [Selenium with Python](https://selenium-python.readthedocs.io/) - Crawler
 
 ## Code style
-- [Python](https://github.com/google/styleguide/blob/gh-pages/pyguide.md)
+- [Python](http://google.github.io/styleguide/pyguide.html)
 - [Javascript](https://google.github.io/styleguide/jsguide.html)
 
 ## API Reference
-Here's where our API reference lives. [swagger](#)
+Here's where our API reference lives [here](https://ntumods/api).
 
 ## Tests
 Django's unit tests use Python standard library module: [unittest](https://docs.python.org/3/library/unittest.html#module-unittest). Learn more about writing and running tests with Django [here](https://docs.djangoproject.com/en/3.0/topics/testing/overview/) and [here](https://docs.djangoproject.com/en/3.0/intro/tutorial05/). Our test script resides [here](#). 
