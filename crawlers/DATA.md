@@ -4,7 +4,7 @@ This document describes the type of data available on various public sources.
 
 <a name='content-of-courses'></a>
 
-### 1. Content of Courses [[source]](https://wish.wis.ntu.edu.sg/webexe/owa/aus_subj_cont.main)
+### 1. Content of Courses [[source]](https://wish.wis.ntu.edu.sg/webexe/owa/aus_subj_cont.main) [[sreenshot]](#screenshot-course)
 
 Displays the list of modules filtered by `Acad Year and Semester` and `Programme`.
   - Up to `3` academic years of information is available. Each academic year has `4` semesters (1, 2, Special Term I, Special Term II).
@@ -28,7 +28,7 @@ With any combination of `Academic Year and Semester` and `Programme` selected, a
 
 \* Mandatory Field
 
-### 2. Class Schedule [[source]](https://wish.wis.ntu.edu.sg/webexe/owa/aus_schedule.main)
+### 2. Class Schedule [[source]](https://wish.wis.ntu.edu.sg/webexe/owa/aus_schedule.main) [[screenshot]](#screenshot-class)
 
 Displays the list of class schedule for each module filtered by `Acad Year and Semester` and `Programme`.
   - Up to `6` academic years of information is available. Each academic year has `4` semesters (1, 2, Special Term I, Special Term II).
@@ -39,7 +39,7 @@ With any combination of `Academic Year and Semester` and `Programme` selected, a
 | Field | Example(s) |
 | - | - |
 | Course code* | `CZ1007` |
-| Title* | `Data Structures` <br><br>Optionally followed by `*`, `^`, or `#` which denotes:<br>`*` = Course is available as Unrestricted Elective<br>`^` = Self - Paced Course<br>`#` = Course is available as General Education Prescribed Elective |
+| Title* | `Data Structures` <br><br>Optionally followed by any combination of `*`, `^`, or `#` (e.g `*`, `*#`) which denotes:<br>`*` = Course is available as Unrestricted Elective<br>`^` = Self - Paced Course<br>`#` = Course is available as General Education Prescribed Elective |
 | Credit* | `3.0` |
 | Remark 1 (displayed in pink text) | 1. `for students who fail QET`<br>2. `Open to & Compulsory for SCECSCstudents from AY2011-12 only.`<br>3. `AB1000 is scheduled in RECESS WEEK ONLY` |
 | Prerequisite | 1. `HW0001(Corequisite)`<br>2. `HW001 OR HW0001`<br>3. `HE2001 & HE2002 OR HE201 & HE202`<br>4. `HE201 OR HE192 OR MAS112 (Applicable to MAEC) & MAS113 (Applicable to MAEC) OR HE201 (Applicable to MAEC) & MTH112 (Applicable to MAEC) & MTH113 (Applicable to MAEC) OR HE2001 OR HE9092` |
@@ -53,9 +53,16 @@ With any combination of `Academic Year and Semester` and `Programme` selected, a
 
 \* Mandatory Field
 
-### 3. Exam Timetable [[source]](https://wis.ntu.edu.sg/webexe/owa/exam_timetable_und.main)
+### 3. Exam Timetable [[source]](https://wis.ntu.edu.sg/webexe/owa/exam_timetable_und.main) [[screenshot]](#screenshot-exam)
 
 Displays the list of exam schedule for the current semester. Note that information shown may be subject to changes. Students are advised to check the finalized exam timetable with exam seat information on the [Examination Seating Arrangement](https://www.ntu.edu.sg/Students/Undergraduate/AcademicServices/Examination/Pages/ExamSeatingArrangements.aspx) webpage which is released 2 weeks before start of examination.
+
+From [source](https://wis.ntu.edu.sg/webexe/owa/exam_timetable_und.main), navigate to the complete list of exam timetable as follow (you should see a page like [this](#screenshot-exam)):
+1. Select `General Access` and click `Next`
+2. Select `AY2019-20 SEM 2` (not the _SELF-PACED_ one) and click `Next`.
+3. Click `Next` again. (Leave `Date`, `Time`, `Dept Code`, `Course` selected as `All`)
+
+Each exam schedule contains the following fields:
 
 | Field | Example(s) |
 | - | - |
@@ -64,4 +71,23 @@ Displays the list of exam schedule for the current semester. Note that informati
 | Time* | `9.00am`, `1.00pm`, `2.30pm`, `5.00pm` |
 | Course* | `AAE18D` |
 | Course Title* | `EXPLORING THE WORLDS & SOUNDS OF ENGLISH` |
-| Duration* | `2`, `2.5` |
+| Duration* | `2`, `2.5`, `3` |
+
+\* Mandatory Field
+
+## Appendix
+
+<a name="screenshot-course"></a>
+
+#### Screenshot of Content of Courses
+![content_of_courses](content_of_courses.png)
+
+<a name="screenshot-class"></a>
+
+#### Screenshot of Class Schedule
+![class-schedule](class_schedule.png)
+
+<a name="screenshot-exam"></a>
+
+#### Screenshot of Exam Timetable
+![exam_timetable](exam_timetable.png)
