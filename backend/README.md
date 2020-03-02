@@ -1,10 +1,34 @@
-## Readings
-1. [Django Quick Install Guide](https://docs.djangoproject.com/en/3.0/intro/install/)
-1. [Writing your first Django app](https://docs.djangoproject.com/en/3.0/intro/tutorial01/)
-1. [Django Models](https://docs.djangoproject.com/en/3.0/topics/db/models/)
+## Django Readings
+Here are some useful links that will get you up to speed with Django. It's a lot to cover, but you will get there one day! :)
+1. [Quick Install Guide](https://docs.djangoproject.com/en/3.0/intro/install/)
+1. [Writing your first Django app](https://docs.djangoproject.com/en/3.0/intro/tutorial01/) - Complete all the tutorials (Parts 1 to 7)
+1. [Django Project Structure](https://docs.djangoproject.com/en/3.0/intro/reusable-apps/#your-project-and-your-reusable-app) - Good for documentation
+1. [Models](https://docs.djangoproject.com/en/3.0/topics/db/models/)
+1. [Model Field Types](https://docs.djangoproject.com/en/3.0/ref/models/fields/#model-field-types)
+1. [Queries](https://docs.djangoproject.com/en/3.0/topics/db/queries/)
+1. [Model Instances](https://docs.djangoproject.com/en/3.0/ref/models/instances/)
+1. [JSONField](https://docs.djangoproject.com/en/3.0/ref/contrib/postgres/fields/#django.contrib.postgres.fields.JSONField)
+1. [Django PostgreSQL specific model fields](https://docs.djangoproject.com/en/3.0/ref/contrib/postgres/fields/)
+1. [How Django know to UPDATE vs. INSERT](https://docs.djangoproject.com/en/3.0/ref/models/instances/#how-django-knows-to-update-vs-insert)
+1. [Updating attributes based on existing fields](https://docs.djangoproject.com/en/3.0/ref/models/instances/#updating-attributes-based-on-existing-fields)
+1. [Logging](https://docs.djangoproject.com/en/3.0/topics/logging/)
+1. [Use bulk methods](https://docs.djangoproject.com/en/3.0/topics/db/optimization/#use-bulk-methods)
+1. [Performance and optimization](https://docs.djangoproject.com/en/3.0/topics/performance/)
+1. [Database access optimization](https://docs.djangoproject.com/en/3.0/topics/db/optimization/)
+1. [Do database work in the database rather than in Python](https://docs.djangoproject.com/en/3.0/topics/db/optimization/#do-database-work-in-the-database-rather-than-in-python)
+1. [Retrieve everything at once if you know you will need it](https://docs.djangoproject.com/en/3.0/topics/db/optimization/#retrieve-everything-at-once-if-you-know-you-will-need-it)
+1. [GeoDjango](https://docs.djangoproject.com/en/3.0/ref/contrib/gis/) - Potential use for displaying lesson venus on a map
+1. [Pagination](https://docs.djangoproject.com/en/3.0/topics/pagination/)
+1. [Query Expressions](https://docs.djangoproject.com/en/3.0/ref/models/expressions/)
+1. [Django documentation](https://docs.djangoproject.com/en/3.0/)
+1. ["How-to" guides](https://docs.djangoproject.com/en/3.0/howto/)
+1. [What to read next](https://docs.djangoproject.com/en/3.0/intro/whatsnext/)
+1. [Writing your first patch for Django](https://docs.djangoproject.com/en/3.0/intro/contributing/) - Not relevant to our NTUMods project, but good to know if you're into contributing to Django!
 
 ## Tests
 Django's unit tests use Python standard library module: [unittest](https://docs.python.org/3/library/unittest.html#module-unittest). Learn more about writing and running tests with Django [here](https://docs.djangoproject.com/en/3.0/topics/testing/overview/) and [here](https://docs.djangoproject.com/en/3.0/intro/tutorial05/). Our test script resides [here](#). 
+
+#### Running the test script
 
 In your terminal, run the test script with:
 ```
@@ -22,6 +46,13 @@ Ran 1 test in 0.001s
 OK
 Destroying test database for alias 'default'...
 ```
+
+If any test cases fail, you will see something like:
+```
+to fill in
+```
+
+#### Code Coverage
 
 We need help with increasing our [code coverage](https://adamj.eu/tech/2019/04/30/getting-a-django-application-to-100-percent-coverage/) (i.e. write missing test cases!). It will help to identify untested parts and fragile or dead code. If you can't test a piece of code, it usually means that the code should be refactored or removed. See [Integration with coverage.py](https://docs.djangoproject.com/en/3.0/topics/testing/advanced/#topics-testing-code-coverage) for details.
 
