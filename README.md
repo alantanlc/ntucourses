@@ -37,4 +37,4 @@ Here's where our API reference lives [here](https://ntumods/api).
 This project is very much inspired by [NUSMods](https://nusmods.com/). We've seen the positive impact of this platform on students of NUS, and we believe that students of NTU should some have something similar too!
 
 ## License
-MIT © [Alan Tan](https://github.com/alanwuha)
+MIT
