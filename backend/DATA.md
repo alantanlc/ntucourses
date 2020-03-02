@@ -28,7 +28,7 @@ With any combination of `Academic Year and Semester` and `Programme` selected, a
 
 \* Mandatory Field
 
-### 1. Class Schedule [[source]](https://wish.wis.ntu.edu.sg/webexe/owa/aus_schedule.main)
+### 2. Class Schedule [[source]](https://wish.wis.ntu.edu.sg/webexe/owa/aus_schedule.main)
 
 Displays the list of class schedule for each module filtered by `Acad Year and Semester` and `Programme`.
   - Up to `6` academic years of information is available. Each academic year has `4` semesters (1, 2, Special Term I, Special Term II).
