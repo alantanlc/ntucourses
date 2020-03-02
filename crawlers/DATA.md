@@ -39,7 +39,7 @@ With any combination of `Academic Year and Semester` and `Programme` selected, a
 | Field | Example(s) |
 | - | - |
 | Course code* | `CZ1007` |
-| Title* | `Data Structures` <br><br>Optionally followed by `*`, `^`, or `#` which denotes:<br>`*` = Course is available as Unrestricted Elective<br>`^` = Self - Paced Course<br>`#` = Course is available as General Education Presribed Elective |
+| Title* | `Data Structures` <br><br>Optionally followed by `*`, `^`, or `#` which denotes:<br>`*` = Course is available as Unrestricted Elective<br>`^` = Self - Paced Course<br>`#` = Course is available as General Education Prescribed Elective |
 | Credit* | `3.0` |
 | Remark 1 (displayed in pink text) | 1. `for students who fail QET`<br>2. `Open to & Compulsory for SCECSCstudents from AY2011-12 only.`<br>3. `AB1000 is scheduled in RECESS WEEK ONLY` |
 | Prerequisite | 1. `HW0001(Corequisite)`<br>2. `HW001 OR HW0001`<br>3. `HE2001 & HE2002 OR HE201 & HE202`<br>4. `HE201 OR HE192 OR MAS112 (Applicable to MAEC) & MAS113 (Applicable to MAEC) OR HE201 (Applicable to MAEC) & MTH112 (Applicable to MAEC) & MTH113 (Applicable to MAEC) OR HE2001 OR HE9092` |
@@ -52,3 +52,16 @@ With any combination of `Academic Year and Semester` and `Programme` selected, a
 | Remark 2 (last column in the table) | 1. `Teaching Wk2-13`<br>2. `Teaching Wk2,4,6,8,10,12`<br>3. `Teaching Wk3,5,7,9,11,13`<br>4. `Not conducted during Teaching Weeks Recess week only` |
 
 \* Mandatory Field
+
+### 3. Exam Timetable [[source]](https://wis.ntu.edu.sg/webexe/owa/exam_timetable_und.main)
+
+Displays the list of exam schedule for the current semester. Note that information shown may be subject to changes. Students are advised to check the finalized exam timetable with exam seat information on the [Examination Seating Arrangement](https://www.ntu.edu.sg/Students/Undergraduate/AcademicServices/Examination/Pages/ExamSeatingArrangements.aspx) webpage which is released 2 weeks before start of examination.
+
+| Field | Example(s) |
+| - | - |
+| Date* | `23 April 2020` |
+| Day* | `Thursday` |
+| Time* | `9.00am`, `1.00pm`, `2.30pm`, `5.00pm` |
+| Course* | `AAE18D` |
+| Course Title* | `EXPLORING THE WORLDS & SOUNDS OF ENGLISH` |
+| Duration* | `2`, `2.5` |
