@@ -41,7 +41,7 @@ With any combination of `Academic Year and Semester` and `Programme` selected, a
 | Course code* | CZ1007 |
 | Title* | Data Structures <br><br>* Optionally followed by `*`, `^`, `#` which denotes:<br>`*` = Course is available as Unrestricted Elective<br>`^` = Self - Paced Course<br>`#` = Course is available as General Education Presribed Elective |
 | Credit* | 3.0 |
-| Remark 1 | 1. for students who fail QET<br>2. Open to & Compulsory for SCECSCstudents from AY2011-12 only.<br>3. AB1000 is scheduled in RECESS WEEK ONLY |
+| Remark 1 (displayed in pink text) | 1. for students who fail QET<br>2. Open to & Compulsory for SCECSCstudents from AY2011-12 only.<br>3. AB1000 is scheduled in RECESS WEEK ONLY |
 | Prerequisite | 1. HW0001(Corequisite)<br>2. HW001 OR HW0001 |
 | Index* | 58001 |
 | Type* | 1. LEC/STUDIO<br>2. TUT<br>3. LAB |
@@ -49,6 +49,6 @@ With any combination of `Academic Year and Semester` and `Programme` selected, a
 | Day* | MON, TUE, WED, THU, FRI, SAT, SUN |
 | Time* | 1000-1200 |
 | Venue* | CS-TR+7 |
-| Remark | |
+| Remark 2 (last column in the table) | |
 
 \* Mandatory Field
