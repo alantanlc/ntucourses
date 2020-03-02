@@ -1,6 +1,6 @@
-## Data
+## Data Sources
 
-This document describes the type of information available on various publicly available sources.
+This document describes the type of data available on various public sources.
 
 <a name='content-of-courses'></a>
 
@@ -19,7 +19,7 @@ With any combination of `Academic Year and Semester` and `Programme` selected, a
 | Description* | Syntactic and Semantics of basic constructs in C? language; Data aggregates; Control Abstraction; Linear Structures; Recursion; Implementing the Tree Abstraction; |
 | Credit* | 3.0 |
 | Grade Type | Pass/Fail |
-| Prerequisite | 1. CE1008 OR CZ2008 OR CE1011 & CE1012 OR CZ1011 & CZ1012<br>2. AC2101(Corequisite) & AC2104 & AC2401(Corequisite)<br>3. HE2004 (Min Grade :A) (Applicable to ECPP) OR HE2005 & HE9091 (Not Applicable to ECON)<br>4. for students who fail QET<br>5. Only opened to NBS students.<br>5. Physically active.No injuries/medical conditions.<br>6. For students w/o A level Physics(applicable to F/T students)<br><br>* Sometimes there are 2 rows of prerequisite, one with list of modules and one with a generic string (e.g. AB0502) |
+| Prerequisite | 1. CE1008 OR CZ2008 OR CE1011 & CE1012 OR CZ1011 & CZ1012<br>2. AC2101(Corequisite) & AC2104 & AC2401(Corequisite)<br>3. HE2004 (Min Grade :A) (Applicable to ECPP) OR HE2005 & HE9091 (Not Applicable to ECON)<br>4. for students who fail QET<br>5. Only opened to NBS students.<br>5. Physically active.No injuries/medical conditions.<br>6. For students w/o A level Physics(applicable to F/T students)<br><br>Sometimes there are 2 rows of prerequisite, one with list of modules and one with a generic string (e.g. AB0502) |
 | Mutually Exclusive With | CZ1007, CH0494, CV0003 |
 | Not Available To Programme | 1. BCG, CSC, EEE, REP(CSC)<br>2. CEE(2019-onwards)(Direct Entry),CEE(2019-onwards)(Non Direct Entry)) |
 | Not Available as UE to Programme | BCE, EEE |
@@ -39,16 +39,16 @@ With any combination of `Academic Year and Semester` and `Programme` selected, a
 | Field | Example(s) |
 | - | - |
 | Course code* | CZ1007 |
-| Title* | Data Structures <br><br>* Optionally followed by `*`, `^`, `#` which denotes:<br>`*` = Course is available as Unrestricted Elective<br>`^` = Self - Paced Course<br>`#` = Course is available as General Education Presribed Elective |
+| Title* | Data Structures <br><br>Optionally followed by `*`, `^`, or `#` which denotes:<br>`*` = Course is available as Unrestricted Elective<br>`^` = Self - Paced Course<br>`#` = Course is available as General Education Presribed Elective |
 | Credit* | 3.0 |
 | Remark 1 (displayed in pink text) | 1. for students who fail QET<br>2. Open to & Compulsory for SCECSCstudents from AY2011-12 only.<br>3. AB1000 is scheduled in RECESS WEEK ONLY |
-| Prerequisite | 1. HW0001(Corequisite)<br>2. HW001 OR HW0001 |
+| Prerequisite | 1. HW0001(Corequisite)<br>2. HW001 OR HW0001<br>3. HE2001 & HE2002 OR HE201 & HE202<br>4. HE201 OR HE192 OR MAS112 (Applicable to MAEC) & MAS113 (Applicable to MAEC) OR HE201 (Applicable to MAEC) & MTH112 (Applicable to MAEC) & MTH113 (Applicable to MAEC) OR HE2001 OR HE9092|
 | Index* | 58001 |
-| Type* | 1. LEC/STUDIO<br>2. TUT<br>3. LAB |
-| Group* | 1. 1, ..., 10<br>2. C20, ..., C25<br>3. GP1, ..., GP16<br>4. SSP1, ... SSP4<br>5. LE<br>6. SCE<br><br>* Generally in the format of `numeric`, `alphabets` or `alphanumeric` (Alphabets take precedence. One or more alphabets followed by one or more digits. Pattern does not alternate between alphabets and numbers). The matching regular expression is as such: `[0-9]+\|[A-Z][A-Z]+\|[A-Z]+[0-9]+` |
-| Day* | MON, TUE, WED, THU, FRI, SAT, SUN |
-| Time* | 1000-1200 |
-| Venue* | CS-TR+7 |
-| Remark 2 (last column in the table) | |
+| Type* | 1. LEC/STUDIO<br>2. TUT<br>3. LAB<br>4. SEM|
+| Group* | 1. 1, ..., 10<br>2. C20, ..., C25<br>3. GP1, ..., GP16<br>4. SSP1, ... SSP4<br>5. LE<br>6. SCE<br><br>Generally in the format of `numeric`, `alphabets` or `alphanumeric`.<br>For `alphanumeric`, format is one or more alphabets followed by one or more digits. Pattern does not alternate between alphabets and numbers.<br><br>The matching regular expression for a `Group` is as such: `[0-9]+\|[A-Z][A-Z]+\|[A-Z]+[0-9]+` |
+| Day* | 1. MON<br>2. TUE<br>3. WED<br>4. THU<br>5. FRI<br>6. SAT<br>7. SUN |
+| Time* | 1. 1000-1200<br>2. 1230-1430<br>3. 1430-1630 |
+| Venue* | 1. LT18<br>2. HSSSEMRM9<br>3. CS-TR+7<br>4. CATILAB |
+| Remark 2 (last column in the table) | 1. Teaching Wk2-13<br>2. Teaching Wk2,4,6,8,10,12<br>3. Teaching Wk3,5,7,9,11,13<br>4. Not conducted during Teaching Weeks Recess week only |
 
 \* Mandatory Field
