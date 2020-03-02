@@ -4,7 +4,7 @@ This document describes the type of data available on various public sources.
 
 <a name='content-of-courses'></a>
 
-### 1. Content of Courses [[source]](https://wish.wis.ntu.edu.sg/webexe/owa/aus_subj_cont.main) [[sreenshot]](#screenshot-course)
+### 1. Content of Courses [[source]](https://wish.wis.ntu.edu.sg/webexe/owa/aus_subj_cont.main) [[screenshot]](#screenshot-course)
 
 Displays the list of modules filtered by `Acad Year and Semester` and `Programme`.
   - Up to `3` academic years of information is available. Each academic year has `4` semesters (1, 2, Special Term I, Special Term II).
@@ -55,7 +55,7 @@ With any combination of `Academic Year and Semester` and `Programme` selected, a
 
 ### 3. Exam Timetable [[source]](https://wis.ntu.edu.sg/webexe/owa/exam_timetable_und.main) [[screenshot]](#screenshot-exam)
 
-Displays the list of exam schedule for the current semester. Note that information shown may be subject to changes. Students are advised to check the finalized exam timetable with exam seat information on the [Examination Seating Arrangement](https://www.ntu.edu.sg/Students/Undergraduate/AcademicServices/Examination/Pages/ExamSeatingArrangements.aspx) webpage which is released 2 weeks before start of examination.
+Displays the list of exam schedule for the current semester. Note that information shown may be subject to changes. Students are advised to check the finalized exam timetable with exam seat information on the [Examination Seating Arrangement webpage](https://www.ntu.edu.sg/Students/Undergraduate/AcademicServices/Examination/Pages/ExamSeatingArrangements.aspx) which is released 2 weeks before start of examination.
 
 From [source](https://wis.ntu.edu.sg/webexe/owa/exam_timetable_und.main), navigate to the complete list of exam timetable as follow (you should see a page like [this](#screenshot-exam)):
 1. Select `General Access` and click `Next`
