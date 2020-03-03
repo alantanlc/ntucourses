@@ -1,7 +1,6 @@
-## Mockups
+# Mockups
 
-### Logo
-
+## Logo
 ![logo](mockups/ntumods_logo.svg)
 
 The .drawio file to modify the logo is available [here](../ntumods_logo.drawio).
@@ -17,9 +16,14 @@ Steps to re-create the logo:
 1. Set font size to `230` pt
 1. Set font alignment to `center`
 
-### Modules List Entry [[uber reference]]()
-
+## Modules List Entry [[uber reference]](https://www.uber.com/)
 ![module_detail](mockups/module_detail.png)
+
+## Module List
+![horizontal_bar](mockups/module_list.png)
+
+## Horizontal Bar Design
+![horizontal_bar](mockups/horizontal_tab.png)
 
 ## API Reference
 Here's where our API reference lives [here](https://ntumods.com/api).
