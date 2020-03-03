@@ -39,6 +39,9 @@ Here are some useful links that will get you up to speed with Django. It's a lot
 
 \* Important
 
+## API Reference
+Here's where our API reference lives [here](https://ntumods.com/api).
+
 ## Tests
 Django's unit tests use Python standard library module: [unittest](https://docs.python.org/3/library/unittest.html#module-unittest). Learn more about writing and running tests with Django [here](https://docs.djangoproject.com/en/3.0/topics/testing/overview/) and [here](https://docs.djangoproject.com/en/3.0/intro/tutorial05/). Our test script resides [here](#). 
 

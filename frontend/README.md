@@ -12,6 +12,7 @@ Steps to re-create the logo:
 1. Fill circle with the color `007FFF`
 1. Uncheck `Line`
 1. Double click on circle and add a text `N`
+1. Set font type tp `Helvetica`
 1. Set font style to both `bold` and `italic`
 1. Set font size to `230` pt
 1. Set font alignment to `center`
@@ -19,3 +20,6 @@ Steps to re-create the logo:
 ### Modules List Entry [[uber reference]]()
 
 ![module_detail](mockups/module_detail.png)
+
+## API Reference
+Here's where our API reference lives [here](https://ntumods.com/api).
