@@ -8,7 +8,7 @@ This document describes the type of data available on various public sources.
 
 Displays the list of modules filtered by `Acad Year and Semester` and `Programme`.
   - Up to `3` academic years of information is available. Each academic year has `4` semesters (1, 2, Special Term I, Special Term II).
-  - Programmes are listed under `6` categories (Single Degree, Double Degree, Minor, General Education, C N Yang Scholars Programme, Unrestricted Electives)
+  - Programmes are listed under `6` categories (Full-Time Degree, Double Degree, Minor, General Education, C N Yang Scholars Programme, Unrestricted Electives)
   - For each academic year and semester, a common `Note` is displayed on the right of the web page explaining that Core, GER Core and major Prescribed Elective (PE) modules are listed together under each respective programme. Occasionally, additional updates may be included under the `Note` (See Acad Yr 2019 1)
 
 With any combination of `Academic Year and Semester` and `Programme` selected, a list of modules will be loaded. Each modules may contain the following fields:
@@ -32,7 +32,7 @@ With any combination of `Academic Year and Semester` and `Programme` selected, a
 
 Displays the list of class schedule for each module filtered by `Acad Year and Semester` and `Programme`.
   - Up to `6` academic years of information is available. Each academic year has `4` semesters (1, 2, Special Term I, Special Term II).
-  - Programmes are listed under `8` categories (Single Degree, Double Degree, Part Time Degree, Minor, General Education, English Proficiency, C N Yang Scholars Programme, Unrestricted Electives)
+  - Programmes are listed under `8` categories (Full-Time Degree, Double Degree, Part Time Degree, Minor, General Education, English Proficiency, C N Yang Scholars Programme, Unrestricted Electives)
   - For each academic year and semester, a common `Attention` (Same as `Note` from [Content of Courses](#content-of-courses)) is displayed on the right of the web page explaining that Core, GER Core and major Prescribed Elective (PE) modules are listed together under each respective programme, and an additional instruction to students who intend to register course HW310.
 
 With any combination of `Academic Year and Semester` and `Programme` selected, a list of class schedules will be loaded. Each class schedule may contain the following fields:
