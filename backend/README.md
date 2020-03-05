@@ -1,6 +1,7 @@
 ## Django Readings
 Here are some useful links that will get you up to speed with Django. It's a lot to cover, but you will get there one day! :)
 1. [Quick Install Guide*](https://docs.djangoproject.com/en/3.0/intro/install/)
+1. [Django Rest Framework***](https://medium.com/@sostomc011/https-medium-com-sostomc011-getting-started-with-django-mysql-and-react-js-backend-b962a7691486)
 1. [Writing your first Django app*](https://docs.djangoproject.com/en/3.0/intro/tutorial01/) - Complete all the tutorials (Parts 1 to 7)
 1. [Django Project Structure](https://docs.djangoproject.com/en/3.0/intro/reusable-apps/#your-project-and-your-reusable-app) - Good for documentation
 1. [Using Django](https://docs.djangoproject.com/en/3.0/topics/)
