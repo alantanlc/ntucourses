@@ -104,3 +104,11 @@ ntumods/views.py                                   28      8    71%
 -------------------------------------------------------------------
 TOTAL                                             175     19    89%
 ```
+
+### Blue Sky Features
+1. Module recommendation engine (based on view history or modules registered)
+1. Photo gallery for each module (post group photos, sample questions, what goes on during tutorials/labs/lectures)
+1. Automatic module scheduler (e.g A-star algorithm)
+1. Link to exam papers
+1. Module index swapper?
+1. 
