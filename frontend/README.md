@@ -1,29 +1,27 @@
-# Mockups
+# Frontend
 
-## Logo
-![logo](mockups/ntumods_logo.svg)
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.7.
 
-The .drawio file to modify the logo is available [here](../ntumods_logo.drawio).
+## Development server
 
-Steps to re-create the logo:
-1. Under `General`, click on `Circle` and a circle shape should appear on canvas
-1. Scale the circle size to `300` x `300`
-1. Fill circle with the color `007FFF`
-1. Uncheck `Line`
-1. Double click on circle and add a text `N`
-1. Set font type tp `Helvetica`
-1. Set font style to both `bold` and `italic`
-1. Set font size to `230` pt
-1. Set font alignment to `center`
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Modules List Entry [[uber reference]](https://www.uber.com/)
-![module_detail](mockups/module_detail.png)
+## Code scaffolding
 
-## Module List
-![horizontal_bar](mockups/module_list.png)
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Horizontal Bar Design
-![horizontal_bar](mockups/horizontal_tab.png)
+## Build
 
-## API Reference
-Here's where our API reference lives [here](https://ntumods.com/api).
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+## Running unit tests
+
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Running end-to-end tests
+
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+
+## Further help
+
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
