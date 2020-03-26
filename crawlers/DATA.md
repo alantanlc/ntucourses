@@ -11,6 +11,7 @@ Displays the list of modules filtered by `Acad Year and Semester` and `Programme
   - Programmes are listed under `6` categories (Full-Time Degree, Double Degree, Minor, General Education, C N Yang Scholars Programme, Unrestricted Electives)
   - For each academic year and semester, a common `Note` is displayed on the right of the web page explaining that Core, GER Core and major Prescribed Elective (PE) modules are listed together under each respective programme. Occasionally, additional updates may be included under the `Note` (See Acad Yr 2019 1)
   - [Understanding NTU's Course Structure](https://digitalsenior.sg/ntu-freshmen-guide-how-to-survive-your-freshmen-year/
+  - [GER PE](https://wish.wis.ntu.edu.sg/webexe/owa/aus_subj_cont2.main)
 
 With any combination of `Academic Year and Semester` and `Programme` selected, a list of modules will be loaded. Each modules may contain the following fields:
 | Field | Example(s) |
