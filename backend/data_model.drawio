@@ -1,115 +1,132 @@
-<mxfile host="app.diagrams.net" modified="2020-03-27T07:53:07.051Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" etag="LFWueP3ctSMxRw0rKKTS" version="12.9.3" type="github">
+<mxfile host="app.diagrams.net" modified="2020-03-27T12:24:56.583Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" etag="YWDTTnhrv-eZZ4T9wH8S" version="12.9.3" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="2249" dy="1910" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2249" dy="741" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-21" value="programme_type" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="120" y="240" width="280" height="120" as="geometry" />
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERoneToMany;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-11" target="KhxK5YI4H-yNdM9y5E6n-25">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-420" y="290" />
+              <mxPoint x="-420" y="290" />
+            </Array>
+          </mxGeometry>
         </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-22" value="- id (PK)&#xa;- name (single degree, double degree, minor, ger, &#xa;c n yang scholars, university scholars programme, &#xa;unrestricted electives) " style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="qA88r-ku_hP-vUYEzjVc-21">
-          <mxGeometry y="30" width="280" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-51" value="content" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry y="-195" width="320" height="160" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-52" value="- id (PK)&#xa;- name (accountancy, accountancy (ga) year 1, &#xa;accountancy (ga) year 2, accountancy (ga) year 3, &#xa;accountancy (gb) year 1, accountancy (gb) year 2, &#xa;accountancy (gb) year 3, art design &amp; media year 1,&#xa;art design &amp; media (ANIM) year 2)&#xa;- content_type" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="qA88r-ku_hP-vUYEzjVc-51">
-          <mxGeometry y="30" width="320" height="130" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-37" value="venue_type" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="120" y="400" width="160" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-38" value="- id (PK)&#xa;- name (lecture theatre, &#xa;tutorial room)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="qA88r-ku_hP-vUYEzjVc-37">
-          <mxGeometry y="30" width="160" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=ERoneToMany;startFill=0;endArrow=ERoneToMany;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-19" target="qA88r-ku_hP-vUYEzjVc-12">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-45" value="lesson_type" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="320" y="400" width="160" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-46" value="- id (PK)&#xa;- name (lec/studio, &#xa;tut, lab, sem) NULL" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="qA88r-ku_hP-vUYEzjVc-45">
-          <mxGeometry y="30" width="160" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-48" value="lookup" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="80" y="80" width="440" height="640" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-49" value="- id (PK)&#xa;- category (programme, venue, lesson, semester)&#xa;- key (sd, dd, min, ger, cny, usp, ue, lt, tr, ls, tut, lab, sem1, sem2, st1, st2)&#xa;- value (single degree, double degree, lecture theatre, &#xa;tutorial room, lec/studio, tut, lab, semester 1, semester 2, special term i, &#xa;special term ii)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="qA88r-ku_hP-vUYEzjVc-48">
-          <mxGeometry y="30" width="440" height="610" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-18" value="programme" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-320" y="80" width="320" height="160" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-19" value="- id (PK)&#xa;- name (accountancy, accountancy (ga) year 1, &#xa;accountancy (ga) year 2, accountancy (ga) year 3, &#xa;accountancy (gb) year 1, accountancy (gb) year 2, &#xa;accountancy (gb) year 3, art design &amp; media year 1,&#xa;art design &amp; media (ANIM) year 2)&#xa;- programme_type (sd, dd, min, ger, cny, usp, ue)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="qA88r-ku_hP-vUYEzjVc-18">
-          <mxGeometry y="30" width="320" height="130" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-11" value="course" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-11" value="course" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="-480" y="100" width="120" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-12" value="- id (PK)&#xa;- code&#xa;- title&#xa;- description&#xa;- au" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="qA88r-ku_hP-vUYEzjVc-11">
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-12" value="- course_code (PK)&#xa;- title&#xa;- description&#xa;- au&#xa;- ..." style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-11" vertex="1">
           <mxGeometry y="30" width="120" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-57" value="semester" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry y="-155" width="160" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-58" value="- id (PK)&#xa;- year (2019, 2020)&#xa;- semester (1, 2, I, II)&#xa;- course_id (FK)&#xa;- semester_id (FK)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="qA88r-ku_hP-vUYEzjVc-57">
-          <mxGeometry y="30" width="160" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-13" value="semester" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="120" y="560" width="160" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-14" value="- id (PK)&#xa;- name (semester 1, &#xa;semester 2, special term I,&#xa;special term II)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="qA88r-ku_hP-vUYEzjVc-13">
-          <mxGeometry y="30" width="160" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-59" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERzeroToMany;endFill=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-12">
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-63" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERzeroToMany;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-36" target="qA88r-ku_hP-vUYEzjVc-42" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-420" y="279" as="targetPoint" />
+            <Array as="points" />
+            <mxPoint x="-320" y="510" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-26" value="semester_data" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-500" y="280" width="160" height="120" as="geometry" />
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERoneToMany;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-22" target="qA88r-ku_hP-vUYEzjVc-19">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-27" value="- id (PK)&#xa;- year (2019, 2020)&#xa;- semester (sem1, sem2, &#xa;st1, st2)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="qA88r-ku_hP-vUYEzjVc-26">
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-35" value="venue" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-280" y="615" width="160" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-36" value="- id (PK)&#xa;- facility&#xa;- spines&#xa;- capacity&#xa;- location&#xa;- venue_type_id (FK)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-35" vertex="1">
+          <mxGeometry y="30" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERoneToMany;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-38" target="qA88r-ku_hP-vUYEzjVc-36">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-80" y="675" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-37" value="venue_type" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-80" y="620" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-38" value="- id (PK)&#xa;- name (lecture theatre, &#xa;tutorial room)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-37" vertex="1">
           <mxGeometry y="30" width="160" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-41" value="lesson" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-500" y="440" width="160" height="160" as="geometry" />
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=ERoneToMany;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="KhxK5YI4H-yNdM9y5E6n-28" target="KhxK5YI4H-yNdM9y5E6n-23">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-220" y="40" />
+              <mxPoint x="-640" y="40" />
+            </Array>
+          </mxGeometry>
         </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-42" value="- id (PK)&#xa;- type&#xa;- group&#xa;- day&#xa;- start_time&#xa;- end_time&#xa;- remark" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="qA88r-ku_hP-vUYEzjVc-41">
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERoneToMany;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="KhxK5YI4H-yNdM9y5E6n-29" target="qA88r-ku_hP-vUYEzjVc-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERoneToMany;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="KhxK5YI4H-yNdM9y5E6n-29" target="qA88r-ku_hP-vUYEzjVc-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERoneToMany;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-64" target="KhxK5YI4H-yNdM9y5E6n-24">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-640" y="260" />
+              <mxPoint x="-640" y="260" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=ERoneToMany;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-64" target="qA88r-ku_hP-vUYEzjVc-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-18" value="programme" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-80" y="80" width="320" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-19" value="- id (PK)&#xa;- name (accountancy, accountancy (ga) year 1, &#xa;accountancy (ga) year 2, accountancy (ga) year 3, &#xa;accountancy (gb) year 1, accountancy (gb) year 2, &#xa;accountancy (gb) year 3, art design &amp; media year 1,&#xa;art design &amp; media (ANIM) year 2)&#xa;- programme_type_id (FK)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-18" vertex="1">
+          <mxGeometry y="30" width="320" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-21" value="programme_type" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="280" y="100" width="280" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-22" value="- id (PK)&#xa;- type (single degree, double degree, minor, ger, &#xa;c n yang scholars, university scholars programme, &#xa;unrestricted electives) " style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-21" vertex="1">
+          <mxGeometry y="30" width="280" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-23" value="semester" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-720" y="90" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-24" value="- id (PK)&#xa;- year (2019, 2020)&#xa;- semester (sem1, sem2, &#xa;st1, st2)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="KhxK5YI4H-yNdM9y5E6n-23">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-64" value="exam_timetable" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-700" y="240" width="120" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-65" value="- id (PK)&#xa;- course_code (FK)&#xa;- semester_id (FK)&#xa;- date&#xa;- day&#xa;- time&#xa;- duration" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-64" vertex="1">
+          <mxGeometry y="30" width="120" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERoneToMany;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-45" target="qA88r-ku_hP-vUYEzjVc-42">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-540" y="575" />
+              <mxPoint x="-540" y="575" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-45" value="class_type" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-720" y="520" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-46" value="- id (PK)&#xa;- name (lec/studio, &#xa;tut, lab, sem, online)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-45" vertex="1">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-28" value="content_of_courses" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-300" y="100" width="170" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-29" value="- id (PK)&#xa;- semester_id (FK)&#xa;- programme_id (FK)&#xa;- course_code (FK)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="KhxK5YI4H-yNdM9y5E6n-28">
+          <mxGeometry y="30" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERoneToMany;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="KhxK5YI4H-yNdM9y5E6n-26" target="qA88r-ku_hP-vUYEzjVc-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-41" value="class" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-500" y="480" width="160" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-42" value="- id (PK)&#xa;- class_type_id (FK)&#xa;- group&#xa;- day NULL&#xa;- start_time NULL&#xa;- end_time NULL&#xa;- venue_id (FK) NULL&#xa;- remark NULL" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-41" vertex="1">
           <mxGeometry y="30" width="160" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-62" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERoneToMany;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-27">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-420" y="440" as="targetPoint" />
-          </mxGeometry>
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-25" value="course_index" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-506.5" y="320" width="173" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-63" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERzeroToMany;endFill=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-35" target="qA88r-ku_hP-vUYEzjVc-42">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="-320" y="505" />
-              <mxPoint x="-320" y="505" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-35" value="venue" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-280" y="440" width="160" height="130" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-36" value="- id (PK)&#xa;- facility&#xa;- spines&#xa;- capacity&#xa;- location&#xa;- venue_type" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="qA88r-ku_hP-vUYEzjVc-35">
-          <mxGeometry y="30" width="160" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-67" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERzeroToOne;startFill=1;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-64" target="qA88r-ku_hP-vUYEzjVc-27">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="-320" y="345" />
-              <mxPoint x="-320" y="345" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-64" value="exam" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-280" y="280" width="160" height="130" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-65" value="- id (PK)&#xa;- date&#xa;- day&#xa;- time&#xa;- duration" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="qA88r-ku_hP-vUYEzjVc-64">
-          <mxGeometry y="30" width="160" height="100" as="geometry" />
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-26" value="- id (PK)&#xa;- index&#xa;- course_code (FK)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="KhxK5YI4H-yNdM9y5E6n-25">
+          <mxGeometry y="30" width="173" height="90" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
