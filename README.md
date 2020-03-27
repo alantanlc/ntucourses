@@ -1,4 +1,4 @@
-![logo](./frontend/mockups/ntumods_logo_150_150.svg)
+![logo](./design/mockups/ntumods_logo_150_150.svg)
 
 ## NTU Mods
 Module planner for Nanyang Technological University.
