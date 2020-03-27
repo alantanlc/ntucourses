@@ -6,17 +6,17 @@ Module planner for Nanyang Technological University.
 [![Build Status](https://travis-ci.org/akashnimare/foco.svg?branch=master)](https://travis-ci.org/akashnimare/foco)
 
 ## Motivation
-Information on NTU [course content](https://wish.wis.ntu.edu.sg/webexe/owa/aus_subj_cont.main/pls/webexe/AUS_SUBJ_CONT.instruction), [class schedule](https://wish.wis.ntu.edu.sg/webexe/owa/aus_schedule.main), and [exam timetable](https://wis.ntu.edu.sg/webexe/owa/exam_timetable_und.main) are all over the place with little search and filter capabilities. This project aims to integrate all information into a single platform for your convenience in planning your modules.
+Information on NTU [course content](https://wish.wis.ntu.edu.sg/webexe/owa/aus_subj_cont.main/pls/webexe/AUS_SUBJ_CONT.instruction), [GER-PE](https://wish.wis.ntu.edu.sg/webexe/owa/aus_subj_cont2.main), [class schedule](https://wish.wis.ntu.edu.sg/webexe/owa/aus_schedule.main), [course vacancy](https://wish.wis.ntu.edu.sg/webexe/owa/aus_vacancy.check_vacancy), and [exam timetable](https://wis.ntu.edu.sg/webexe/owa/exam_timetable_und.main), [tutorial rooms](https://www.ntu.edu.sg/odfm/usefulinfo/academicfacilities/seatingcapacity/Pages/tr.aspx), [lecture halls](https://www.ntu.edu.sg/odfm/usefulinfo/academicfacilities/seatingcapacity/Pages/lt.aspx), are all over the place with little search and filter capabilities. This project aims to integrate all information into a single platform for your convenience in planning your modules.
 
 ## Contribute
-Help is very much appreciated! Refer to our [contributing guideline](https://github.com/zulip/zulip-electron/blob/master/CONTRIBUTING.md).
+Help is very much appreciated! Refer to our [contributing guideline](https://github.com/alanwuha/ntumods/blob/master/CONTRIBUTING.md).
 
 ## Built with
 A quick overview of our tech stack below. Learn more about the [differences between frontend and backend](https://www.geeksforgeeks.org/frontend-vs-backend/).
 
 Frontend:
-- [React](https://electron.atom.io) - Frontend Library
-- [Redux](https://redux.js.org) - State Management Tool
+- [Angular](https://angular.io/) - Frontend Framework
+- [Angular Material](https://material.angular.io/) - Material Design Components for Angular
 - [Bootstrap](https://getbootstrap.com) - Frontend Component
 
 Backend:
