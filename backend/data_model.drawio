@@ -1,132 +1,124 @@
-<mxfile host="app.diagrams.net" modified="2020-03-27T12:24:56.583Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" etag="YWDTTnhrv-eZZ4T9wH8S" version="12.9.3" type="github">
+<mxfile host="app.diagrams.net" modified="2020-03-27T17:11:39.637Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36" etag="xE19KKofut77fgkqpW3b" version="12.9.3" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="2249" dy="741" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="2249" dy="1910" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
-        <mxCell id="KhxK5YI4H-yNdM9y5E6n-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERoneToMany;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-11" target="KhxK5YI4H-yNdM9y5E6n-25">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="-420" y="290" />
-              <mxPoint x="-420" y="290" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-11" value="course" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-480" y="100" width="120" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-12" value="- course_code (PK)&#xa;- title&#xa;- description&#xa;- au&#xa;- ..." style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-11" vertex="1">
-          <mxGeometry y="30" width="120" height="90" as="geometry" />
-        </mxCell>
         <mxCell id="qA88r-ku_hP-vUYEzjVc-63" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERzeroToMany;endFill=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-36" target="qA88r-ku_hP-vUYEzjVc-42" edge="1">
           <mxGeometry relative="1" as="geometry">
             <Array as="points" />
             <mxPoint x="-320" y="510" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="KhxK5YI4H-yNdM9y5E6n-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERoneToMany;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-22" target="qA88r-ku_hP-vUYEzjVc-19">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERoneToMany;startFill=0;endArrow=ERone;endFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-22" target="qA88r-ku_hP-vUYEzjVc-18" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="100" y="360" as="sourcePoint" />
+            <Array as="points" />
+          </mxGeometry>
         </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-35" value="venue" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-280" y="615" width="160" height="130" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-36" value="- id (PK)&#xa;- facility&#xa;- spines&#xa;- capacity&#xa;- location&#xa;- venue_type_id (FK)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-35" vertex="1">
-          <mxGeometry y="30" width="160" height="100" as="geometry" />
-        </mxCell>
-        <mxCell id="KhxK5YI4H-yNdM9y5E6n-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERoneToMany;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-38" target="qA88r-ku_hP-vUYEzjVc-36">
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-21" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERoneToMany;endFill=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-38" target="qA88r-ku_hP-vUYEzjVc-36" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="-80" y="675" as="sourcePoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERoneToMany;endFill=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-45" target="qA88r-ku_hP-vUYEzjVc-42" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-540" y="615" />
+              <mxPoint x="-540" y="615" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-11" value="course" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-360" y="80" width="200" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-12" value="- id (PK)&#xa;- course_code UNIQUE&#xa;- title&#xa;- description&#xa;- au&#xa;- ..." style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-11" vertex="1">
+          <mxGeometry y="30" width="200" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="FbjEqZ2iPXXZD00zJ2mg-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERoneToMany;startFill=0;endArrow=ERoneToMany;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-12" target="qA88r-ku_hP-vUYEzjVc-19">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-23" value="semester" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-600" y="120" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="KhxK5YI4H-yNdM9y5E6n-24" value="- id (PK)&#xa;- year (2019, 2020)&#xa;- semester (sem1, sem2, &#xa;st1, st2)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="KhxK5YI4H-yNdM9y5E6n-23" vertex="1">
+          <mxGeometry y="30" width="160" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="FbjEqZ2iPXXZD00zJ2mg-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=ERzeroToMany;startFill=1;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="FbjEqZ2iPXXZD00zJ2mg-6" target="qA88r-ku_hP-vUYEzjVc-12">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-260" y="375" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FbjEqZ2iPXXZD00zJ2mg-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.431;entryY=1.033;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=ERzeroToMany;startFill=1;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="FbjEqZ2iPXXZD00zJ2mg-6" target="KhxK5YI4H-yNdM9y5E6n-24">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-531" y="375" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FbjEqZ2iPXXZD00zJ2mg-6" value="course_semester_index" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="-505" y="310" width="210" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="FbjEqZ2iPXXZD00zJ2mg-7" value="- id (PK)&#xa;- course (ForeignKey)&#xa;- semester (ForeignKey)&#xa;- index" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="FbjEqZ2iPXXZD00zJ2mg-6">
+          <mxGeometry y="30" width="210" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="FbjEqZ2iPXXZD00zJ2mg-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERoneToMany;startFill=0;endArrow=ERoneToMany;endFill=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="FbjEqZ2iPXXZD00zJ2mg-7" target="qA88r-ku_hP-vUYEzjVc-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-64" value="exam" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-600" y="-150" width="180" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-65" value="- id (PK)&#xa;- date&#xa;- day&#xa;- time&#xa;- duration&#xa;- course (ForeignKey)&#xa;- semester (ForeignKey)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-64" vertex="1">
+          <mxGeometry y="30" width="180" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="FbjEqZ2iPXXZD00zJ2mg-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERzeroToMany;startFill=1;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-65" target="KhxK5YI4H-yNdM9y5E6n-23">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-520" y="70" />
+              <mxPoint x="-520" y="70" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="FbjEqZ2iPXXZD00zJ2mg-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;startArrow=ERzeroToMany;startFill=1;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-65" target="qA88r-ku_hP-vUYEzjVc-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-41" value="class" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-520" y="480" width="240" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-42" value="- id (PK)&#xa;- class_type_id (ForeignKey)&#xa;- group&#xa;- day Empty=True&#xa;- start_time&#xa;- end_time&#xa;- venue_id (ForeignKey) Empty=True&#xa;- remark" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-41" vertex="1">
+          <mxGeometry y="30" width="240" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-35" value="venue" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-240" y="480" width="170" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-36" value="- id (PK)&#xa;- facility&#xa;- spines&#xa;- capacity&#xa;- location&#xa;- venue_type_id (ForeignKey)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-35" vertex="1">
+          <mxGeometry y="30" width="170" height="100" as="geometry" />
+        </mxCell>
         <mxCell id="qA88r-ku_hP-vUYEzjVc-37" value="venue_type" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-80" y="620" width="160" height="120" as="geometry" />
+          <mxGeometry x="-20" y="480" width="160" height="120" as="geometry" />
         </mxCell>
         <mxCell id="qA88r-ku_hP-vUYEzjVc-38" value="- id (PK)&#xa;- name (lecture theatre, &#xa;tutorial room)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-37" vertex="1">
           <mxGeometry y="30" width="160" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="KhxK5YI4H-yNdM9y5E6n-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;startArrow=ERoneToMany;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="KhxK5YI4H-yNdM9y5E6n-28" target="KhxK5YI4H-yNdM9y5E6n-23">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="-220" y="40" />
-              <mxPoint x="-640" y="40" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="KhxK5YI4H-yNdM9y5E6n-32" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERoneToMany;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="KhxK5YI4H-yNdM9y5E6n-29" target="qA88r-ku_hP-vUYEzjVc-12">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="KhxK5YI4H-yNdM9y5E6n-33" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERoneToMany;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="KhxK5YI4H-yNdM9y5E6n-29" target="qA88r-ku_hP-vUYEzjVc-19">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="KhxK5YI4H-yNdM9y5E6n-36" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERoneToMany;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-64" target="KhxK5YI4H-yNdM9y5E6n-24">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="-640" y="260" />
-              <mxPoint x="-640" y="260" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="KhxK5YI4H-yNdM9y5E6n-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=ERoneToMany;startFill=0;endArrow=ERone;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-64" target="qA88r-ku_hP-vUYEzjVc-12">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-18" value="programme" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-80" y="80" width="320" height="160" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-19" value="- id (PK)&#xa;- name (accountancy, accountancy (ga) year 1, &#xa;accountancy (ga) year 2, accountancy (ga) year 3, &#xa;accountancy (gb) year 1, accountancy (gb) year 2, &#xa;accountancy (gb) year 3, art design &amp; media year 1,&#xa;art design &amp; media (ANIM) year 2)&#xa;- programme_type_id (FK)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-18" vertex="1">
-          <mxGeometry y="30" width="320" height="130" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-21" value="programme_type" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="280" y="100" width="280" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-22" value="- id (PK)&#xa;- type (single degree, double degree, minor, ger, &#xa;c n yang scholars, university scholars programme, &#xa;unrestricted electives) " style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-21" vertex="1">
-          <mxGeometry y="30" width="280" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="KhxK5YI4H-yNdM9y5E6n-23" value="semester" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-720" y="90" width="160" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="KhxK5YI4H-yNdM9y5E6n-24" value="- id (PK)&#xa;- year (2019, 2020)&#xa;- semester (sem1, sem2, &#xa;st1, st2)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="KhxK5YI4H-yNdM9y5E6n-23">
-          <mxGeometry y="30" width="160" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-64" value="exam_timetable" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-700" y="240" width="120" height="140" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-65" value="- id (PK)&#xa;- course_code (FK)&#xa;- semester_id (FK)&#xa;- date&#xa;- day&#xa;- time&#xa;- duration" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-64" vertex="1">
-          <mxGeometry y="30" width="120" height="110" as="geometry" />
-        </mxCell>
-        <mxCell id="KhxK5YI4H-yNdM9y5E6n-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERoneToMany;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="qA88r-ku_hP-vUYEzjVc-45" target="qA88r-ku_hP-vUYEzjVc-42">
-          <mxGeometry relative="1" as="geometry">
-            <Array as="points">
-              <mxPoint x="-540" y="575" />
-              <mxPoint x="-540" y="575" />
-            </Array>
-          </mxGeometry>
-        </mxCell>
         <mxCell id="qA88r-ku_hP-vUYEzjVc-45" value="class_type" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-720" y="520" width="160" height="120" as="geometry" />
+          <mxGeometry x="-720" y="480" width="160" height="120" as="geometry" />
         </mxCell>
         <mxCell id="qA88r-ku_hP-vUYEzjVc-46" value="- id (PK)&#xa;- name (lec/studio, &#xa;tut, lab, sem, online)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-45" vertex="1">
           <mxGeometry y="30" width="160" height="90" as="geometry" />
         </mxCell>
-        <mxCell id="KhxK5YI4H-yNdM9y5E6n-28" value="content_of_courses" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-300" y="100" width="170" height="120" as="geometry" />
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-18" value="programme" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-80" y="80" width="320" height="160" as="geometry" />
         </mxCell>
-        <mxCell id="KhxK5YI4H-yNdM9y5E6n-29" value="- id (PK)&#xa;- semester_id (FK)&#xa;- programme_id (FK)&#xa;- course_code (FK)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="KhxK5YI4H-yNdM9y5E6n-28">
-          <mxGeometry y="30" width="170" height="90" as="geometry" />
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-19" value="- id (PK)&#xa;- name (accountancy, accountancy (ga) year 1, &#xa;accountancy (ga) year 2, accountancy (ga) year 3, &#xa;accountancy (gb) year 1, accountancy (gb) year 2, &#xa;accountancy (gb) year 3, art design &amp; media year 1,&#xa;art design &amp; media (ANIM) year 2)&#xa;- programme_type (ForeignKey)&#xa;- course (ManyToMany)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-18" vertex="1">
+          <mxGeometry y="30" width="320" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="KhxK5YI4H-yNdM9y5E6n-49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=ERone;startFill=0;endArrow=ERoneToMany;endFill=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="KhxK5YI4H-yNdM9y5E6n-26" target="qA88r-ku_hP-vUYEzjVc-41">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-21" value="programme_type" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="-60" y="-80" width="280" height="120" as="geometry" />
         </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-41" value="class" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="-500" y="480" width="160" height="160" as="geometry" />
-        </mxCell>
-        <mxCell id="qA88r-ku_hP-vUYEzjVc-42" value="- id (PK)&#xa;- class_type_id (FK)&#xa;- group&#xa;- day NULL&#xa;- start_time NULL&#xa;- end_time NULL&#xa;- venue_id (FK) NULL&#xa;- remark NULL" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-41" vertex="1">
-          <mxGeometry y="30" width="160" height="130" as="geometry" />
-        </mxCell>
-        <mxCell id="KhxK5YI4H-yNdM9y5E6n-25" value="course_index" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;fillColor=#008cff;fontColor=#FFFFFF;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="-506.5" y="320" width="173" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="KhxK5YI4H-yNdM9y5E6n-26" value="- id (PK)&#xa;- index&#xa;- course_code (FK)" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" vertex="1" parent="KhxK5YI4H-yNdM9y5E6n-25">
-          <mxGeometry y="30" width="173" height="90" as="geometry" />
+        <mxCell id="qA88r-ku_hP-vUYEzjVc-22" value="- id (PK)&#xa;- type (single degree, double degree, minor, ger, &#xa;c n yang scholars, university scholars programme, &#xa;unrestricted electives) " style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="qA88r-ku_hP-vUYEzjVc-21" vertex="1">
+          <mxGeometry y="30" width="280" height="90" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
