@@ -1,6 +1,7 @@
 ## Django Readings
 Here are some useful links that will get you up to speed with Django. It's a lot to cover, but you will get there one day! :)
 1. [Quick Install Guide*](https://docs.djangoproject.com/en/3.0/intro/install/)
+1. [Django Rest Framework***](https://medium.com/@sostomc011/https-medium-com-sostomc011-getting-started-with-django-mysql-and-react-js-backend-b962a7691486)
 1. [Writing your first Django app*](https://docs.djangoproject.com/en/3.0/intro/tutorial01/) - Complete all the tutorials (Parts 1 to 7)
 1. [Django Project Structure](https://docs.djangoproject.com/en/3.0/intro/reusable-apps/#your-project-and-your-reusable-app) - Good for documentation
 1. [Using Django](https://docs.djangoproject.com/en/3.0/topics/)
@@ -42,25 +43,16 @@ Here are some useful links that will get you up to speed with Django. It's a lot
 ## API Reference
 Here's where our API reference lives [here](https://ntumods.com/api).
 
-<<<<<<< HEAD
 ## Tests
 Django's unit tests use Python standard library module: [unittest](https://docs.python.org/3/library/unittest.html#module-unittest). Learn more about writing and running tests with Django [here](https://docs.djangoproject.com/en/3.0/topics/testing/overview/) and [here](https://docs.djangoproject.com/en/3.0/intro/tutorial05/). Our test script resides [here](#). 
 
 #### Running the test script
-=======
-## Motivation
-Information on NTU [course content](https://wish.wis.ntu.edu.sg/webexe/owa/aus_subj_cont.main/pls/webexe/AUS_SUBJ_CONT.instruction), [GER-PE](https://wish.wis.ntu.edu.sg/webexe/owa/aus_subj_cont2.main), [class schedule](https://wish.wis.ntu.edu.sg/webexe/owa/aus_schedule.main), [course vacancy](https://wish.wis.ntu.edu.sg/webexe/owa/aus_vacancy.check_vacancy), and [exam timetable](https://wis.ntu.edu.sg/webexe/owa/exam_timetable_und.main), [tutorial rooms](https://www.ntu.edu.sg/odfm/usefulinfo/academicfacilities/seatingcapacity/Pages/tr.aspx), [lecture halls](https://www.ntu.edu.sg/odfm/usefulinfo/academicfacilities/seatingcapacity/Pages/lt.aspx), are all over the place with little search and filter capabilities. This project aims to integrate all information into a single platform for your convenience in planning your modules.
-
-## Contribute
-Help is very much appreciated! Refer to our [contributing guideline](https://github.com/alanwuha/ntumods/blob/master/CONTRIBUTING.md).
->>>>>>> ecc3a1fb1bd74f8326c73ab4c152f6995d30737b
 
 In your terminal, run the test script with:
 ```
 python manage.py test ntumods
 ```
 
-<<<<<<< HEAD
 and you'll see something like:
 ```
 Creating test database for alias 'default'...
@@ -68,12 +60,6 @@ System check identified no issues (0 silenced).
 .
 ----------------------------------------------------------------------
 Ran 1 test in 0.001s
-=======
-Frontend:
-- [Angular](https://angular.io/) - Frontend Framework
-- [Angular Material](https://material.angular.io/) - Material Design Components for Angular
-- [Bootstrap](https://getbootstrap.com) - Frontend Component
->>>>>>> ecc3a1fb1bd74f8326c73ab4c152f6995d30737b
 
 OK
 Destroying test database for alias 'default'...
@@ -118,3 +104,11 @@ ntumods/views.py                                   28      8    71%
 -------------------------------------------------------------------
 TOTAL                                             175     19    89%
 ```
+
+### Blue Sky Features
+1. Module recommendation engine (based on view history or modules registered)
+1. Photo gallery for each module (post group photos, sample questions, what goes on during tutorials/labs/lectures)
+1. Automatic module scheduler (e.g A-star algorithm)
+1. Link to exam papers
+1. Module index swapper?
+1. 
