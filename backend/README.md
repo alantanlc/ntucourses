@@ -38,6 +38,12 @@ Here are some useful links that will get you up to speed with Django. It's a lot
 1. [What to read next](https://docs.djangoproject.com/en/3.0/intro/whatsnext/)
 1. [Writing your first patch for Django](https://docs.djangoproject.com/en/3.0/intro/contributing/) - Not relevant to our NTUMods project, but good to know if you're into contributing to Django!
 
+## Installation Guides
+- [Install Postgresql Server on Ubuntu](https://tecadmin.net/install-postgresql-server-on-ubuntu/)
+- [Python3 Connect PostgreSQL With Psycopg2 on Ubuntu](https://www.codevoila.com/post/2/python3-connect-postgresql-with-psycopg2-on-ubuntu)
+- [Install Psycopg2](https://www.codevoila.com/post/2/python3-connect-postgresql-with-psycopg2-on-ubuntu)
+- 
+
 \* Important
 
 ## API Reference
