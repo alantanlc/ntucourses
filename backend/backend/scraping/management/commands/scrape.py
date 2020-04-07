@@ -15,19 +15,30 @@ import sys
 class Command(BaseCommand):
     help = "collect courses"
 
+    def __init__(self):
+        self.keywords = {}
+        self.keywords['prereq'] = 'Prerequisite:'
+        self.keywords['mutual'] = 'Mutually exclusive with:'
+        self.keywords['na_prog'] = 'Not available to Programme:'
+        self.keywords['na_all_prog'] = 'Not available to all Programme with:'
+        self.keywords['na_core'] = 'Not available as Core to Programme:'
+        self.keywords['na_pe'] = 'Not available as PE to Programme:'
+        self.keywords['na_ue'] = 'Not available as UE to Programme:'
+        self.keywords['grade'] = 'Grade Type:'
+
     def get_prerequisite_text(self, course_texts):
         prereq_texts = []
-        if 'Prerequisite:' in course_texts:
-            prereq_index = course_texts.index('Prerequisite:')
+        if self.keywords['prereq'] in course_texts:
+            prereq_index = course_texts.index(self.keywords['prereq'])
             for text in course_texts[prereq_index+1:-1]:
-                if text == 'Prerequisite:':
-                    pass
-                elif ':' in text and 'Min Grade' not in text:
-                    break
+                if text in self.keywords.values():
+                    if text == self.keywords['prereq']:
+                        pass
+                    else:
+                        break
                 elif text:
                     prereq_texts.append(text)
-        result = ' '.join(prereq_texts)
-        return result
+        return ' '.join(prereq_texts)
 
     # Define logic of command
     def handle(self, *args, **options):
@@ -81,26 +92,26 @@ class Command(BaseCommand):
                     try:
                         # Get list of course tags and texts
                         course_tags = courses[index:course_start_indices[i+1]] if i < len(course_start_indices) - 1 else courses[index:]
-                        course_texts = [content.text.strip() for content in course_tags]
+                        course_texts = [content.text.strip() for content in course_tags if content.text.strip()]
                         
                         # Course attributes
                         course_code = course_texts[0]
                         title = course_texts[1]
                         description = course_texts[-1]
                         academic_units = course_texts[2]
-                        prereq = self.get_prerequisite_text(course_texts)                        
-                        mutual = course_texts[course_texts.index('Mutually exclusive with:')+1] if 'Mutually exclusive with:' in course_texts else ''
-                        na_prog = course_texts[course_texts.index('Not available to Programme:')+1] if 'Not available to Programme:' in course_texts else ''
-                        na_all_prog = course_texts[course_texts.index('Not available to all Programme with:')+1] if 'Not available to all Programme with:' in course_texts else ''
-                        na_core = course_texts[course_texts.index('Not available as Core to Programme:')+1] if 'Not available as Core to Programme:' in course_texts else ''
-                        na_pe = course_texts[course_texts.index('Not available as PE to Programme:')+1] if 'Not available as PE to Programme:' in course_texts else ''
-                        na_ue = course_texts[course_texts.index('Not available as UE to Programme:')+1] if 'Not available as UE to Programme:' in course_texts else ''
-                        grade_type = True if 'Grade Type:' in course_texts else False
+                        prereq = self.get_prerequisite_text(course_texts)
+                        mutual = course_texts[course_texts.index(self.keywords['mutual'])+1] if self.keywords['mutual'] in course_texts else ''
+                        na_prog = course_texts[course_texts.index(self.keywords['na_prog'])+1] if self.keywords['na_prog'] in course_texts else ''
+                        na_all_prog = course_texts[course_texts.index(self.keywords['na_all_prog'])+1] if self.keywords['na_all_prog'] in course_texts else ''
+                        na_core = course_texts[course_texts.index(self.keywords['na_core'])+1] if self.keywords['na_core'] in course_texts else ''
+                        na_pe = course_texts[course_texts.index(self.keywords['na_pe'])+1] if self.keywords['na_pe'] in course_texts else ''
+                        na_ue = course_texts[course_texts.index(self.keywords['na_ue'])+1] if self.keywords['na_ue'] in course_texts else ''
+                        grade_type = True if self.keywords['grade'] in course_texts else False
 
                         # # Save in db
                         Course.objects.update_or_create(
                             course_code=course_code,
-                            defaults= {
+                            defaults={
                                 'title': title,
                                 'description': description,
                                 'academic_units': academic_units,

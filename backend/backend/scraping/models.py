@@ -15,7 +15,6 @@ class Course(BaseModel):
     title = models.CharField(max_length=100)
     description = models.TextField()
     academic_units = models.FloatField()
-    grade_type = models.BooleanField(default=False)
     prerequisite = models.TextField(blank=True)
     mutually_exclusive_with = models.TextField(blank=True)
     not_available_to_programme = models.TextField(blank=True)
@@ -23,6 +22,7 @@ class Course(BaseModel):
     not_available_as_core_to_programme = models.TextField(blank=True)
     not_available_as_pe_to_programme = models.TextField(blank=True)
     not_available_as_ue_to_programme = models.TextField(blank=True)
+    grade_type = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.course_code}, {self.title}'
