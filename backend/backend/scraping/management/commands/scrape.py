@@ -1,16 +1,10 @@
 from django.core.management.base import BaseCommand
-
 from bs4 import BeautifulSoup
 import json
-
 import urllib.parse
 import urllib.request
-
 from django.utils import timezone
-
 from scraping.models import Course
-
-import sys
 
 class Command(BaseCommand):
     help = "collect courses"
@@ -108,7 +102,7 @@ class Command(BaseCommand):
                         na_ue = course_texts[course_texts.index(self.keywords['na_ue'])+1] if self.keywords['na_ue'] in course_texts else ''
                         grade_type = True if self.keywords['grade'] in course_texts else False
 
-                        # # Save in db
+                        # Save in db
                         Course.objects.update_or_create(
                             course_code=course_code,
                             defaults={

@@ -11,7 +11,7 @@ class BaseModel(models.Model):
         abstract = True
 
 class Course(BaseModel):
-    course_code = models.CharField(max_length=6, unique=True)
+    course_code = models.CharField(max_length=6, primary_key=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
     academic_units = models.FloatField()
@@ -42,20 +42,22 @@ class Course(BaseModel):
 class Class(BaseModel):
 
     CLASS_TYPE = (
-        ('lec', 'Lecture'),
-        ('tut', 'Tutorial'),
-        ('lab', 'Laboratory'),
-        ('sem', 'Seminar'),
+        ('LEC', 'Lecture'),
+        ('TUT', 'Tutorial'),
+        ('LAB', 'Laboratory'),
+        ('SEM', 'Seminar'),
+        ('PRJ', 'Project'),
+        ('DES', 'Design')
     )
 
     DAY = (
-        ('mon', 'Monday'),
-        ('tue', 'Tuesday'),
-        ('wed', 'Wednesday'),
-        ('thu', 'Thursday'),
-        ('fri', 'Friday'),
-        ('sat', 'Saturday'),
-        ('sun', 'Sunday'),
+        ('MON', 'Monday'),
+        ('TUE', 'Tuesday'),
+        ('WED', 'Wednesday'),
+        ('THU', 'Thursday'),
+        ('FRI', 'Friday'),
+        ('SAT', 'Saturday'),
+        ('SUN', 'Sunday'),
     )
 
     class_type = models.CharField(max_length=3, choices=CLASS_TYPE, blank=True)
@@ -65,11 +67,15 @@ class Class(BaseModel):
     end_time = models.TimeField(null=True, blank=True)
     # venue = models.ForeignKey(Venue, on_delete=models.SET_NULL, null=True)
     venue = models.CharField(max_length=20, blank=True)
-    remark = models.CharField(max_length=50, blank=True)
-
+    remark = models.CharField(max_length=100, blank=True)
     course_code = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True)
     year = models.PositiveIntegerField(validators=[MinValueValidator(2019), MaxValueValidator(9999)])
     semester = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(4)])
 
     class Meta:
-        ordering = ['course_code', '-year', '-semester']
+        constraints = [
+            models.UniqueConstraint(fields=['class_type', 'group', 'day', 'start_time', 'end_time', 'venue', 'remark', 'course_code', 'year', 'semester'], name='unique_class')
+        ]
+
+    def __str__(self):
+        return f'{self.class_type}, {self.group}, {self.day}, {self.start_time}, {self.end_time}, {self.venue}, {self.remark}, {self.course_code}, {self.year}, {self.semester}'
