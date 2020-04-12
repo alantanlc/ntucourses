@@ -102,3 +102,6 @@ class Exam(BaseModel):
         constraints = [
             models.UniqueConstraint(fields=['course_code', 'year', 'semester'], name='unique_exam')
         ]
+
+    def __str__(self):
+        return f'{self.course_code}, {self.year}, {self.semester}, {self.date}, {self.day}, {self.time}, {self.duration}'
