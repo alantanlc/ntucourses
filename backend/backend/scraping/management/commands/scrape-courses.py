@@ -87,7 +87,7 @@ class Command(BaseCommand):
                     try:
                         # Get list of course tags and texts
                         course_tags = courses[index:course_start_indices[i+1]] if i < len(course_start_indices) - 1 else courses[index:]
-                        course_texts = [content.text.strip() for content in course_tags]
+                        course_texts = [content.text.strip() for content in course_tags] # must include tags with empty texts as some course description might be empty
                         
                         # Course attributes
                         course_code = course_texts[0]
