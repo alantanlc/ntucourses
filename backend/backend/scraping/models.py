@@ -2,15 +2,20 @@ from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 
 class BaseModel(models.Model):
+
+    # Fields
     created_datetime = models.DateTimeField(auto_now_add=True)
     created_by = models.CharField(max_length=20, default='SYSTEM')
     last_updated_datetime = models.DateTimeField(auto_now=True)
     last_updated_by = models.CharField(max_length=20, default='SYSTEM')
 
+    # Metadata
     class Meta:
         abstract = True
 
 class Course(BaseModel):
+
+    # Fields
     course_code = models.CharField(max_length=6, primary_key=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
@@ -24,20 +29,47 @@ class Course(BaseModel):
     not_available_as_ue_to_programme = models.TextField(blank=True)
     grade_type = models.BooleanField(default=False)
 
-    def __str__(self):
-        return f'{self.course_code}, {self.title}'
-
+    # Metadata
     class Meta:
         ordering = ['course_code']
 
-# class Venue(BaseModel):
-#     facility = models.CharField(max_length=20, unique=True)
-#     location = models.CharField(max_length=20) # Formatted as BLOCK-LEVEL-UNIT, e.g. NS4-05-79
-#     lat = models.FloatField(blank=True)
-#     lng = models.FloatField(blank=True)
-    
+    # Methods
+    def __str__(self):
+        return f'{self.course_code}, {self.title}'
+
+class Venue(BaseModel):
+
+    # Choices
+    VENUE_TYPE = (
+        ('LT', 'Lecture Theatre'),
+        ('LIB', 'Library'),
+        ('EH', 'Examination Hall'),
+        ('MR', 'Meeting Room'),
+        ('RR', 'Reading Room'),
+        ('SR', 'Seminar Room'),
+        ('TR', 'Tutorial Room'),
+        ('TR+', 'Tutorial Room +'),
+        ('LAB', 'Laboratory'),
+    )
+
+    # Fields
+    name = models.CharField(max_length=200, unique=True) # e.g. Seminar Room 17 at NBS-S4 (name is used as query on maps.ntu.edu.sg)
+    unit = models.CharField(max_length=100) # Formatted as BLOCK-LEVEL-UNIT, e.g. NS4-05-79 (except for examination halls)
+    venue_type = models.CharField(max_length=3, choices=VENUE_TYPE)
+    lat = models.FloatField()
+    lng = models.FloatField()
+
+    # Metadata
+    class Meta:
+        ordering = ['name']
+
+    # Methods
+    def __str__(self):
+        return f'{self.name}, {self.unit}'
+
 class Class(BaseModel):
 
+    # Choices
     CLASS_TYPE = (
         ('LEC', 'Lecture'),
         ('TUT', 'Tutorial'),
@@ -46,7 +78,6 @@ class Class(BaseModel):
         ('PRJ', 'Project'),
         ('DES', 'Design')
     )
-
     DAY = (
         ('MON', 'Monday'),
         ('TUE', 'Tuesday'),
@@ -57,6 +88,7 @@ class Class(BaseModel):
         ('SUN', 'Sunday'),
     )
 
+    # Fields
     class_type = models.CharField(max_length=3, choices=CLASS_TYPE, blank=True)
     group = models.CharField(max_length=6, blank=True)
     day = models.CharField(max_length=3, choices=DAY, blank=True)
@@ -70,16 +102,19 @@ class Class(BaseModel):
     year = models.PositiveIntegerField(validators=[MinValueValidator(2019), MaxValueValidator(9999)])
     semester = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(4)])
 
+    # Metadata
     class Meta:
+        ordering = ['course_code', '-year', '-semester', 'day', 'start_time', 'group']
         constraints = [
             models.UniqueConstraint(fields=['class_type', 'group', 'day', 'start_time', 'end_time', 'venue', 'remark', 'course_code', 'year', 'semester'], name='unique_class')
         ]
 
+    # Methods
     def __str__(self):
         return f'{self.class_type}, {self.group}, {self.day}, {self.start_time}, {self.end_time}, {self.venue}, {self.remark}, {self.course_code}, {self.year}, {self.semester}'
 
 class Exam(BaseModel):
-
+    # Choices
     DAY = (
         ('MON', 'Monday'),
         ('TUE', 'Tuesday'),
@@ -90,6 +125,7 @@ class Exam(BaseModel):
         ('SUN', 'Sunday'),
     )
 
+    # Fields
     date = models.DateField(null=False, blank=False)
     day = models.CharField(max_length=3, choices=DAY, blank=False)
     time = models.TimeField(null=False, blank=False)
@@ -98,10 +134,13 @@ class Exam(BaseModel):
     year = models.PositiveIntegerField(validators=[MinValueValidator(2019), MaxValueValidator(9999)])
     semester = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(4)])
 
+    # Metadata
     class Meta:
+        ordering = ['course_code', '-year', '-semester', 'date', 'time']
         constraints = [
             models.UniqueConstraint(fields=['course_code', 'year', 'semester'], name='unique_exam')
         ]
 
+    # Methods
     def __str__(self):
         return f'{self.course_code}, {self.year}, {self.semester}, {self.date}, {self.day}, {self.time}, {self.duration}'
