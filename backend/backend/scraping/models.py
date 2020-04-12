@@ -67,7 +67,7 @@ class Venue(BaseModel):
 
     # Fields
     name = models.CharField(max_length=200, unique=True) # e.g. Seminar Room 17 at NBS-S4 (name is used as query on maps.ntu.edu.sg)
-    unit = models.CharField(max_length=100) # Formatted as BLOCK-LEVEL-UNIT, e.g. NS4-05-79 (except for examination halls)
+    unit = models.CharField(max_length=100) # Formatted as BLOCK-LEVEL-NUMBER, e.g. NS4-05-79 (a small handful of venues do not have a proper unit number in this format)
     venue_type = models.CharField(max_length=3, choices=VENUE_TYPE)
     lat = models.FloatField()
     lng = models.FloatField()
