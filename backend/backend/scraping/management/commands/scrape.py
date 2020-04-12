@@ -19,6 +19,7 @@ class Command(BaseCommand):
         self.keywords['na_pe'] = 'Not available as PE to Programme:'
         self.keywords['na_ue'] = 'Not available as UE to Programme:'
         self.keywords['grade'] = 'Grade Type:'
+        self.semesters = ['1', '2', 'S', 'T']
 
     def get_prerequisite_text(self, course_texts):
         prereq_texts = []
@@ -38,7 +39,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # Construct URL request information
         url = 'https://wish.wis.ntu.edu.sg/webexe/owa/AUS_SUBJ_CONT.main_display1'
-        user_agent = 'Mozilla/5.0 (Windows NT 6.1; Win64; x64)'
+        user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36'
         values = {
             'acadsem': '',
             'boption': 'Search',
@@ -53,7 +54,7 @@ class Command(BaseCommand):
         course_statistics = {}
 
         # Extract courses for each semester
-        for sem in ['1', '2', 'S', 'T']:
+        for sem in self.semesters:
             # Modify semester in values
             values['semester'] = sem
 
@@ -86,7 +87,7 @@ class Command(BaseCommand):
                     try:
                         # Get list of course tags and texts
                         course_tags = courses[index:course_start_indices[i+1]] if i < len(course_start_indices) - 1 else courses[index:]
-                        course_texts = [content.text.strip() for content in course_tags if content.text.strip()]
+                        course_texts = [content.text.strip() for content in course_tags]
                         
                         # Course attributes
                         course_code = course_texts[0]

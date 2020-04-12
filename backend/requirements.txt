@@ -1,0 +1,8 @@
+asgiref==3.2.7
+beautifulsoup4==4.9.0
+bs4==0.0.1
+Django==3.0.5
+psycopg2==2.8.5
+pytz==2019.3
+soupsieve==2.0
+sqlparse==0.3.1

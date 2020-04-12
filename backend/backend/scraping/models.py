@@ -30,9 +30,6 @@ class Course(BaseModel):
     class Meta:
         ordering = ['course_code']
 
-    class Admin:
-        pass
-
 # class Venue(BaseModel):
 #     facility = models.CharField(max_length=20, unique=True)
 #     location = models.CharField(max_length=20) # Formatted as BLOCK-LEVEL-UNIT, e.g. NS4-05-79
@@ -68,6 +65,7 @@ class Class(BaseModel):
     # venue = models.ForeignKey(Venue, on_delete=models.SET_NULL, null=True)
     venue = models.CharField(max_length=20, blank=True)
     remark = models.CharField(max_length=100, blank=True)
+
     course_code = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True)
     year = models.PositiveIntegerField(validators=[MinValueValidator(2019), MaxValueValidator(9999)])
     semester = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(4)])
@@ -79,3 +77,28 @@ class Class(BaseModel):
 
     def __str__(self):
         return f'{self.class_type}, {self.group}, {self.day}, {self.start_time}, {self.end_time}, {self.venue}, {self.remark}, {self.course_code}, {self.year}, {self.semester}'
+
+class Exam(BaseModel):
+
+    DAY = (
+        ('MON', 'Monday'),
+        ('TUE', 'Tuesday'),
+        ('WED', 'Wednesday'),
+        ('THU', 'Thursday'),
+        ('FRI', 'Friday'),
+        ('SAT', 'Saturday'),
+        ('SUN', 'Sunday'),
+    )
+
+    date = models.DateField(null=False, blank=False)
+    day = models.CharField(max_length=3, choices=DAY, blank=False)
+    time = models.TimeField(null=False, blank=False)
+    duration = models.FloatField(blank=False)
+    course_code = models.ForeignKey(Course, on_delete=models.SET_NULL, null=True)
+    year = models.PositiveIntegerField(validators=[MinValueValidator(2019), MaxValueValidator(9999)])
+    semester = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(4)])
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(fields=['course_code', 'year', 'semester'], name='unique_exam')
+        ]

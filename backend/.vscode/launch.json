@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/backend/manage.py",
-            "args": ["scrape-classes"],
+            "args": ["scrape-exams"],
             "console": "integratedTerminal"
         }
     ]

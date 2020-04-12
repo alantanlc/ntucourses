@@ -15,11 +15,8 @@ class Command(BaseCommand):
     help = "collect classes"
 
     def __init__(self):
-        self.semester = {}
-        self.semester['1'] = 1
-        self.semester['2'] = 2
-        self.semester['S'] = 3
-        self.semester['T'] = 4
+        self.semesters = ['1', '2', 'S', 'T']
+        self.semester2index = { semester: i+1 for i, semester in enumerate(self.semesters) }
 
     def get_datetime(self, time_string):
         start_time, end_time = '', ''
@@ -35,7 +32,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # Construct URL request information
         url = 'https://wish.wis.ntu.edu.sg/webexe/owa/AUS_SCHEDULE.main_display1'
-        user_agent = 'Mozilla/50 (Windows NT 6.1; Win64; x64)'
+        user_agent = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36'
         values = {
             'r_search_type': 'F',
             'boption': 'Search',
@@ -127,7 +124,7 @@ class Command(BaseCommand):
                                 remark=remark,
                                 course_code_id=course_code,
                                 year=int(year),
-                                semester=self.semester[sem],
+                                semester=self.semester2index[sem],
                             )
 
                             # Set time if exists
