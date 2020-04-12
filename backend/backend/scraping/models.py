@@ -13,6 +13,19 @@ class BaseModel(models.Model):
     class Meta:
         abstract = True
 
+class Day(models.Model):
+
+    # Choices
+    DAY = (
+        ('MON', 'Monday'),
+        ('TUE', 'Tuesday'),
+        ('WED', 'Wednesday'),
+        ('THU', 'Thursday'),
+        ('FRI', 'Friday'),
+        ('SAT', 'Saturday'),
+        ('SUN', 'Sunday'),
+    )
+
 class Course(BaseModel):
 
     # Fields
@@ -78,27 +91,17 @@ class Class(BaseModel):
         ('PRJ', 'Project'),
         ('DES', 'Design')
     )
-    DAY = (
-        ('MON', 'Monday'),
-        ('TUE', 'Tuesday'),
-        ('WED', 'Wednesday'),
-        ('THU', 'Thursday'),
-        ('FRI', 'Friday'),
-        ('SAT', 'Saturday'),
-        ('SUN', 'Sunday'),
-    )
 
     # Fields
     class_type = models.CharField(max_length=3, choices=CLASS_TYPE, blank=True)
     group = models.CharField(max_length=6, blank=True)
-    day = models.CharField(max_length=3, choices=DAY, blank=True)
+    day = models.CharField(max_length=3, choices=Day.DAY, blank=True)
     start_time = models.TimeField(null=True, blank=True)
     end_time = models.TimeField(null=True, blank=True)
-    # venue = models.ForeignKey(Venue, on_delete=models.SET_NULL, null=True)
     venue = models.CharField(max_length=20, blank=True)
     remark = models.CharField(max_length=100, blank=True)
 
-    course_code = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
+    course_code = models.ForeignKey(Course, on_delete=models.CASCADE)
     year = models.PositiveIntegerField(validators=[MinValueValidator(2019), MaxValueValidator(9999)])
     semester = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(4)])
 
@@ -114,23 +117,13 @@ class Class(BaseModel):
         return f'{self.class_type}, {self.group}, {self.day}, {self.start_time}, {self.end_time}, {self.venue}, {self.remark}, {self.course_code}, {self.year}, {self.semester}'
 
 class Exam(BaseModel):
-    # Choices
-    DAY = (
-        ('MON', 'Monday'),
-        ('TUE', 'Tuesday'),
-        ('WED', 'Wednesday'),
-        ('THU', 'Thursday'),
-        ('FRI', 'Friday'),
-        ('SAT', 'Saturday'),
-        ('SUN', 'Sunday'),
-    )
 
     # Fields
-    date = models.DateField(null=False, blank=False)
-    day = models.CharField(max_length=3, choices=DAY, blank=False)
-    time = models.TimeField(null=False, blank=False)
-    duration = models.FloatField(blank=False)
-    course_code = models.ForeignKey(Course, on_delete=models.CASCADE, null=True)
+    date = models.DateField()
+    day = models.CharField(max_length=3, choices=Day.DAY)
+    time = models.TimeField()
+    duration = models.FloatField()
+    course_code = models.ForeignKey(Course, on_delete=models.CASCADE)
     year = models.PositiveIntegerField(validators=[MinValueValidator(2019), MaxValueValidator(9999)])
     semester = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(4)])
 
