@@ -101,7 +101,7 @@ class Class(BaseModel):
     venue = models.CharField(max_length=20, blank=True)
     remark = models.CharField(max_length=100, blank=True)
 
-    course_code = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course_code = models.ForeignKey(Course, related_name='classes', on_delete=models.CASCADE)
     year = models.PositiveIntegerField(validators=[MinValueValidator(2019), MaxValueValidator(9999)])
     semester = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(4)])
 
@@ -123,7 +123,7 @@ class Exam(BaseModel):
     day = models.CharField(max_length=3, choices=Day.DAY)
     time = models.TimeField()
     duration = models.FloatField()
-    course_code = models.ForeignKey(Course, on_delete=models.CASCADE)
+    course_code = models.ForeignKey(Course, related_name='exams', on_delete=models.CASCADE)
     year = models.PositiveIntegerField(validators=[MinValueValidator(2019), MaxValueValidator(9999)])
     semester = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(4)])
 
