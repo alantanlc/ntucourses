@@ -17,15 +17,14 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
         # Get queryset
         queryset = self.get_queryset()
 
-        # Year filter
-        if 'yr' in request.query_params.keys() and request.query_params['yr'].isdigit():
-            year = request.query_params['yr']
+        # Year filter (note: filtering by year+semester introduces a significant delay)
+        if 'year' in request.query_params.keys() and request.query_params['year'].isdigit():
+            year = request.query_params['year']
             queryset = queryset.filter(classes__year=year).distinct()
 
         # Semester filter
         if 'sem' in request.query_params.keys():
             sem = [int(s) for s in request.query_params['sem'].split(' ') if s.isdigit()]
-            print(sem)
             queryset = queryset.filter(classes__semester__in=sem).distinct()
 
         # Search keyword filter
