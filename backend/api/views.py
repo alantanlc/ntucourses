@@ -24,7 +24,8 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
 
         # Semester filter
         if 'sem' in request.query_params.keys():
-            sem = [int(s) for s in request.query_params['sem'].split(',') if s.isdigit()]
+            sem = [int(s) for s in request.query_params['sem'].split(' ') if s.isdigit()]
+            print(sem)
             queryset = queryset.filter(classes__semester__in=sem).distinct()
 
         # Search keyword filter
@@ -37,7 +38,7 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
 
         # Academic units filter
         if 'au' in request.query_params.keys():
-            aus = [int(a) for a in request.query_params['au'].split(',') if a.isdigit()]
+            aus = [int(a) for a in request.query_params['au'].split(' ') if a.isdigit()]
             queryset = queryset.filter(academic_units__in=aus)
 
         # Grade type filter
@@ -47,8 +48,15 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
 
         # Exams filter
         if 'no_exam' in request.query_params.keys():
-            exams = True if request.query_params['no_exam'].lower() == 'true' else False
-            queryset = queryset.filter(exams__isnull=exams)
+            no_exam = True if request.query_params['no_exam'].lower() == 'true' else False
+
+            if 'sem' in request.query_params.keys():
+                if no_exam:
+                    queryset = queryset.exclude(exams__semester__in=sem)
+                else:
+                    queryset = queryset.filter(exams__semester__in=sem)
+            else:
+                queryset = queryset.filter(exams__isnull=no_exam)
 
         # Order by course code
         queryset = queryset.order_by('course_code')

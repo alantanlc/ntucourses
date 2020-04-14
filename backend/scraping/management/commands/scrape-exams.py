@@ -12,8 +12,8 @@ class Command(BaseCommand):
     help ="collect exams"
 
     def __init__(self):
-        self.p_plan_nos = [102, 5, 6]
-        self.semesters = ['2', '3', '4']
+        self.p_plan_nos = [101, 102, 5, 6]
+        self.semesters = ['1', '2', '3', '4']
         self.plan2semester = {p: s for p, s in zip(self.p_plan_nos, self.semesters)}
         self.year = 2019
 
