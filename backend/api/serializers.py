@@ -23,7 +23,7 @@ class ClassSerializer(serializers.HyperlinkedModelSerializer):
 
 class CourseSerializer(serializers.HyperlinkedModelSerializer):
     
-    exams = ExamSerializer(many=True, read_only=True)
+    exams = ExamSerializer(many=True)
     
     class Meta:
         model = Course
@@ -46,8 +46,8 @@ class CourseSerializer(serializers.HyperlinkedModelSerializer):
 
 class CourseDetailSerializer(serializers.HyperlinkedModelSerializer):
     
-    exams = ExamSerializer(many=True, read_only=True)
-    classes = ClassSerializer(many=True, read_only=True)
+    exams = ExamSerializer(many=True)
+    classes = ClassSerializer(many=True)
     
     class Meta:
         model = Course

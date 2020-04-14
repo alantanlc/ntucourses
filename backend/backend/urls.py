@@ -20,7 +20,7 @@ from api import views
 from django.conf.urls import url
 
 router = routers.DefaultRouter()
-router.register(r'courses', views.CourseViewSet, basename='course')
+router.register(r'courses', views.CourseViewSet)
 router.register(r'exams', views.ExamViewSet)
 
 # Wire up our API using automatic URL routing.
