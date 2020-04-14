@@ -1,4 +1,3 @@
-
 from scraping.models import Course, Venue, Class, Exam
 from api.serializers import CourseSerializer, CourseDetailSerializer, ExamSerializer, ClassSerializer
 from rest_framework import viewsets
