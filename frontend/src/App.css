@@ -16,3 +16,44 @@ a {
     color: #4c5e7d;
     text-decoration: none;
 }
+
+input.form-check-input {
+    cursor: pointer;
+}
+
+label.form-check-label {
+    cursor: pointer;
+}
+
+.course-filters__header {
+    display: flex;
+    font-weight: 600;
+    padding-bottom: 5px;
+    margin: 0;
+    justify-content: space-between;
+    border-bottom: 1px solid #d8d8d8;
+}
+
+.course-filters__header button {
+    color: #4d83f3;
+    font-weight: 600;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.course-filter {
+    border-bottom: 1px solid #d8d8d8;
+    padding: 15px 0;
+}
+
+.course-filter h4 {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.icon-fact {
+    color: #9198a5;
+    width: 15px;
+    margin-right: 10px;
+}

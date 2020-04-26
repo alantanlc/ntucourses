@@ -8,11 +8,25 @@ export class CourseItem extends Component {
 
         return (
             <div style={courseItemStyle}>
-                <h6>{course_code} {title}</h6>
+                <h6><a href="#" style={{textDecoration: 'underline'}}>{course_code} {title}</a></h6>
                 <p>{description}</p>
                 <ul style={ulStyle}>
-                    <li>{academic_units} AUs</li>
-                    <li>Pass/Fail: {grade_type}</li>
+                    <li>
+                        <span aria-hidden="true" className="fa fa-book icon-fact"></span>
+                        {academic_units.toFixed(1)} AU
+                    </li>
+                    <li>
+                        <span aria-hidden="true" className="fa fa-check-circle icon-fact"></span>
+                        Pass / Fail {grade_type}
+                    </li>
+                    <li>
+                        <span aria-hidden="true" className="fa fa-exclamation-circle icon-fact"></span>
+                        <a href="#">CZ1011</a> and <a href="#">CZ1012</a>
+                    </li>
+                    <li>
+                        <span aria-hidden="true" className="fa fa-calendar icon-fact"></span>
+                        5-May-2020 (Thu), 9.30 am
+                    </li>
                 </ul>
             </div>
         )
@@ -24,15 +38,11 @@ CourseItem.propTypes = {
 }
 
 const courseItemStyle = {
-    // display: 'block',
-    // display: 'flex',
     backgroundColor: '#fff',
     color: '#4c5e7d',
     borderBottom: '1px solid #e7e7e7',
+    marginBottom: '10px',
     padding: '20px 15px',
-    justifyContent: 'center',
-    minHeight: '120px',
-    textTransform: 'capitalize',
 }
 
 const ulStyle = {

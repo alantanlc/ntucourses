@@ -5,7 +5,7 @@ import Header from './components/layout/Header';
 
 import Courses from './components/Courses';
 import SearchCourse from './components/SearchCourse';
-import Refine from './components/Refine';
+import Filters from './components/Filters';
 
 import CourseDetail from './components/pages/CourseDetail';
 
@@ -56,8 +56,8 @@ class App extends Component {
             <Route exact path="/" render={props => (
               <React.Fragment>
                 <div className="row">
-                  <div className="col-3">
-                    <Refine />
+                  <div className="col-3 d-none d-md-block">
+                    <Filters />
                   </div>
                     <div className="col">
                       <SearchCourse searchCourse={this.searchCourse} />
