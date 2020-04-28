@@ -29,7 +29,7 @@ export class Courses extends Component {
     }
 
     getData() {
-        axios.get(`http://localhost:8000/courses/${this.props.location.search}`)
+        axios.get(`http://192.168.1.136:8000/courses/${this.props.location.search}`)
             .then(res => {
                 // console.log(res.data)
                 this.setState({data: res.data})
