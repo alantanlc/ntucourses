@@ -38,8 +38,7 @@ export class Courses extends Component {
     }
 
     search = (keyword) => {
-        console.log(keyword)
-        
+        // console.log(keyword)
         let values = queryString.parse(this.props.location.search)
         values.search = keyword
         if(!keyword) {
