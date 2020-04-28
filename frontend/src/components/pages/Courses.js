@@ -12,10 +12,14 @@ export class Courses extends Component {
     state = {
         courses: [],
         data: {},
+        keyword: ''
     }
 
     componentDidMount() {
         this.getData();
+        this.setState({
+            keyword: this.getKeyword()
+        })
     }
 
     componentDidUpdate(prevProps) {
@@ -34,12 +38,18 @@ export class Courses extends Component {
     }
 
     search = (keyword) => {
+        console.log(keyword)
+        
         let values = queryString.parse(this.props.location.search)
         values.search = keyword
         if(!keyword) {
             delete values.search
         }
         delete values.page
+
+        this.setState({
+            keyword: keyword
+        })
 
         this.props.history.replace({
             search: queryString.stringify(values)
@@ -84,10 +94,10 @@ export class Courses extends Component {
                     <Filters />
                 </div>
                 <div className="col">
-                    <SearchCourse search={this.search} keyword={this.getKeyword()} />
+                    <SearchCourse search={this.search} keyword={this.state.keyword} />
                     <br />
                     <p>{this.state.data.count} results found</p>
-                    <CourseList courses={this.state.courses} />
+                    <CourseList courses={this.state.courses} keyword={this.state.keyword} />
                     <Pagination hasNext={this.state.data.next !== null} hasPrevious={this.state.data.previous !== null} goToPrevious={this.goToPrevious} goToNext={this.goToNext} />
                 </div>
             </div> 

@@ -3,14 +3,27 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 export class CourseItem extends Component {
+
+    getHighlightedText(text, highlight) {
+        // Split on highlight term and include term into parts, ignore case
+        const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
+        return <span> { parts.map((part, i) => 
+            <span key={i} style={part.toLowerCase() === highlight.toLowerCase() ? { fontWeight: 'bold', textDecoration: 'underline', backgroundColor: '#e7e7e7' } : {} }>
+                { part }
+            </span>)
+        } </span>;
+    }
+
     render() {
         // Destructing
         const { course_code, title, description, academic_units, grade_type } = this.props.course;
 
         return (
             <div style={courseItemStyle}>
-                <h6><Link to={`courses/${course_code}`}>{course_code} {title}</Link></h6>
-                <p>{description}</p>
+                {/* <h6><Link to={`courses/${course_code}`}>{course_code} {title}</Link></h6> */}
+                <h6><Link to={`courses/${course_code}`}>{this.getHighlightedText(course_code, this.props.keyword)} {this.getHighlightedText(title, this.props.keyword)}</Link></h6>
+                {/* <p>{description}</p> */}
+                <p>{this.getHighlightedText(description, this.props.keyword)}</p>
                 <ul style={ulStyle}>
                     <li data-toggle="tooltip" title="Academic Units">
                         <span aria-hidden="true" className="fa fa-book icon-fact"></span>
