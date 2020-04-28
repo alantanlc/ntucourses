@@ -36,7 +36,11 @@ export class Courses extends Component {
     search = (keyword) => {
         let values = queryString.parse(this.props.location.search)
         values.search = keyword
+        if(!keyword) {
+            delete values.search
+        }
         delete values.page
+
         this.props.history.replace({
             search: queryString.stringify(values)
         });
@@ -58,11 +62,19 @@ export class Courses extends Component {
         window.scrollTo(0, 0)
     }
 
-    getParams(link) {
+    getParams = (link) => {
         if(link) {
             link = link.split('?')[1]
         }
         return link
+    }
+
+    getKeyword = () => {
+        const values = queryString.parse(this.props.location.search)
+        if("search" in values) {
+            return values.search
+        }
+        return ''
     }
 
     render() {
@@ -72,7 +84,7 @@ export class Courses extends Component {
                     <Filters />
                 </div>
                 <div className="col">
-                    <SearchCourse search={this.search} />
+                    <SearchCourse search={this.search} keyword={this.getKeyword()} />
                     <br />
                     <p>{this.state.data.count} results found</p>
                     <CourseList courses={this.state.courses} />

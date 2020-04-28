@@ -1,12 +1,7 @@
 import React, { Component } from 'react'
 
 export class SearchCourse extends Component {
-    state = {
-        keyword: '',
-    }
-
     onChange = (e) => {
-        this.setState({keyword: e.target.value})
         this.props.search(e.target.value)
     }
 
@@ -21,7 +16,7 @@ export class SearchCourse extends Component {
                         style={{flex: '10', padding: '10px', border: 'none', borderBottom: '1px solid #eee'}}
                         type="text" name="keyword" 
                         placeholder="Search course by course code, title, or description"
-                        value={this.state.keyword}
+                        value={this.props.keyword}
                         onChange={this.onChange}
                     />
                 </div>
