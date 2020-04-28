@@ -12,11 +12,6 @@ body {
     font-size: 0.9rem;
 }
 
-a {
-    color: #4c5e7d;
-    text-decoration: none;
-}
-
 input.form-check-input {
     cursor: pointer;
 }
@@ -56,4 +51,31 @@ label.form-check-label {
     color: #9198a5;
     width: 15px;
     margin-right: 10px;
+}
+
+.job-filters__footer {
+    display: block;
+    margin: 20px 0;
+}
+
+.job-filters__footer nav {
+    display: block;
+}
+
+.job-filters__footer nav ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.job-filters__footer nav ul a {
+    display: block;
+    padding: 0;
+    margin-right: 20px;
+}
+
+ul.courseDetailList li {
+    margin-bottom: 5px;
 }

@@ -1,21 +1,22 @@
-import React from 'react'
+import React from 'react';
 
 function Header() {
     return (
         <header style={headerStyle}>
-            <h4>NTUMods</h4>
+            <h4>NTU Courses</h4>
         </header>
     )
 }
 
 const headerStyle = {
-    backgroundColor: '#4d83f3',
+    backgroundColor: '#243a81',
     color: '#fff',
     width: '100%',
     height: '63px',
     padding: '20px 20px',
     textAlign: 'center',
-    marginBottom: '20px',
+    borderBottom: '1px solid #e7e7e7'
+    
 }
 
 export default Header;
