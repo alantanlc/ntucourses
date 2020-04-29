@@ -16,7 +16,7 @@ defer==1.0.6
 distlib==0.3.0
 distro-info===0.18ubuntu0.18.04.1
 filelock==3.0.12
-Flask==0.12.2
+Flask==1.0
 Flask-BabelEx==0.9.3
 Flask-Compress==1.4.0
 Flask-Gravatar==0.4.2
