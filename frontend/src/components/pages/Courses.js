@@ -20,6 +20,15 @@ export class Courses extends Component {
             {id: 3, value: 'Semester 3', isChecked: false},
             {id: 4, value: 'Special Term 1', isChecked: false},
             {id: 5, value: 'Special Term 2', isChecked: false},
+        ],
+        exam: {value: 'No Exam', isChecked: false},
+        grade_type: {value: 'Pass / Fail', isChecked: false},
+        academic_units: [
+            {id: 1, value: '0-2 AU', isChecked: false},
+            {id: 2, value: '3 AU', isChecked: false},
+            {id: 3, value: '4 AU', isChecked: false},
+            {id: 4, value: '5-8 AU', isChecked: false},
+            {id: 5, value: '9 AU', isChecked: false}
         ]
     }
 

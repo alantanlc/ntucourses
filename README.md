@@ -1,7 +1,9 @@
 ![logo](./design/mockups/ntumods_logo_150_150.svg)
 
-## NTU Mods
-Module planner for Nanyang Technological University.
+## NTU Courses
+Course planner for Nanyang Technological University.
+
+![mockup](./design/mockups/mockup.png)
 
 [![Build Status](https://travis-ci.org/akashnimare/foco.svg?branch=master)](https://travis-ci.org/akashnimare/foco)
 
@@ -15,8 +17,7 @@ Help is very much appreciated! Refer to our [contributing guideline](https://git
 A quick overview of our tech stack below. Learn more about the [differences between frontend and backend](https://www.geeksforgeeks.org/frontend-vs-backend/).
 
 Frontend:
-- [Angular](https://angular.io/) - Frontend Framework
-- [Angular Material](https://material.angular.io/) - Material Design Components for Angular
+- [ReactJS](https://reactjs.org/) - Frontend Framework
 - [Bootstrap](https://getbootstrap.com) - Frontend Component
 
 Backend:
@@ -25,14 +26,11 @@ Backend:
 - [PostgreSQL](https://www.postgresql.org) - Database
 
 Crawlers:
-- [Scrappy](https://scrapy.org/) - Web-crawling Framework
+- [Beautiful Soup](https://pypi.org/project/beautifulsoup4/) - Web scraper
 
 ## Code style
 - [Python](http://google.github.io/styleguide/pyguide.html)
 - [Javascript](https://google.github.io/styleguide/jsguide.html)
-
-## Credits
-This project is very much inspired by [NUSMods](https://nusmods.com/). We've seen the positive impact of this platform on students of NUS, and we believe that students of NTU should some have something similar too!
 
 ## License
 MIT

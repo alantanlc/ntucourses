@@ -24,7 +24,7 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
 
         # Semester filter
         if 'sem' in request.query_params.keys():
-            sem = [int(s) for s in request.query_params['sem'].split(' ') if s.isdigit()]
+            sem = [int(s) for s in request.query_params['sem'].split(',') if s.isdigit()]
             queryset = queryset.filter(classes__semester__in=sem).distinct('course_code')
 
         # Search keyword filter
