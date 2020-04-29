@@ -10,15 +10,44 @@ import Pagination from '../Pagination';
 
 export class Courses extends Component {
     state = {
-        courses: [],
-        data: {},
-        keyword: ''
+        data: {
+            results: []
+        },
+        keyword: '',
+        semesters: [
+            {id: 1, value: 'Semester 1', isChecked: false},
+            {id: 2, value: 'Semester 2', isChecked: false},
+            {id: 3, value: 'Semester 3', isChecked: false},
+            {id: 4, value: 'Special Term 1', isChecked: false},
+            {id: 5, value: 'Special Term 2', isChecked: false},
+        ]
     }
 
     componentDidMount() {
-        this.getData();
+        this.getData()
+
+        let values = queryString.parse(this.props.location.search, {arrayFormat: 'comma', parseNumbers: true})
+        let newSemesters = [...this.state.semesters]
+        if(values.sem) {
+            if(!Array.isArray(values.sem)){
+                values.sem = [values.sem]
+            }
+            values.sem.forEach(semester => {
+                const index = newSemesters.findIndex(sem => sem.id === semester)
+                if(index >= 0) {
+                    newSemesters[index] = {...newSemesters[index], isChecked: true}
+                }
+            })
+        }
+
+        let keyword = ''
+        if(values.search) {
+            keyword = values.search
+        }
+
         this.setState({
-            keyword: this.getKeyword()
+            keyword: keyword,
+            semesters: newSemesters,
         })
     }
 
@@ -33,26 +62,39 @@ export class Courses extends Component {
             .then(res => {
                 // console.log(res.data)
                 this.setState({data: res.data})
-                this.setState({courses: res.data.results})
             })
     }
 
     search = (keyword) => {
-        // console.log(keyword)
-        let values = queryString.parse(this.props.location.search)
-        values.search = keyword
-        if(!keyword) {
-            delete values.search
-        }
-        delete values.page
+        let query = queryString.parse(this.props.location.search, {arrayFormat: 'comma'})
+        query.search = keyword ? keyword : null
+        delete query.page
 
         this.setState({
             keyword: keyword
         })
 
         this.props.history.replace({
-            search: queryString.stringify(values)
+            search: queryString.stringify(query, {arrayFormat: 'comma', skipNull: true})
         });
+    }
+
+    filterSemesters = (e) => {
+        const index = this.state.semesters.findIndex(semester => semester.id === parseInt(e.target.value))
+        let newSemesters = [...this.state.semesters]
+        newSemesters[index] = {...newSemesters[index], isChecked: !newSemesters[index].isChecked}
+
+        this.setState({
+            semesters: newSemesters,
+        })
+
+        let query = queryString.parse(this.props.location.search)
+        query.sem = newSemesters.filter(sem => sem.isChecked).map(sem => sem.id)
+        delete query.page
+
+        this.props.history.replace({
+            search: queryString.stringify(query, {arrayFormat: 'comma', skipNull: true})
+        })
     }
 
     goToPrevious = (e) => {
@@ -73,30 +115,22 @@ export class Courses extends Component {
 
     getParams = (link) => {
         if(link) {
-            link = link.split('?')[1]
+            link = link.split('?')[1].replace(/%2C/g, ',')
         }
         return link
-    }
-
-    getKeyword = () => {
-        const values = queryString.parse(this.props.location.search)
-        if("search" in values) {
-            return values.search
-        }
-        return ''
     }
 
     render() {
         return (
             <div className="row" style={{marginTop: '20px'}}>
                 <div className="col-3 d-none d-md-block">
-                    <Filters />
+                    <Filters filter={this.filterSemesters} semesters={this.state.semesters} />
                 </div>
                 <div className="col">
                     <SearchCourse search={this.search} keyword={this.state.keyword} />
                     <br />
                     <p>{this.state.data.count} results found</p>
-                    <CourseList courses={this.state.courses} keyword={this.state.keyword} />
+                    <CourseList courses={this.state.data.results} keyword={this.state.keyword} />
                     <Pagination hasNext={this.state.data.next !== null} hasPrevious={this.state.data.previous !== null} goToPrevious={this.goToPrevious} goToNext={this.goToNext} />
                 </div>
             </div> 

@@ -29,10 +29,10 @@ export class CourseItem extends Component {
                         <span aria-hidden="true" className="fa fa-book icon-fact"></span>
                         {academic_units.toFixed(1)} AU
                     </li>
-                    <li data-toggle="tooltip" title="Grade Type">
+                    {/* <li data-toggle="tooltip" title="Grade Type">
                         <span aria-hidden="true" className="fa fa-child icon-fact"></span>
                         Pass / Fail {grade_type}
-                    </li>
+                    </li> */}
                     <li data-toggle="tooltip" title="Prerequisite">
                         <span aria-hidden="true" className="fa fa-exclamation-circle icon-fact"></span>
                         <Link to={`courses/${course_code}`}>CZ1011</Link> and <Link to={`courses/${course_code}`}>CZ1012</Link>
@@ -41,10 +41,10 @@ export class CourseItem extends Component {
                         <span aria-hidden="true" className="fa fa-times-circle icon-fact"></span>
                         <Link to={`courses/${course_code}`}>CE1005</Link>
                     </li>
-                    <li data-toggle="tooltip" title="Exam Schedule">
+                    {/* <li data-toggle="tooltip" title="Exam Schedule">
                         <span aria-hidden="true" className="fa fa-calendar icon-fact"></span>
                         5-May-2020 (Thu), 9.30 am
-                    </li>
+                    </li> */}
                     <li data-toggle="tooltip" title="Rating">
                         <span aria-hidden="true" className="fa fa-user icon-fact"></span>
                         <span aria-hidden="true" className="fa fa-star"></span>

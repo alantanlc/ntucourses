@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import CheckBox from './CheckBox';
 
-export class Filters extends Component {
+export class Filters extends Component {    
     render() {
         return (
             <div className="filter">
@@ -14,26 +15,11 @@ export class Filters extends Component {
                 <div className="course-filters__content">
                     <div className="course-filter">
                         <h4>Semester</h4>
-                        <div className="form-check">
-                            <input type="checkbox" className="form-check-input" id="semester1"/>
-                            <label htmlFor="semester1" className="form-check-label">Semester 1</label>
-                        </div>
-                        <div className="form-check">
-                            <input type="checkbox" className="form-check-input" id="semester2" />
-                            <label htmlFor="semester2" className="form-check-label">Semester 2</label>
-                        </div>
-                        <div className="form-check">
-                            <input type="checkbox" className="form-check-input" id="semester3" />
-                            <label htmlFor="semester3" className="form-check-label">Semester 3</label>
-                        </div>
-                        <div className="form-check">
-                            <input type="checkbox" className="form-check-input" id="specialterm1" />
-                            <label htmlFor="specialterm1" className="form-check-label">Special Term I</label>
-                        </div>
-                        <div className="form-check">
-                            <input type="checkbox" className="form-check-input" id="specialterm2" />
-                            <label htmlFor="specialterm2" className="form-check-label">Special Term II</label>
-                        </div>
+                        {
+                            this.props.semesters.map((semester) => {
+                                return <CheckBox key={semester.id} name="sem" filter={this.props.filter} {...semester} /> 
+                            })
+                        }
                     </div>
                     <div className="course-filter">
                         <h4>Exams</h4>
