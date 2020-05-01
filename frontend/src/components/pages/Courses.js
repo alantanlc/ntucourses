@@ -15,48 +15,107 @@ export class Courses extends Component {
         },
         keyword: '',
         semesters: [
-            {id: 1, value: 'Semester 1', isChecked: false},
-            {id: 2, value: 'Semester 2', isChecked: false},
-            {id: 3, value: 'Semester 3', isChecked: false},
-            {id: 4, value: 'Special Term 1', isChecked: false},
-            {id: 5, value: 'Special Term 2', isChecked: false},
+            {id: 1, display: 'Semester 1', value: 1, isChecked: false},
+            {id: 2, display: 'Semester 2', value: 2, isChecked: false},
+            {id: 3, display: 'Semester 3', value: 3, isChecked: false},
+            {id: 4, display: 'Special Term 1', value: 4, isChecked: false},
+            {id: 5, display: 'Special Term 2', value: 5, isChecked: false}
         ],
-        exam: {value: 'No Exam', isChecked: false},
-        grade_type: {value: 'Pass / Fail', isChecked: false},
+        no_exam: [
+            {id: 1, display: 'No Exam', value: 'true', isChecked: false}
+        ],
+        pass_fail: [
+            {id: 1, display: 'Pass / Fail', value: 'true', isChecked: false}
+        ],
         academic_units: [
-            {id: 1, value: '0-2 AU', isChecked: false},
-            {id: 2, value: '3 AU', isChecked: false},
-            {id: 3, value: '4 AU', isChecked: false},
-            {id: 4, value: '5-8 AU', isChecked: false},
-            {id: 5, value: '9 AU', isChecked: false}
+            {id: 1, display: '0', value: 0, isChecked: false},
+            {id: 2, display: '1', value: 1, isChecked: false},
+            {id: 3, display: '1.5', value: 1.5, isChecked: false},
+            {id: 4, display: '2', value: 2, isChecked: false},
+            {id: 5, display: '3', value: 3, isChecked: false},
+            {id: 6, display: '4', value: 4, isChecked: false},
+            {id: 7, display: '5', value: 5, isChecked: false},
+            {id: 8, display: '6', value: 6, isChecked: false},
+            {id: 9, display: '8', value: 8, isChecked: false},
+            {id: 10, display: '12', value: 12, isChecked: false},
         ]
     }
 
     componentDidMount() {
         this.getData()
 
+        // Param values
         let values = queryString.parse(this.props.location.search, {arrayFormat: 'comma', parseNumbers: true})
+
+        // Keyword
+        let keyword = ''
+        if(values.search) {
+            keyword = values.search
+        }
+
+        // Semester
         let newSemesters = [...this.state.semesters]
         if(values.sem) {
-            if(!Array.isArray(values.sem)){
+            if(!Array.isArray(values.sem)) {
                 values.sem = [values.sem]
             }
-            values.sem.forEach(semester => {
-                const index = newSemesters.findIndex(sem => sem.id === semester)
+            values.sem.forEach((semester) => {
+                const index = newSemesters.findIndex(sem => sem.value === semester)
                 if(index >= 0) {
                     newSemesters[index] = {...newSemesters[index], isChecked: true}
                 }
             })
         }
 
-        let keyword = ''
-        if(values.search) {
-            keyword = values.search
+        // No Exam
+        let newNoExam = [...this.state.no_exam]
+        if(values.no_exam) {
+            if(!Array.isArray(values.no_exam)) {
+                values.no_exam = [values.no_exam]
+            }
+            values.no_exam.forEach((no_exam) => {
+                const index = newNoExam.findIndex(e => e.value === no_exam)
+                if(index >= 0) {
+                    newNoExam[index] = {...newNoExam[index], isChecked: true}
+                }
+            })
         }
 
+        // Pass Fail
+        let newPassFail = [...this.state.pass_fail]
+        if(values.pass_fail) {
+            if(!Array.isArray(values.pass_fail)) {
+                values.pass_fail = [values.pass_fail]
+            }
+            values.pass_fail.forEach((pass_fail) => {
+                const index = newPassFail.findIndex(e => e.value === pass_fail)
+                if(index >= 0) {
+                    newPassFail[index] = {...newPassFail[index], isChecked: true}
+                }
+            })
+        }
+
+        // Academic units
+        let newAcademicUnits = [...this.state.academic_units]
+        if(values.au) {
+            if(!Array.isArray(values.au)) {
+                values.au = [values.au]
+            }
+            values.au.forEach((academic_unit) => {
+                const index = newAcademicUnits.findIndex(au => au.value === academic_unit)
+                if(index >= 0) {
+                    newAcademicUnits[index] = {...newAcademicUnits[index], isChecked: true}
+                }
+            })
+        }
+
+        // Update state
         this.setState({
             keyword: keyword,
             semesters: newSemesters,
+            no_exam: newNoExam,
+            pass_fail: newPassFail,
+            academic_units: newAcademicUnits,
         })
     }
 
@@ -67,7 +126,7 @@ export class Courses extends Component {
     }
 
     getData() {
-        axios.get(`http://192.168.1.136:8000/courses/${this.props.location.search}`)
+        axios.get(`http://localhost:8000/courses/${this.props.location.search}`)
             .then(res => {
                 // console.log(res.data)
                 this.setState({data: res.data})
@@ -89,7 +148,7 @@ export class Courses extends Component {
     }
 
     filterSemesters = (e) => {
-        const index = this.state.semesters.findIndex(semester => semester.id === parseInt(e.target.value))
+        const index = this.state.semesters.findIndex(semester => semester.value === parseInt(e.target.value))
         let newSemesters = [...this.state.semesters]
         newSemesters[index] = {...newSemesters[index], isChecked: !newSemesters[index].isChecked}
 
@@ -97,8 +156,62 @@ export class Courses extends Component {
             semesters: newSemesters,
         })
 
-        let query = queryString.parse(this.props.location.search)
-        query.sem = newSemesters.filter(sem => sem.isChecked).map(sem => sem.id)
+        let query = queryString.parse(this.props.location.search, {arrayFormat: 'comma'})
+        query.sem = newSemesters.filter(sem => sem.isChecked).map(sem => sem.value)
+        delete query.page
+
+        this.props.history.replace({
+            search: queryString.stringify(query, {arrayFormat: 'comma', skipNull: true})
+        })
+    }
+
+    filterNoExam = (e) => {
+        const index = this.state.no_exam.findIndex(no_exam => no_exam.value === e.target.value)
+        let newNoExam = [...this.state.no_exam]
+        newNoExam[index] = {...newNoExam[index], isChecked: !newNoExam[index].isChecked}
+
+        this.setState({
+            no_exam: newNoExam,
+        })
+
+        let query = queryString.parse(this.props.location.search, {arrayFormat: 'comma'})
+        query.no_exam = newNoExam.filter(no_exam => no_exam.isChecked).map(no_exam => no_exam.value)
+        delete query.page
+
+        this.props.history.replace({
+            search: queryString.stringify(query, {arrayFormat: 'comma', skipNull: true})
+        })
+    }
+
+    filterPassFail = (e) => {
+        const index = this.state.pass_fail.findIndex(pass_fail => pass_fail.value === e.target.value)
+        let newPassFail = [...this.state.pass_fail]
+        newPassFail[index] = {...newPassFail[index], isChecked: !newPassFail[index].isChecked}
+
+        this.setState({
+            pass_fail: newPassFail,
+        })
+
+        let query = queryString.parse(this.props.location.search, {arrayFormat: 'comma'})
+        query.pass_fail = newPassFail.filter(pass_fail => pass_fail.isChecked).map(pass_fail => pass_fail.value)
+        delete query.page
+
+        this.props.history.replace({
+            search: queryString.stringify(query, {arrayFormat: 'comma', skipNull: true})
+        })
+    }
+
+    filterAcademicUnits = (e) => {
+        const index = this.state.academic_units.findIndex(academic_unit => academic_unit.value === parseFloat(e.target.value))
+        let newAcademicUnits = [...this.state.academic_units]
+        newAcademicUnits[index] = {...newAcademicUnits[index], isChecked: !newAcademicUnits[index].isChecked}
+
+        this.setState({
+            academic_units: newAcademicUnits
+        })
+
+        let query = queryString.parse(this.props.location.search, {arrayFormat: 'comma'})
+        query.au = newAcademicUnits.filter(au => au.isChecked).map(au => au.value)
         delete query.page
 
         this.props.history.replace({
@@ -133,7 +246,15 @@ export class Courses extends Component {
         return (
             <div className="row" style={{marginTop: '20px'}}>
                 <div className="col-3 d-none d-md-block">
-                    <Filters filter={this.filterSemesters} semesters={this.state.semesters} />
+                    <Filters
+                        filterSemesters={this.filterSemesters}
+                        filterNoExam={this.filterNoExam}
+                        filterPassFail={this.filterPassFail}
+                        filterAcademicUnits={this.filterAcademicUnits}
+                        semesters={this.state.semesters}
+                        no_exam={this.state.no_exam}
+                        pass_fail={this.state.pass_fail}
+                        academic_units={this.state.academic_units} />
                 </div>
                 <div className="col">
                     <SearchCourse search={this.search} keyword={this.state.keyword} />

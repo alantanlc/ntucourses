@@ -33,14 +33,14 @@ export class CourseItem extends Component {
                         <span aria-hidden="true" className="fa fa-child icon-fact"></span>
                         Pass / Fail {grade_type}
                     </li> */}
-                    <li data-toggle="tooltip" title="Prerequisite">
+                    {/* <li data-toggle="tooltip" title="Prerequisite">
                         <span aria-hidden="true" className="fa fa-exclamation-circle icon-fact"></span>
                         <Link to={`courses/${course_code}`}>CZ1011</Link> and <Link to={`courses/${course_code}`}>CZ1012</Link>
                     </li>
                     <li data-toggle="tooltip" title="Mutually Exclusive">
                         <span aria-hidden="true" className="fa fa-times-circle icon-fact"></span>
                         <Link to={`courses/${course_code}`}>CE1005</Link>
-                    </li>
+                    </li> */}
                     {/* <li data-toggle="tooltip" title="Exam Schedule">
                         <span aria-hidden="true" className="fa fa-calendar icon-fact"></span>
                         5-May-2020 (Thu), 9.30 am
