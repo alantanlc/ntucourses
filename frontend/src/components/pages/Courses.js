@@ -22,7 +22,7 @@ export class Courses extends Component {
             {id: 5, display: 'Special Term 2', value: 5, isChecked: false}
         ],
         no_exam: [
-            {id: 1, display: 'No Exam', value: 'true', isChecked: false}
+            {id: 1, display: 'No Exam', value: 'true', isChecked: false},
         ],
         pass_fail: [
             {id: 1, display: 'Pass / Fail', value: 'true', isChecked: false}

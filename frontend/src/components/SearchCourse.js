@@ -15,7 +15,7 @@ export class SearchCourse extends Component {
 
         this.timeout = setTimeout(() => {
             this.props.search(searchText)
-            // console.log(searchText)
+            console.log(searchText)
         }, 300);
     }
 
@@ -49,7 +49,7 @@ const filterStyle = {
     fontWeight: '600',
     color: '#4c5e7d',
     backgroundColor: '#fff',
-    border: '1px solid #e7e7e7',
+    border: '1px solid #eee',
     borderRadius: '5px',
     padding: '5px 10px',
     display: 'flex',

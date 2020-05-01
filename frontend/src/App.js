@@ -25,6 +25,7 @@ class App extends Component {
             <Route path="/contact" component={Contact} />
             <Route path="/privacy" component={Privacy} />
             <Route path="/terms" component={Terms} />
+            <Route exact path="/" component={Courses} />
           </div>
         </div>
       </Router>
