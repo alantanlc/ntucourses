@@ -147,6 +147,43 @@ export class Courses extends Component {
         });
     }
 
+    clearFilters = (e) => {
+        // Semesters
+        let newSemesters = [...this.state.semesters]
+        newSemesters.forEach(sem => sem.isChecked = false)
+
+        // No Exam
+        let newNoExam = [...this.state.no_exam]
+        newNoExam.forEach(no_exam => no_exam.isChecked = false)
+
+        // Pass Fail
+        let newPassFail = [...this.state.pass_fail]
+        newPassFail.forEach(pass_fail => pass_fail.isChecked = false)
+
+        // Academic Units
+        let newAcademicUnits = [...this.state.academic_units]
+        newAcademicUnits.forEach(academic_unit => academic_unit.isChecked = false)
+
+        // Update state
+        this.setState({
+            semesters: newSemesters,
+            no_exam: newNoExam,
+            pass_fail: newPassFail,
+            academic_units: newAcademicUnits
+        })
+        
+        let query = queryString.parse(this.props.location.search, {arrayFormat: 'comma'})
+        delete query.sem
+        delete query.no_exam
+        delete query.pass_fail
+        delete query.au
+        delete query.page
+
+        this.props.history.replace({
+            search: queryString.stringify(query, {arrayFormat: 'comma', skipNull: true})
+        })
+    }
+
     filterSemesters = (e) => {
         const index = this.state.semesters.findIndex(semester => semester.value === parseInt(e.target.value))
         let newSemesters = [...this.state.semesters]
@@ -247,6 +284,7 @@ export class Courses extends Component {
             <div className="row" style={{marginTop: '20px'}}>
                 <div className="col-3 d-none d-md-block">
                     <Filters
+                        clearFilters={this.clearFilters}
                         filterSemesters={this.filterSemesters}
                         filterNoExam={this.filterNoExam}
                         filterPassFail={this.filterPassFail}
@@ -261,7 +299,7 @@ export class Courses extends Component {
                     <br />
                     <p>{this.state.data.count} results found</p>
                     <CourseList courses={this.state.data.results} keyword={this.state.keyword} />
-                    <Pagination hasNext={this.state.data.next !== null} hasPrevious={this.state.data.previous !== null} goToPrevious={this.goToPrevious} goToNext={this.goToNext} />
+                    <Pagination hasNext={this.state.data.next} hasPrevious={this.state.data.previous} goToPrevious={this.goToPrevious} goToNext={this.goToNext} />
                 </div>
             </div> 
         )

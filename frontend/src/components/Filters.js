@@ -9,7 +9,7 @@ export class Filters extends Component {
 
                 <div className="course-filters__header">
                     <span>Filters</span>
-                    <button>Clear all</button>
+                    <button onClick={this.props.clearFilters}>Clear all</button>
                 </div>
 
                 <div className="course-filters__content">
