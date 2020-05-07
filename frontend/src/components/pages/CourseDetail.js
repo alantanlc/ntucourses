@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
+
+import AcademicUnitsLi from '../AcademicUnitsLi';
+import GradeTypeLi from '../GradeTypeLi';
+import PrerequisiteLi from '../PrerequisiteLi';
+import MutuallyExclusiveLi from '../MutuallyExclusiveLi';
+import ExamLi from '../ExamLi';
+import NotAvailable from '../NotAvailableLi';
 
 export class CourseDetail extends Component {
     state = {
@@ -15,43 +21,39 @@ export class CourseDetail extends Component {
             })
     }
 
+    renderSection(title, description) {
+        let result = null;
+        if(title && description) {
+            result = (
+                <div><h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>{title}</h4>
+                <p>{description}</p></div>
+            )
+        }
+        return result;
+    }
+
     render() {
+        // Destructuring
+        const { course_code, title, description, academic_units, grade_type, prerequisite, mutually_exclusive_with, exams, not_available_to_programme, not_available_to_all_programme_with, not_available_as_core_to_programme, not_available_as_pe_to_programme, not_available_as_ue_to_programme } = this.state.course;
+
         return (
             <div>
                 <div style={{textDecoration: 'none', textAlign: 'center', marginTop: '10px', marginBottom: '10px'}}>
                     <button type="button" className="btn btn-sm btn-link" onClick={this.props.history.goBack}>« Back to All Courses</button>
                 </div>
                 <div style={courseDetailStyle}>
-                    <h4 style={{fontWeight: '600'}}>{this.state.course.course_code} {this.state.course.title}</h4>
+                    <h4 style={{fontWeight: '600'}}>{course_code} {title}</h4>
                     <ul className="courseDetailList" style={ulStyle}>
-                        <li data-toggle="tooltip" title="Academic Units">
-                            <span aria-hidden="true" className="fa fa-book icon-fact"></span>
-                            {this.state.course.academic_units} AU
-                        </li>
-                        <li data-toggle="tooltip" title="Grade Type">
-                            <span aria-hidden="true" className="fa fa-child icon-fact"></span>
-                            Pass / Fail
-                        </li>
-                        <li data-toggle="tooltip" title="Prerequisite">
-                            <span aria-hidden="true" className="fa fa-exclamation-circle icon-fact"></span>
-                            <Link to={`courses`}>CZ1011</Link> and <Link to={`courses`}>CZ1012</Link>
-                        </li>
-                        <li data-toggle="tooltip" title="Mutually Exclusive">
-                            <span aria-hidden="true" className="fa fa-times-circle icon-fact"></span>
-                            <Link to={`courses`}>CE1005</Link>
-                        </li>
-                        <li data-toggle="tooltip" title="Exam Schedule">
-                            <span aria-hidden="true" className="fa fa-calendar icon-fact"></span>
-                            5-May-2020 (Thu), 9.30 am
-                        </li>
-                        <li data-toggle="tooltip" title="Rating">
-                            <span aria-hidden="true" className="fa fa-user icon-fact"></span>
-                            <span aria-hidden="true" className="fa fa-star"></span>&nbsp;
-                            <span aria-hidden="true" className="fa fa-star"></span>&nbsp;
-                            <span aria-hidden="true" className="fa fa-star"></span>&nbsp;
-                            <span aria-hidden="true" className="fa fa-star"></span>&nbsp;
-                            4
-                        </li>
+                        <AcademicUnitsLi academic_units={academic_units}></AcademicUnitsLi>
+                        <GradeTypeLi grade_type={grade_type} />
+                        <PrerequisiteLi prerequisite={prerequisite} />
+                        <MutuallyExclusiveLi mutually_exclusive_with={mutually_exclusive_with} /> 
+                        <ExamLi exams={exams} />
+                        <NotAvailable title="Not available to programme" text={not_available_to_programme} />
+                        <NotAvailable title="Not available to all programme with" text={not_available_to_all_programme_with} />
+                        <NotAvailable title="Not available as core programme" text={not_available_as_core_to_programme} />
+                        <NotAvailable title="Not available as PE to programme" text={not_available_as_pe_to_programme} />
+                        <NotAvailable title="Not available as UE to programme" text={not_available_as_ue_to_programme} />
                     </ul>
 
                     <div style={{textAlign: 'center'}}>
@@ -60,7 +62,7 @@ export class CourseDetail extends Component {
 
                     <h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>Course description</h4>
                     <p>
-                        {this.state.course.description}
+                        {description}
                     </p>
 
                     <h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>Timetable</h4>
@@ -80,7 +82,7 @@ export class CourseDetail extends Component {
                     </div>
                     <div style={{backgroundColor: '#f5f5f5', height: '300px'}}></div>
 
-                    <div id="disqus_thread" style={{maxWidth: '800px', margin: '30px auto 0'}}></div>
+                    {/* <div id="disqus_thread" style={{maxWidth: '800px', margin: '30px auto 0'}}></div> */}
                 </div>
             </div>
         )

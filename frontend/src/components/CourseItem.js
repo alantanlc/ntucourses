@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
+import AcademicUnitsLi from './AcademicUnitsLi';
+import GradeTypeLi from './GradeTypeLi';
+import PrerequisiteLi from './PrerequisiteLi';
+import MutuallyExclusiveLi from './MutuallyExclusiveLi';
+import ExamLi from './ExamLi';
+import NotAvailable from './NotAvailableLi';
+
 export class CourseItem extends Component {
 
     getHighlightedText(text, highlight) {
@@ -15,44 +22,24 @@ export class CourseItem extends Component {
     }
 
     render() {
-        // Destructing
-        const { course_code, title, description, academic_units, grade_type } = this.props.course;
+        // Destructuring
+        const { course_code, title, description, academic_units, grade_type, prerequisite, mutually_exclusive_with, exams, not_available_to_programme, not_available_to_all_programme_with, not_available_as_core_to_programme, not_available_as_pe_to_programme, not_available_as_ue_to_programme } = this.props.course;
 
         return (
             <div style={courseItemStyle}>
-                {/* <h6><Link to={`courses/${course_code}`}>{course_code} {title}</Link></h6> */}
                 <h6><Link to={`courses/${course_code}`}>{this.getHighlightedText(course_code, this.props.keyword)} {this.getHighlightedText(title, this.props.keyword)}</Link></h6>
-                {/* <p>{description}</p> */}
                 <p>{this.getHighlightedText(description, this.props.keyword)}</p>
                 <ul style={ulStyle}>
-                    <li data-toggle="tooltip" title="Academic Units">
-                        <span aria-hidden="true" className="fa fa-book icon-fact"></span>
-                        {academic_units.toFixed(1)} AU
-                    </li>
-                    {/* <li data-toggle="tooltip" title="Grade Type">
-                        <span aria-hidden="true" className="fa fa-child icon-fact"></span>
-                        Pass / Fail {grade_type}
-                    </li> */}
-                    {/* <li data-toggle="tooltip" title="Prerequisite">
-                        <span aria-hidden="true" className="fa fa-exclamation-circle icon-fact"></span>
-                        <Link to={`courses/${course_code}`}>CZ1011</Link> and <Link to={`courses/${course_code}`}>CZ1012</Link>
-                    </li>
-                    <li data-toggle="tooltip" title="Mutually Exclusive">
-                        <span aria-hidden="true" className="fa fa-times-circle icon-fact"></span>
-                        <Link to={`courses/${course_code}`}>CE1005</Link>
-                    </li> */}
-                    {/* <li data-toggle="tooltip" title="Exam Schedule">
-                        <span aria-hidden="true" className="fa fa-calendar icon-fact"></span>
-                        5-May-2020 (Thu), 9.30 am
-                    </li> */}
-                    <li data-toggle="tooltip" title="Rating">
-                        <span aria-hidden="true" className="fa fa-user icon-fact"></span>
-                        <span aria-hidden="true" className="fa fa-star"></span>
-                        <span aria-hidden="true" className="fa fa-star"></span>
-                        <span aria-hidden="true" className="fa fa-star"></span>
-                        <span aria-hidden="true" className="fa fa-star"></span>
-                        &nbsp;4
-                    </li>
+                    <AcademicUnitsLi academic_units={academic_units}></AcademicUnitsLi>
+                    <GradeTypeLi grade_type={grade_type} />
+                    <PrerequisiteLi prerequisite={prerequisite} />
+                    <MutuallyExclusiveLi mutually_exclusive_with={mutually_exclusive_with} />
+                    <ExamLi exams={exams} />
+                    <NotAvailable title="Not available to programme" text={not_available_to_programme} />
+                    <NotAvailable title="Not available to all programme with" text={not_available_to_all_programme_with} />
+                    <NotAvailable title="Not available as core programme" text={not_available_as_core_to_programme} />
+                    <NotAvailable title="Not available as PE to programme" text={not_available_as_pe_to_programme} />
+                    <NotAvailable title="Not available as UE to programme" text={not_available_as_ue_to_programme} />
                 </ul>
             </div>
         )

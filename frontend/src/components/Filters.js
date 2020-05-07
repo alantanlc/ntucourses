@@ -46,7 +46,7 @@ export class Filters extends Component {
                         }
                     </div>
 
-                    <div className="course-filter">
+                    {/* <div className="course-filter">
                         <h4>Programme</h4>
                         <select className="form-control form-control-sm">
                             <option></option>
@@ -54,11 +54,11 @@ export class Filters extends Component {
                             <option>Business</option>
                             <option>Computer Science</option>
                         </select>
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="job-filters__footer">
-                    <nav>
+                    {/* <nav>
                         <ul>
                             <Link to="about" className="nav-link">
                                 <li>About Us</li>
@@ -73,7 +73,7 @@ export class Filters extends Component {
                                 <li>Terms &amp; Conditions</li>
                             </Link>
                         </ul>
-                    </nav>
+                    </nav> */}
                     <p>© NTUCourses 2020</p>
                 </div>
 
