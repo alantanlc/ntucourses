@@ -1,9 +1,10 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 function Header() {
     return (
         <header style={headerStyle}>
-            <h4>NTU Courses</h4>
+            <h4><Link to='/' className='logo'>NTU Courses</Link></h4>
         </header>
     )
 }

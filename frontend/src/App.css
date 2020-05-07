@@ -12,6 +12,15 @@ body {
     font-size: 0.9rem;
 }
 
+.logo {
+    color: #fff;
+}
+
+.logo:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
 input.form-check-input {
     cursor: pointer;
 }
