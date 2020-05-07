@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { DiscussionEmbed } from 'disqus-react';
 
 import AcademicUnitsLi from '../AcademicUnitsLi';
 import GradeTypeLi from '../GradeTypeLi';
@@ -56,16 +57,16 @@ export class CourseDetail extends Component {
                         <NotAvailable title="Not available as UE to programme" text={not_available_as_ue_to_programme} />
                     </ul>
 
-                    <div style={{textAlign: 'center'}}>
+                    {/* <div style={{textAlign: 'center'}}>
                         <button style={btnStyle} type="button" className="btn btn-primary">Add to Semester 1</button>
-                    </div>
+                    </div> */}
 
                     <h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>Course description</h4>
                     <p>
                         {description}
                     </p>
 
-                    <h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>Timetable</h4>
+                    {/* <h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>Timetable</h4>
                     <div className="form-group">
                         <select className="form-control form-control-sm" style={{maxWidth: '150px', display: 'inline', marginRight: '5px'}}>
                             <option>Semester 1</option>
@@ -80,9 +81,9 @@ export class CourseDetail extends Component {
                             <option>10536 (TSP 6)</option>
                         </select>
                     </div>
-                    <div style={{backgroundColor: '#f5f5f5', height: '300px'}}></div>
+                    <div style={{backgroundColor: '#f5f5f5', height: '300px'}}></div> */}
 
-                    {/* <div id="disqus_thread" style={{maxWidth: '800px', margin: '30px auto 0'}}></div> */}
+                    <DiscussionEmbed shortname='ntucourses-com' config={{identifier: this.props.match.params.course_code}} />
                 </div>
             </div>
         )
@@ -110,17 +111,7 @@ const btnStyle = {
     maxWidth: '300px',
     borderRadius: '5px',
     fontSize: '0.9rem',
-}
-
-const ratingStyle = {
-    textAlign: 'center',
-    margin: '10px auto 0',
-    color:'#777',
-    backgroundColor: '#f0f3f5',
-    borderRadius: '5px',
-    padding: '10px',
-    width: '100%',
-    maxWidth:'500px',
+    marginTop: '10px'
 }
 
 export default CourseDetail;
