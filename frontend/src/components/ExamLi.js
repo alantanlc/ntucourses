@@ -2,9 +2,9 @@ import React from 'react';
 
 function renderExamDates(exams) {
     let result = exams.map(exam => {
-        return exam.date + ' ' + exam.day + ' ' + exam.time + ' ' + exam.duration + 'HRS'
+        return exam.date + ' ' + exam.day + ' ' + exam.time + ' ' + exam.duration + 'HRS (Sem ' + exam.semester + ')'
     })
-    return result.join(', ');
+    return result.join(' || ');
 }
 
 function ExamLi(props) {
