@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 
 import Header from './components/layout/Header';
 
@@ -25,7 +25,9 @@ class App extends Component {
             <Route path="/contact" component={Contact} />
             <Route path="/privacy" component={Privacy} />
             <Route path="/terms" component={Terms} />
-            <Route exact path="/" component={Courses} />
+            <Route exact path="/">
+              <Redirect to="/courses" />
+            </Route>
           </div>
         </div>
       </Router>
