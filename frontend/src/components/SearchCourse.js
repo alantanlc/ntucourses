@@ -15,7 +15,7 @@ export class SearchCourse extends Component {
 
         this.timeout = setTimeout(() => {
             this.props.search(searchText)
-            console.log(searchText)
+            // console.log(searchText)
         }, 300);
     }
 

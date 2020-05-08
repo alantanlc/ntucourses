@@ -58,22 +58,25 @@ export class Filters extends Component {
                 </div>
 
                 <div className="job-filters__footer">
-                    {/* <nav>
+                    <nav>
                         <ul>
-                            <Link to="about" className="nav-link">
-                                <li>About Us</li>
-                            </Link>
-                            <Link to="contact" className="nav-link">
+                            <a href="https://github.com/alanwuha/ntucourses" className="nav-link" target="blank">
+                                <li>GitHub</li>
+                            </a>
+                            <a href="https://ntu-courses.df.r.appspot.com/" className="nav-link" target="blank">
+                                <li>API</li>
+                            </a>
+                            {/* <Link to="contact" className="nav-link">
                                 <li>Contact Us</li>
-                            </Link>
-                            <Link to="Privacy" className="nav-link">
+                            </Link> */}
+                            {/* <Link to="Privacy" className="nav-link">
                                 <li>Privacy</li>
                             </Link>
                             <Link to="terms" className="nav-link">
                                 <li>Terms &amp; Conditions</li>
-                            </Link>
+                            </Link> */}
                         </ul>
-                    </nav> */}
+                    </nav>
                     <p>© NTUCourses 2020</p>
                 </div>
 
