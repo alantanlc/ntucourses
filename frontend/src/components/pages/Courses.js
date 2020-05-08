@@ -17,7 +17,7 @@ export class Courses extends Component {
         semesters: [
             {id: 1, display: 'Semester 1', value: 1, isChecked: false},
             {id: 2, display: 'Semester 2', value: 2, isChecked: false},
-            {id: 3, display: 'Semester 3', value: 3, isChecked: false},
+            // {id: 3, display: 'Semester 3', value: 3, isChecked: false},
             {id: 4, display: 'Special Term 1', value: 4, isChecked: false},
             {id: 5, display: 'Special Term 2', value: 5, isChecked: false}
         ],
@@ -126,7 +126,7 @@ export class Courses extends Component {
     }
 
     getData() {
-        axios.get(`http://localhost:8000/courses/${this.props.location.search}`)
+        axios.get(`https://ntu-courses.df.r.appspot.com/courses/${this.props.location.search}`)
             .then(res => {
                 // console.log(res.data)
                 this.setState({data: res.data})

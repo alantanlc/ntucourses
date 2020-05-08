@@ -15,7 +15,7 @@ export class CourseDetail extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:8000/courses/${this.props.match.params.course_code}`)
+        axios.get(`https://ntu-courses.df.r.appspot.com/courses/${this.props.match.params.course_code}`)
             .then(res => {
                 // console.log(res.data);
                 this.setState({course: res.data})
