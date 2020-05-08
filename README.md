@@ -3,9 +3,7 @@
 ## NTU Courses
 Course planner for Nanyang Technological University.
 
-![mockup](./design/mockups/mockup.png)
-
-[![Build Status](https://travis-ci.org/akashnimare/foco.svg?branch=master)](https://travis-ci.org/akashnimare/foco)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3a69872f-86d5-4ae3-9516-00336f755ee1/deploy-status)](https://app.netlify.com/sites/ntucourses/deploys)
 
 ## Motivation
 Information on NTU [course content](https://wish.wis.ntu.edu.sg/webexe/owa/aus_subj_cont.main/pls/webexe/AUS_SUBJ_CONT.instruction), [GER-PE](https://wish.wis.ntu.edu.sg/webexe/owa/aus_subj_cont2.main), [class schedule](https://wish.wis.ntu.edu.sg/webexe/owa/aus_schedule.main), [course vacancy](https://wish.wis.ntu.edu.sg/webexe/owa/aus_vacancy.check_vacancy), and [exam timetable](https://wis.ntu.edu.sg/webexe/owa/exam_timetable_und.main), [tutorial rooms](https://www.ntu.edu.sg/odfm/usefulinfo/academicfacilities/seatingcapacity/Pages/tr.aspx), [lecture halls](https://www.ntu.edu.sg/odfm/usefulinfo/academicfacilities/seatingcapacity/Pages/lt.aspx), are all over the place with little search and filter capabilities. This project aims to integrate all information into a single platform for your convenience in planning your modules.
