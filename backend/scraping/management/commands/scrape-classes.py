@@ -16,7 +16,11 @@ class Command(BaseCommand):
 
     def __init__(self):
         self.semesters = ['1', '2', 'S', 'T']
-        self.semester2index = { semester: i+1 for i, semester in enumerate(self.semesters) }
+        self.semester2index = {}
+        self.semester2index['1'] = 1
+        self.semester2index['2'] = 2
+        self.semester2index['S'] = 4
+        self.semester2index['T'] = 5
 
     def get_datetime(self, time_string):
         start_time, end_time = '', ''

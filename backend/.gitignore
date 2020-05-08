@@ -1,0 +1,5 @@
+# Static files
+static
+
+# Google cloud proxy
+cloud_sql_proxy

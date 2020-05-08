@@ -33,6 +33,7 @@ class Command(BaseCommand):
             'p_plan_no': '',
             'p_exam_yr': '2019',
             'p_semester': '',
+            'p_type': 'UE',
             'bOption': 'Next',
         }
         headers = {

@@ -37,8 +37,11 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
 
         # Academic units filter
         if 'au' in request.query_params.keys():
-            aus = [int(a) for a in request.query_params['au'].split(' ') if a.isdigit()]
-            queryset = queryset.filter(academic_units__in=aus)
+            try:
+                aus = [float(a) for a in request.query_params['au'].split(',')]
+                queryset = queryset.filter(academic_units__in=aus)
+            except:
+                pass
 
         # Grade type filter
         if 'pass_fail' in request.query_params.keys():
