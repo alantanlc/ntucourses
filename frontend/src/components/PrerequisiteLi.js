@@ -6,7 +6,6 @@ function PrerequisiteLi(props) {
     if(props.prerequisite) {
         result = (
             <li data-toggle="tooltip" title="Prerequisite">
-                {/* <span aria-hidden="true" className="fa fa-exclamation-circle icon-fact"></span> */}
                 <span style={{fontWeight: 100}} className="badge badge-light">Prerequisite</span>
                 &nbsp;
                 {props.prerequisite}

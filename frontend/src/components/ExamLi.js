@@ -12,7 +12,6 @@ function ExamLi(props) {
     if(Array.isArray(props.exams) && props.exams.length) {
         result = (
             <li data-toggle="tooltip" title="Exam">
-                {/* <span aria-hidden="true" className="fa fa-calendar icon-fact"></span> */}
                 <span style={{fontWeight: 100}} className="badge badge-light">Exam</span>
                 &nbsp;
                 {renderExamDates(props.exams)}

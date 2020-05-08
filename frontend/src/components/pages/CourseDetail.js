@@ -11,6 +11,7 @@ import NotAvailable from '../NotAvailableLi';
 
 export class CourseDetail extends Component {
     state = {
+        is_loading: true,
         course: Object
     }
 
@@ -18,7 +19,10 @@ export class CourseDetail extends Component {
         axios.get(`https://ntu-courses.df.r.appspot.com/courses/${this.props.match.params.course_code}`)
             .then(res => {
                 // console.log(res.data);
-                this.setState({course: res.data})
+                this.setState({
+                    is_loading: false,
+                    course: res.data
+                })
             })
     }
 
@@ -33,6 +37,27 @@ export class CourseDetail extends Component {
         return result;
     }
 
+    renderLoading = () => {
+        let result;
+        if(this.state.is_loading) {
+            result = (
+                <div className="d-flex align-items-center">
+                    <strong>Loading...</strong>
+                    <div className="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                </div>
+            )
+        }
+        return result;
+    }
+
+    renderDisqus = () => {
+        let result;
+        if(!this.state.is_loading) {
+            result = <DiscussionEmbed shortname='ntucourses-com' config={{identifier: this.props.match.params.course_code}} />
+        }
+        return result;
+    }
+
     render() {
         // Destructuring
         const { course_code, title, description, academic_units, grade_type, prerequisite, mutually_exclusive_with, exams, not_available_to_programme, not_available_to_all_programme_with, not_available_as_core_to_programme, not_available_as_pe_to_programme, not_available_as_ue_to_programme } = this.state.course;
@@ -42,6 +67,7 @@ export class CourseDetail extends Component {
                 <div style={{textDecoration: 'none', textAlign: 'center', marginTop: '10px', marginBottom: '10px'}}>
                     <button type="button" className="btn btn-sm btn-link" onClick={this.props.history.goBack}>« Back to All Courses</button>
                 </div>
+                { this.renderLoading() }
                 <div style={courseDetailStyle}>
                     <h4 style={{fontWeight: '600'}}>{course_code} {title}</h4>
                     <ul className="courseDetailList" style={ulStyle}>
@@ -83,7 +109,7 @@ export class CourseDetail extends Component {
                     </div>
                     <div style={{backgroundColor: '#f5f5f5', height: '300px'}}></div> */}
 
-                    <DiscussionEmbed shortname='ntucourses-com' config={{identifier: this.props.match.params.course_code}} />
+                    {this.renderDisqus()}
                 </div>
             </div>
         )

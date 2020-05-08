@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export class CourseList extends Component {
     render() {
         return this.props.courses.map((course) => (
-            <CourseItem key={course.course_code} course={course} keyword={this.props.keyword} />
+            <CourseItem key={course.course_code} course={course} keyword={this.props.keyword} is_loading={this.props.is_loading} />
         ));
     }
 }

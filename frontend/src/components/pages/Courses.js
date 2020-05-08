@@ -10,7 +10,9 @@ import Pagination from '../Pagination';
 
 export class Courses extends Component {
     state = {
+        is_loading: true,
         data: {
+            count: 0,
             results: []
         },
         keyword: '',
@@ -30,7 +32,7 @@ export class Courses extends Component {
         academic_units: [
             {id: 1, display: '0', value: 0, isChecked: false},
             {id: 2, display: '1', value: 1, isChecked: false},
-            {id: 3, display: '1.5', value: 1.5, isChecked: false},
+            // {id: 3, display: '1.5', value: 1.5, isChecked: false},
             {id: 4, display: '2', value: 2, isChecked: false},
             {id: 5, display: '3', value: 3, isChecked: false},
             {id: 6, display: '4', value: 4, isChecked: false},
@@ -126,10 +128,16 @@ export class Courses extends Component {
     }
 
     getData() {
+        this.setState({
+            is_loading: true
+        })
         axios.get(`https://ntu-courses.df.r.appspot.com/courses/${this.props.location.search}`)
             .then(res => {
                 // console.log(res.data)
-                this.setState({data: res.data})
+                this.setState({
+                    data: res.data,
+                    is_loading: false
+                })
             })
     }
 
@@ -279,6 +287,19 @@ export class Courses extends Component {
         return link
     }
 
+    renderLoading = () => {
+        let result;
+        if(this.state.is_loading) {
+            result = (
+                <div className="d-flex align-items-center">
+                    <strong>Loading...</strong>
+                    <div className="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+                </div>
+            )
+        }
+        return result;
+    }
+
     render() {
         return (
             <div className="row" style={{marginTop: '20px'}}>
@@ -297,8 +318,9 @@ export class Courses extends Component {
                 <div className="col">
                     <SearchCourse search={this.search} keyword={this.state.keyword} />
                     <br />
+                    { this.renderLoading() }
                     <p>{this.state.data.count} results found</p>
-                    <CourseList courses={this.state.data.results} keyword={this.state.keyword} />
+                    <CourseList courses={this.state.data.results} keyword={this.state.keyword} is_loading={this.state.is_loading} />
                     <Pagination hasNext={this.state.data.next} hasPrevious={this.state.data.previous} goToPrevious={this.goToPrevious} goToNext={this.goToNext} />
                 </div>
             </div> 

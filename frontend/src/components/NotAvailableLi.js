@@ -6,7 +6,6 @@ function NotAvailableLi(props) {
     if(props.text) {
         result = (
             <li data-toggle="tooltip" title={props.title}>
-                {/* <span aria-hidden="true" className="fa fa-times-circle icon-fact"></span> */}
                 <span style={{fontWeight: 100}} className="badge badge-light">{props.title}</span>
                 &nbsp;
                 {props.text}
