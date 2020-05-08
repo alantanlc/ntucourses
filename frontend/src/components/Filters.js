@@ -78,6 +78,7 @@ export class Filters extends Component {
                         </ul>
                     </nav>
                     <p>© NTUCourses 2020</p>
+                    <small>Data last synced on 8-MAY-2020 FRI 09:00:00</small>
                 </div>
 
             </div>
