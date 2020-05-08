@@ -300,6 +300,11 @@ export class Courses extends Component {
         return result;
     }
 
+    goToTop = (e) => {
+        e.preventDefault();
+        window.scrollTo(0, 0)
+    }
+
     render() {
         return (
             <div className="row" style={{marginTop: '20px'}}>
@@ -321,7 +326,14 @@ export class Courses extends Component {
                     { this.renderLoading() }
                     <p>{this.state.data.count} results found</p>
                     <CourseList courses={this.state.data.results} keyword={this.state.keyword} is_loading={this.state.is_loading} />
-                    <Pagination hasNext={this.state.data.next} hasPrevious={this.state.data.previous} goToPrevious={this.goToPrevious} goToNext={this.goToNext} />
+                    <div className="d-flex">
+                        <div>
+                            <Pagination hasNext={this.state.data.next} hasPrevious={this.state.data.previous} goToPrevious={this.goToPrevious} goToNext={this.goToNext} />
+                        </div>
+                        <div className="ml-auto">
+                            <button onClick={this.goToTop} type="button" className="page-link">Back to top</button>
+                        </div>
+                    </div>
                 </div>
             </div> 
         )
