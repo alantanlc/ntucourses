@@ -10,6 +10,17 @@ export class Timetable extends Component {
         }
     }
 
+    componentDidMount() {
+        // Reduce size of timetable if classes end before 1800
+        const end_times = this.props.classes.filter(cls => cls.semester === this.state.semester).map(cls => parseInt(cls.end_time.slice(0, 2)));
+        const max_end_time = Math.max(...end_times)
+        if(max_end_time < 18) {
+            this.setState({
+                time: this.state.time.filter(t => parseInt(t.slice(0, 2)) < 18)
+            })
+        }
+    }
+
     getMarginTop = (day, start, semester) => {
         let result = '0px';
         let overlap = this.props.classes
@@ -35,6 +46,8 @@ export class Timetable extends Component {
                     const marginLeft = (cls.start_time.split(':')[1] === "30") ? "50%" : "0";
                     const marginTop = this.getMarginTop(day, start, cls.semester)
                     const width = (100 * duration).toString() + '%';
+                    // console.log(cls.start_time, cls.end_time, duration)
+                    // console.log(width)
                     const btnStyle = {marginLeft: marginLeft, marginTop: marginTop, width: width}
                     return <button key={day+time+cls.class_type+cls.group+cls.venue} type="button" className="btn btn-dark btn-block btn-sm" style={btnStyle}>{cls.class_type} [{cls.group}]<br/>{cls.venue}<br/>{cls.remark}</button>
                 });
@@ -45,7 +58,7 @@ export class Timetable extends Component {
     render() {
         return (
             <div style={{overflowX: 'auto'}}>
-                <table border="1">
+                <table>
                     <thead>
                         <tr>
                             <th>&nbsp;</th>

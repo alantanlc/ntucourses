@@ -99,7 +99,8 @@ th {
 }
 
 .day {
-    padding-right: 10px;
+    max-width: 20px;
+    transform: rotate(-90deg);
 }
 
 td {
@@ -114,7 +115,7 @@ td .btn-sm {
     font-size: 0.65rem;
     font-weight: 600;
     text-align: left;
-    line-height: 15px;
+    /* line-height: 12px; */
     padding: 3px 5px;
     color: #fff;
     border-bottom: 3px solid #000;
