@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { DiscussionEmbed } from 'disqus-react';
 
-import AcademicUnitsLi from '../AcademicUnitsLi';
-import GradeTypeLi from '../GradeTypeLi';
-import PrerequisiteLi from '../PrerequisiteLi';
-import MutuallyExclusiveLi from '../MutuallyExclusiveLi';
-import ExamLi from '../ExamLi';
-import NotAvailable from '../NotAvailableLi';
+import AcademicUnitsLi from '../course-detail-li/AcademicUnitsLi';
+import GradeTypeLi from '../course-detail-li/GradeTypeLi';
+import PrerequisiteLi from '../course-detail-li/PrerequisiteLi';
+import MutuallyExclusiveLi from '../course-detail-li/MutuallyExclusiveLi';
+import ExamLi from '../course-detail-li/ExamLi';
+import NotAvailable from '../course-detail-li/NotAvailableLi';
 import Timetable from '../timetable/Timetable';
 
 export class CourseDetail extends Component {
@@ -62,7 +62,7 @@ export class CourseDetail extends Component {
     renderDisqus = () => {
         let result;
         if(!this.state.is_loading) {
-            result = <DiscussionEmbed shortname='ntucourses-com' config={{identifier: this.props.match.params.course_code}} />
+            result = <DiscussionEmbed style={{marginTop: '30px'}} shortname='ntucourses-com' config={{identifier: this.props.match.params.course_code}} />
         }
         return result;
     }
@@ -118,7 +118,6 @@ export class CourseDetail extends Component {
                     <h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>Timetable</h4>
                     {this.renderTimetable()}
 
-                    <h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>Review</h4>
                     {this.renderDisqus()}
                 </div>
             </div>

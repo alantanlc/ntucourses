@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import queryString from 'query-string';
 
-import CourseList from '../CourseList';
-import Filters from '../Filters';
-import SearchCourse from '../SearchCourse';
-import Pagination from '../Pagination';
+import CourseList from '../course-list/CourseList';
+import Filters from '../filter/Filters';
+import SearchCourse from '../search/SearchCourse';
+import Pagination from '../course-list/Pagination';
 
 export class Courses extends Component {
     state = {

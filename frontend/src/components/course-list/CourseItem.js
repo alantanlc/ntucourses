@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import AcademicUnitsLi from './AcademicUnitsLi';
-import GradeTypeLi from './GradeTypeLi';
-import PrerequisiteLi from './PrerequisiteLi';
-import MutuallyExclusiveLi from './MutuallyExclusiveLi';
-import ExamLi from './ExamLi';
-import NotAvailable from './NotAvailableLi';
+import AcademicUnitsLi from '../course-detail-li/AcademicUnitsLi';
+import GradeTypeLi from '../course-detail-li/GradeTypeLi';
+import PrerequisiteLi from '../course-detail-li/PrerequisiteLi';
+import MutuallyExclusiveLi from '../course-detail-li/MutuallyExclusiveLi';
+import ExamLi from '../course-detail-li/ExamLi';
+import NotAvailable from '../course-detail-li/NotAvailableLi';
 
 export class CourseItem extends Component {
 
