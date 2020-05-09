@@ -8,6 +8,7 @@ import PrerequisiteLi from '../PrerequisiteLi';
 import MutuallyExclusiveLi from '../MutuallyExclusiveLi';
 import ExamLi from '../ExamLi';
 import NotAvailable from '../NotAvailableLi';
+import Timetable from '../timetable/Timetable';
 
 export class CourseDetail extends Component {
     state = {
@@ -50,6 +51,14 @@ export class CourseDetail extends Component {
         return result;
     }
 
+    renderTimetable = () => {
+        let result;
+        if(!this.state.is_loading) {
+            result = <Timetable classes={this.state.course.classes} />
+        }
+        return result;
+    }
+
     renderDisqus = () => {
         let result;
         if(!this.state.is_loading) {
@@ -87,13 +96,7 @@ export class CourseDetail extends Component {
                         <button style={btnStyle} type="button" className="btn btn-primary">Add to Semester 1</button>
                     </div> */}
 
-                    <h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>Course description</h4>
-                    <p>
-                        {description}
-                    </p>
-
-                    {/* <h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>Timetable</h4>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                         <select className="form-control form-control-sm" style={{maxWidth: '150px', display: 'inline', marginRight: '5px'}}>
                             <option>Semester 1</option>
                             <option>Semester 2</option>
@@ -106,9 +109,16 @@ export class CourseDetail extends Component {
                             <option>10535 (TSP 5)</option>
                             <option>10536 (TSP 6)</option>
                         </select>
-                    </div>
-                    <div style={{backgroundColor: '#f5f5f5', height: '300px'}}></div> */}
+                    </div> */}
+                    {/* <div style={{backgroundColor: '#f5f5f5', height: '300px'}}></div> */}
 
+                    <h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>Course description</h4>
+                    <p>{description}</p>
+
+                    <h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>Timetable</h4>
+                    {this.renderTimetable()}
+
+                    <h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>Review</h4>
                     {this.renderDisqus()}
                 </div>
             </div>

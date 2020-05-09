@@ -88,3 +88,40 @@ label.form-check-label {
 ul.courseDetailList li {
     margin-bottom: 5px;
 }
+
+table {
+    border: 0;
+}
+
+th {
+    font-size: 0.9em;
+    border: 0;
+}
+
+.day {
+    padding-right: 10px;
+}
+
+td {
+    height: 40px;
+    min-width: 105px;
+    border: thin solid #eee;
+    vertical-align: top;
+}
+
+td .btn-sm {
+    position: relative;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-align: left;
+    line-height: 15px;
+    padding: 3px 5px;
+    color: #fff;
+    border-bottom: 3px solid #000;
+    margin-bottom: 1px;
+    opacity: 0.5;
+}
+
+tbody th {
+    text-align: center;
+}
