@@ -328,7 +328,7 @@ export class Courses extends Component {
                     <CourseList courses={this.state.data.results} keyword={this.state.keyword} is_loading={this.state.is_loading} />
                     <div className="d-flex">
                         <div>
-                            <Pagination hasNext={this.state.data.next} hasPrevious={this.state.data.previous} goToPrevious={this.goToPrevious} goToNext={this.goToNext} />
+                            <Pagination hasNext={this.state.data.next} hasPrevious={this.state.data.previous} goToTop={this.goToT} goToPrevious={this.goToPrevious} goToNext={this.goToNext} />
                         </div>
                         <div className="ml-auto">
                             <button onClick={this.goToTop} type="button" className="page-link">Back to top</button>
