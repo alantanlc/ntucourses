@@ -37,7 +37,7 @@ export class CourseItem extends Component {
             <div style={this.getCourseItemStyle()}>
                 <h6><Link to={`courses/${course_code}`}>{this.getHighlightedText(course_code, this.props.keyword)} {this.getHighlightedText(title, this.props.keyword)}</Link></h6>
                 <p>{this.getHighlightedText(description, this.props.keyword)}</p>
-                <ul style={ulStyle}>
+                <ul className="courseDetailList" style={ulStyle}>
                     <AcademicUnitsLi academic_units={academic_units}></AcademicUnitsLi>
                     <GradeTypeLi grade_type={grade_type} />
                     <PrerequisiteLi prerequisite={prerequisite} />

@@ -307,35 +307,37 @@ export class Courses extends Component {
 
     render() {
         return (
-            <div className="row" style={{marginTop: '20px'}}>
-                <div className="col-3 d-none d-md-block">
-                    <Filters
-                        clearFilters={this.clearFilters}
-                        filterSemesters={this.filterSemesters}
-                        filterNoExam={this.filterNoExam}
-                        filterPassFail={this.filterPassFail}
-                        filterAcademicUnits={this.filterAcademicUnits}
-                        semesters={this.state.semesters}
-                        no_exam={this.state.no_exam}
-                        pass_fail={this.state.pass_fail}
-                        academic_units={this.state.academic_units} />
-                </div>
-                <div className="col">
-                    <SearchCourse search={this.search} keyword={this.state.keyword} />
-                    <br />
-                    { this.renderLoading() }
-                    <p>{this.state.data.count} results found</p>
-                    <CourseList courses={this.state.data.results} keyword={this.state.keyword} is_loading={this.state.is_loading} />
-                    <div className="d-flex">
-                        <div>
-                            <Pagination hasNext={this.state.data.next} hasPrevious={this.state.data.previous} goToTop={this.goToT} goToPrevious={this.goToPrevious} goToNext={this.goToNext} />
-                        </div>
-                        <div className="ml-auto">
-                            <button onClick={this.goToTop} type="button" className="page-link">Back to top</button>
+            <div className="container-lg">
+                <div className="row" style={{marginTop: '20px'}}>
+                    <div className="col-3 d-none d-md-block">
+                        <Filters
+                            clearFilters={this.clearFilters}
+                            filterSemesters={this.filterSemesters}
+                            filterNoExam={this.filterNoExam}
+                            filterPassFail={this.filterPassFail}
+                            filterAcademicUnits={this.filterAcademicUnits}
+                            semesters={this.state.semesters}
+                            no_exam={this.state.no_exam}
+                            pass_fail={this.state.pass_fail}
+                            academic_units={this.state.academic_units} />
+                    </div>
+                    <div className="col">
+                        <SearchCourse search={this.search} keyword={this.state.keyword} />
+                        <br />
+                        { this.renderLoading() }
+                        <p>{this.state.data.count} results found</p>
+                        <CourseList courses={this.state.data.results} keyword={this.state.keyword} is_loading={this.state.is_loading} />
+                        <div className="d-flex">
+                            <div>
+                                <Pagination hasNext={this.state.data.next} hasPrevious={this.state.data.previous} goToTop={this.goToT} goToPrevious={this.goToPrevious} goToNext={this.goToNext} />
+                            </div>
+                            <div className="ml-auto">
+                                <button onClick={this.goToTop} type="button" className="page-link">Back to top</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div> 
+                </div> 
+            </div>
         )
     }
 }

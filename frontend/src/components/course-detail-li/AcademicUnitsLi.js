@@ -6,7 +6,7 @@ function AcademicUnitsLi(props) {
     if(props.academic_units >= 0) {
         result = (
             <li data-toggle="tooltip" title="Academic Units">
-                <span style={{fontWeight: '100'}} className="badge badge-light">Academic units</span>
+                <span style={{fontWeight: '100'}} className="li-span">Academic units</span>
                 &nbsp;
                 {props.academic_units.toFixed(1)}
             </li>

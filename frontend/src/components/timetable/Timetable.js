@@ -14,7 +14,7 @@ export class Timetable extends Component {
     }
 
     componentDidMount() {
-        // console.log(this.props.classes)
+        console.log(this.props.classes)
         this.setState({
             semester: Math.max(...this.props.classes.map(cls => cls.semester))
         })
@@ -34,8 +34,8 @@ export class Timetable extends Component {
                                 .map(cls => parseInt(cls.end_time.slice(0, 2)));
         const min_start_time = Math.min(...start_times)
         const max_end_time = Math.max(...end_times)
-        // console.log(min_start_time, max_end_time)
-        if (min_start_time > 12) {
+        console.log(min_start_time, max_end_time)
+        if (min_start_time > 12 && min_start_time !== Infinity) {
             this.setState({
                 time: this.state.all_time.filter(t => parseInt(t.slice(0, 2)) > 12)
             })
@@ -131,11 +131,12 @@ export class Timetable extends Component {
         }
     }
 
-    render() {
-        return (
-            <div>
-                <div className="form-group" style={{marginTop: '10px'}}>
-                    <select onChange={this.semesterOnChange} className="form-control form-control-sm" style={{fontSize: '0.8rem', maxWidth: '130px', display: 'inline', marginRight: '5px'}}>
+    renderDropdowns = () => {
+        let result;
+        if (this.props.type === "timetable") {
+            result = (
+                <div className="form-group">
+                    <select onChange={this.semesterOnChange} className="form-control form-control-sm select" style={{fontSize: '0.8rem', maxWidth: '130px', display: 'inline', marginRight: '5px'}}>
                         {
                             this.props.classes
                                 .map(cls => cls.semester)
@@ -143,7 +144,7 @@ export class Timetable extends Component {
                                 .map(sem => <option key={sem} value={sem}>{this.getSemesterDisplay(sem)}</option>)
                         }
                     </select>
-                    <select value={this.state.group} onChange={this.groupOnChange} className="form-control form-control-sm" style={{fontSize: '0.8rem', maxWidth: '120px', display: 'inline', marginRight: '5px'}}>
+                    <select value={this.state.group} onChange={this.groupOnChange} className="form-control form-control-sm select" style={{fontSize: '0.8rem', maxWidth: '120px', display: 'inline', marginRight: '5px'}}>
                         <option value="">All groups</option>
                         {
                             this.props.classes
@@ -153,8 +154,16 @@ export class Timetable extends Component {
                                 .map(group => <option key={group} value={group}>{group}</option>)
                         }
                     </select>
-                </div>  
+                </div>
+            )
+        }
+        return result;
+    }
 
+    render() {
+        return (
+            <div>
+                {this.renderDropdowns()}
                 <div style={{overflowX: 'auto'}}>
                     <table>
                         <thead>

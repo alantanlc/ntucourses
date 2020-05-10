@@ -54,7 +54,7 @@ export class CourseDetail extends Component {
     renderTimetable = () => {
         let result;
         if(!this.state.is_loading) {
-            result = <Timetable classes={this.state.course.classes} />
+            result = <Timetable classes={this.state.course.classes} type="timetable" />
         }
         return result;
     }
@@ -72,7 +72,7 @@ export class CourseDetail extends Component {
         const { course_code, title, description, academic_units, grade_type, prerequisite, mutually_exclusive_with, exams, not_available_to_programme, not_available_to_all_programme_with, not_available_as_core_to_programme, not_available_as_pe_to_programme, not_available_as_ue_to_programme } = this.state.course;
 
         return (
-            <div>
+            <div className="container">
                 <div style={{textDecoration: 'none', textAlign: 'center', marginTop: '10px', marginBottom: '10px'}}>
                     <button type="button" className="btn btn-sm btn-link" onClick={this.props.history.goBack}>« Back to All Courses</button>
                 </div>

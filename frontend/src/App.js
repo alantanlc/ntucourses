@@ -9,6 +9,7 @@ import About from './components/pages/About';
 import Contact from './components/pages/Contact';
 import Privacy from './components/pages/Privacy';
 import Terms from './components/pages/Terms';
+import Plan from './components/pages/Plan';
 
 import './App.css';
 
@@ -17,18 +18,17 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header />
-          <div className="container-lg">            
+          <Header />         
             <Route exact path="/courses/:course_code" component={CourseDetail} />
             <Route exact path="/courses" component={Courses} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/privacy" component={Privacy} />
             <Route path="/terms" component={Terms} />
+            <Route path="/plan" component={Plan} />
             <Route exact path="/">
               <Redirect to="/courses" />
             </Route>
-          </div>
         </div>
       </Router>
     )
