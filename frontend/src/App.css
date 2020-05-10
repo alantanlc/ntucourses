@@ -105,6 +105,8 @@ th {
 
 td {
     height: 40px;
+    width: 105px;
+    max-width: 105px;
     min-width: 105px;
     border: thin solid #eee;
     vertical-align: top;
@@ -115,10 +117,10 @@ td .btn-sm {
     font-size: 0.65rem;
     font-weight: 600;
     text-align: left;
-    /* line-height: 12px; */
     padding: 3px 5px;
     color: #fff;
-    border-bottom: 3px solid #000;
+    /* border-bottom: 3px solid #000; */
+    border-left: 4px solid #000;
     margin-bottom: 1px;
     opacity: 0.5;
 }

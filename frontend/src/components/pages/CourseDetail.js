@@ -95,23 +95,7 @@ export class CourseDetail extends Component {
                     {/* <div style={{textAlign: 'center'}}>
                         <button style={btnStyle} type="button" className="btn btn-primary">Add to Semester 1</button>
                     </div> */}
-
-                    {/* <div className="form-group">
-                        <select className="form-control form-control-sm" style={{maxWidth: '150px', display: 'inline', marginRight: '5px'}}>
-                            <option>Semester 1</option>
-                            <option>Semester 2</option>
-                        </select>
-                        <select className="form-control form-control-sm" style={{maxWidth: '150px', display: 'inline'}}>
-                            <option>10531 (TSP 1)</option>
-                            <option>10532 (TSP 2)</option>
-                            <option>10533 (TSP 3)</option>
-                            <option>10534 (TSP 4)</option>
-                            <option>10535 (TSP 5)</option>
-                            <option>10536 (TSP 6)</option>
-                        </select>
-                    </div> */}
-                    {/* <div style={{backgroundColor: '#f5f5f5', height: '300px'}}></div> */}
-
+                    
                     <h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>Course description</h4>
                     <p>{description}</p>
 
