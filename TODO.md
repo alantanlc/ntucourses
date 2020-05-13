@@ -6,18 +6,25 @@
 - [x] Search and highlight
 - [x] Filter set #1 (sem, exams, grade type, au)
 - [x] Course detail timetable with filter by semester and index
-- [ ] Filter set #2 (programme, minor, ue, pe)
+- [ ] Data last synced date
+- [ ] Filter set #2 (programme, minor, ue, pe, online)
+- [ ] Clear search text button
+- [ ] Expand pagination with page numbers
+- [ ] Contact
+- [ ] Timetable
 - [ ] Rate course
 - [ ] Bookmark course
-- [ ] Timetable
-- [ ] Venues
+- [ ] List venues
+- [ ] Venue detail (map + timetable)
 - [ ] About
-- [ ] Contact
 - [ ] Privacy
 - [ ] Terms & Conditions
 - [ ] Share timetable
-- [ ] Link to Google calendar
+- [ ] Link timetable to Google calendar
 - [ ] Download timetable as pdf/jpg/ics
-- [ ] Analytics
+- [ ] Analytics (e.g. peak hours)
 - [ ] Scrape graduate courses/exams/classes
 - [ ] "New course offered this year/semester" view
+- [ ] Allow users to update Professor/Lecturer for each course, year, and semester
+- [ ] Allow users to add external course site
+- [ ] Report errors in course detail page
