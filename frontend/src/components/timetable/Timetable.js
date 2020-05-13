@@ -15,7 +15,7 @@ export class Timetable extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props.classes)
+        // console.log(this.props.classes)
         this.setState({
             semester: Math.max(...this.props.classes.map(cls => cls.semester))
         })
@@ -35,7 +35,7 @@ export class Timetable extends Component {
                                 .map(cls => parseInt(cls.end_time.slice(0, 2)));
         const min_start_time = Math.min(...start_times)
         const max_end_time = Math.max(...end_times)
-        console.log(min_start_time, max_end_time)
+        // console.log(min_start_time, max_end_time)
         if (min_start_time > 12 && min_start_time !== Infinity) {
             this.setState({
                 time: this.state.all_time.filter(t => parseInt(t.slice(0, 2)) > 12)
@@ -161,17 +161,25 @@ export class Timetable extends Component {
                     <select onChange={this.semesterOnChange} className="form-control form-control-sm select" style={{fontSize: '0.8rem', maxWidth: '130px', display: 'inline', marginRight: '5px', border: '0', backgroundColor: '#f5f5f5', borderRadius: '0', borderBottom: '1px solid #ccc'}}>
                         {
                             this.props.classes
-                                .map(cls => cls.semester)
-                                .filter((v, i, a) => a.indexOf(v) === i)
-                                .map(sem => <option key={sem} value={sem}>{this.getSemesterDisplay(sem)}</option>)
+                            .map(cls => cls.semester)
+                            .sort()
+                            .filter((v, i, a) => a.indexOf(v) === i)
+                            .map(sem => <option key={sem} value={sem}>{this.getSemesterDisplay(sem)}</option>)
                         }
                     </select>
                     <select value={this.state.index} onChange={this.indexOnChange} className="form-control form-control-sm select" style={{fontSize: '0.8rem', maxWidth: '120px', display: 'inline', marginRight: '5px', border: '0', backgroundColor: '#f5f5f5', borderRadius: '0', borderBottom: '1px solid #ccc'}}>
                         <option value="">All indexes</option>
                         {
-                            _.uniqBy(this.props.classes, 'index')
-                                .filter(cls => cls.semester === this.state.semester)
-                                .map(cls => <option key={cls.index} value={cls.index}>{cls.index} - {cls.group}</option>)
+                            _.orderBy(
+                                _.uniqBy(
+                                    _.orderBy(
+                                        _.uniqBy(
+                                            this.props.classes.filter(cls => cls.semester === this.state.semester),
+                                            'group'),
+                                    ['group'], ['desc']),
+                                'index'),
+                            ['index'], ['asc'])
+                            .map(cls => <option key={cls.index} value={cls.index}>{cls.index} - {cls.group}</option>)
                         }
                     </select>
                 </div>
