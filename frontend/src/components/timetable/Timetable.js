@@ -17,7 +17,7 @@ export class Timetable extends Component {
     componentDidMount() {
         // console.log(this.props.classes)
         this.setState({
-            semester: Math.max(...this.props.classes.map(cls => cls.semester))
+            semester: Math.min(...this.props.classes.map(cls => cls.semester))
         })
 
         this.resizeTimetable(Math.max(...this.props.classes.map(cls => cls.semester)))
