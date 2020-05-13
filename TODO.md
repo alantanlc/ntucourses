@@ -1,0 +1,23 @@
+### List of TOODs
+
+- [x] List courses
+- [x] Course detail
+- [x] Disqus comment
+- [x] Search and highlight
+- [x] Filter set #1 (sem, exams, grade type, au)
+- [x] Course detail timetable with filter by semester and index
+- [ ] Filter set #2 (programme, minor, ue, pe)
+- [ ] Rate course
+- [ ] Bookmark course
+- [ ] Timetable
+- [ ] Venues
+- [ ] About
+- [ ] Contact
+- [ ] Privacy
+- [ ] Terms & Conditions
+- [ ] Share timetable
+- [ ] Link to Google calendar
+- [ ] Download timetable as pdf/jpg/ics
+- [ ] Analytics
+- [ ] Scrape graduate courses/exams/classes
+- [ ] "New course offered this year/semester" view

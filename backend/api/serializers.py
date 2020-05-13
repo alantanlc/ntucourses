@@ -19,7 +19,7 @@ class ClassSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         # list_serializer_class = FilteredListSerializer
         model = Class
-        fields = ['class_type', 'group', 'day', 'start_time', 'end_time', 'venue', 'remark', 'year', 'semester']
+        fields = ['index', 'class_type', 'group', 'day', 'start_time', 'end_time', 'venue', 'remark', 'year', 'semester']
 
 class CourseSerializer(serializers.HyperlinkedModelSerializer):
     

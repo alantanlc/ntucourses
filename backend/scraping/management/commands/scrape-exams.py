@@ -12,10 +12,12 @@ class Command(BaseCommand):
     help ="collect exams"
 
     def __init__(self):
-        self.p_plan_nos = [101, 102, 5, 6]
-        self.semesters = ['1', '2', '3', '4']
-        self.plan2semester = {p: s for p, s in zip(self.p_plan_nos, self.semesters)}
-        self.year = 2019
+        self.terms = [
+            { 'year': 2020, 'p_plan_no': 103, 'semester': '1', 'index': 1 },
+            { 'year': 2019, 'p_plan_no': 102, 'semester': '2', 'index': 2 },
+            { 'year': 2019, 'p_plan_no': 5, 'semester': 'S', 'index': 4 },
+            { 'year': 2019, 'p_plan_no': 6, 'semester': 'T', 'index': 5 },
+        ]
 
     # Define logic of command
     def handle(self, *args, **options):
@@ -31,7 +33,7 @@ class Command(BaseCommand):
             'p_matric': '',
             'academic_session': '',
             'p_plan_no': '',
-            'p_exam_yr': '2019',
+            'p_exam_yr': '',
             'p_semester': '',
             'p_type': 'UE',
             'bOption': 'Next',
@@ -44,10 +46,12 @@ class Command(BaseCommand):
         exam_statistics = {}
 
         # Extract exams for each semester
-        for p_plan_no in self.p_plan_nos:
+        for term in self.terms:
             # Modify p_plan_no in values
-            values['p_plan_no'] = p_plan_no
-
+            values['p_plan_no'] = term['p_plan_no']
+            values['p_exam_yr'] = term['year']
+            values['p_semester'] = term['semester']
+            
             # Encode values and construct request
             data = urllib.parse.urlencode(values)
             data = data.encode('ascii') # data should be bytes
@@ -67,10 +71,14 @@ class Command(BaseCommand):
                 print('%d exams found' % num_of_exams)
 
                 # Initialize count of exams saved for this sem
-                exam_statistics[p_plan_no] = {}
-                exam_statistics[p_plan_no]['saved'] = 0
-                exam_statistics[p_plan_no]['missed'] = 0
-                exam_statistics[p_plan_no]['total'] = num_of_exams
+                exam_statistics[term['p_plan_no']] = {}
+                exam_statistics[term['p_plan_no']]['saved'] = 0
+                exam_statistics[term['p_plan_no']]['missed'] = 0
+                exam_statistics[term['p_plan_no']]['total'] = num_of_exams
+
+                # Delete all exams in current semester
+                if(num_of_exams != 0):
+                    Exam.objects.filter(semester=term['index']).delete()
 
                 # Extract exam content
                 for i in range(num_of_exams):
@@ -90,8 +98,8 @@ class Command(BaseCommand):
                         # Save in db
                         Exam.objects.update_or_create(
                             course_code_id=course_code,
-                            semester=self.plan2semester[p_plan_no],
-                            year=self.year,
+                            semester=term['index'],
+                            year=term['year'],
                             defaults={
                                 'date': date,
                                 'day': day,
@@ -100,12 +108,12 @@ class Command(BaseCommand):
                             }
                         )
 
-                        exam_statistics[p_plan_no]['saved'] += 1
+                        exam_statistics[term['p_plan_no']]['saved'] += 1
                         print('%s added' % course_code)
                     except:
                         e = sys.exc_info()
-                        print('Failed to extract or save exam %d' % (i,))
-                        exam_statistics[p_plan_no]['missed'] += 1
+                        print('Failed to extract or save exam %s due to %s' % (course_code, sys.exc_info()[0],))
+                        exam_statistics[term['p_plan_no']]['missed'] += 1
 
         print(exam_statistics)
         print('job complete')

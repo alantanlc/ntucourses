@@ -93,6 +93,7 @@ class Class(BaseModel):
     )
 
     # Fields
+    index = models.CharField(max_length=6, blank=True)
     class_type = models.CharField(max_length=3, choices=CLASS_TYPE, blank=True)
     group = models.CharField(max_length=6, blank=True)
     day = models.CharField(max_length=3, choices=Day.DAY, blank=True)
@@ -100,21 +101,20 @@ class Class(BaseModel):
     end_time = models.TimeField(null=True, blank=True)
     venue = models.CharField(max_length=20, blank=True)
     remark = models.CharField(max_length=100, blank=True)
-
     course_code = models.ForeignKey(Course, related_name='classes', on_delete=models.CASCADE)
     year = models.PositiveIntegerField(validators=[MinValueValidator(2019), MaxValueValidator(9999)])
     semester = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(4)])
 
     # Metadata
     class Meta:
-        ordering = ['course_code', '-year', '-semester', 'day', 'start_time', 'group']
+        ordering = ['course_code', '-year', '-semester', 'index', 'class_type', 'group', 'day', 'start_time', 'end_time']
         constraints = [
-            models.UniqueConstraint(fields=['class_type', 'group', 'day', 'start_time', 'end_time', 'venue', 'remark', 'course_code', 'year', 'semester'], name='unique_class')
+            models.UniqueConstraint(fields=['index', 'class_type', 'group', 'day', 'start_time', 'end_time', 'venue', 'remark', 'course_code', 'year', 'semester'], name='unique_class')
         ]
 
     # Methods
     def __str__(self):
-        return f'{self.class_type}, {self.group}, {self.day}, {self.start_time}, {self.end_time}, {self.venue}, {self.remark}, {self.course_code}, {self.year}, {self.semester}'
+        return f'{self.index}, {self.class_type}, {self.group}, {self.day}, {self.start_time}, {self.end_time}, {self.venue}, {self.remark}, {self.course_code}, {self.year}, {self.semester}'
 
 class Exam(BaseModel):
 

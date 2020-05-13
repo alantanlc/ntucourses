@@ -15,12 +15,12 @@ class Command(BaseCommand):
     help = "collect classes"
 
     def __init__(self):
-        self.semesters = ['1', '2', 'S', 'T']
-        self.semester2index = {}
-        self.semester2index['1'] = 1
-        self.semester2index['2'] = 2
-        self.semester2index['S'] = 4
-        self.semester2index['T'] = 5
+        self.terms = [
+            { 'year': 2020, 'semester': '1', 'index': 1 },
+            { 'year': 2019, 'semester': '2', 'index': 2 },
+            { 'year': 2019, 'semester': 'S', 'index': 4 },
+            { 'year': 2019, 'semester': 'T', 'index': 5 }
+        ]
 
     def get_datetime(self, time_string):
         start_time, end_time = '', ''
@@ -53,10 +53,9 @@ class Command(BaseCommand):
         class_statistics = {}
 
         # Extract classes for each semester
-        year = '2019'
-        for sem in ['1', '2', 'S', 'T']:
+        for term in self.terms:
             # Modify semester in values
-            values['acadsem'] = ';'.join([year, sem])
+            values['acadsem'] = ';'.join([str(term['year']), term['semester']])
 
             # Encode values and construct request
             data = urllib.parse.urlencode(values)
@@ -80,16 +79,20 @@ class Command(BaseCommand):
                 print('%d courses found' % num_of_courses)
 
                 # Initialize count of courses saved for this semester
-                course_statistics[sem] = {}
-                course_statistics[sem]['saved'] = 0
-                course_statistics[sem]['missed'] = 0
-                course_statistics[sem]['total'] = num_of_courses
+                course_statistics[term['semester']] = {}
+                course_statistics[term['semester']]['saved'] = 0
+                course_statistics[term['semester']]['missed'] = 0
+                course_statistics[term['semester']]['total'] = num_of_courses
 
                 # Initialize count of classes saved for this semester
-                class_statistics[sem] = {}
-                class_statistics[sem]['saved'] = 0
-                class_statistics[sem]['missed'] = 0
-                class_statistics[sem]['total'] = 0
+                class_statistics[term['semester']] = {}
+                class_statistics[term['semester']]['saved'] = 0
+                class_statistics[term['semester']]['missed'] = 0
+                class_statistics[term['semester']]['total'] = 0
+
+                # Delete all classes in current semester
+                if(num_of_courses != 0):
+                    Class.objects.filter(semester=term['index']).delete()
 
                 # Extract course content
                 for i, index in enumerate(course_start_indices):
@@ -102,7 +105,7 @@ class Command(BaseCommand):
                     print('Scrapping classes for %s' % course_code)
 
                     # Extract classes from course
-                    previous_index = 0
+                    previous_index = ''
                     for j, text in enumerate(course_texts[1:]):
                         try:
                             class_texts = [t.strip() for t in text.split('\n')]
@@ -121,14 +124,15 @@ class Command(BaseCommand):
 
                             # Construct class object
                             c = Class(
+                                index=index,
                                 class_type=class_type,
                                 group=group,
                                 day=day,
                                 venue=venue,
                                 remark=remark,
                                 course_code_id=course_code,
-                                year=int(year),
-                                semester=self.semester2index[sem],
+                                year=term['year'],
+                                semester=term['index'],
                             )
 
                             # Set time if exists
@@ -139,22 +143,22 @@ class Command(BaseCommand):
                             # Save class to database
                             c.save()
 
-                            class_statistics[sem]['saved'] += 1
+                            class_statistics[term['semester']]['saved'] += 1
                             print('  %s added' % (c.__str__(),))
                         except IntegrityError:
                             # IntegrityError happens when unique row already exists in database
                             pass
                         except ValidationError:
-                            print('ValidationError')
-                            class_statistics[sem]['missed'] += 1
+                            print('ValidationError %d due to %s' % (j, sys.exc_info()[0],))
+                            class_statistics[term['semester']]['missed'] += 1
                         except:
                             print('Failed to extract or save class %d due to %s' % (j, sys.exc_info()[0],))
-                            class_statistics[sem]['missed'] += 1
+                            class_statistics[term['semester']]['missed'] += 1
 
                         # Update class statistics total
-                        class_statistics[sem]['total'] += 1
+                        class_statistics[term['semester']]['total'] += 1
 
-                    course_statistics[sem]['saved'] += 1
+                    course_statistics[term['semester']]['saved'] += 1
         
         print(course_statistics)
         print(class_statistics)

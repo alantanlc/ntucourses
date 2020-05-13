@@ -9,7 +9,7 @@
             "type": "python",
             "request": "launch",
             "program": "${workspaceFolder}/manage.py",
-            "args": ["scrape-exams"],
+            "args": ["scrape-courses"],
             "console": "integratedTerminal"
         }
     ]

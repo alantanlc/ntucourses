@@ -19,7 +19,12 @@ class Command(BaseCommand):
         self.keywords['na_pe'] = 'Not available as PE to Programme:'
         self.keywords['na_ue'] = 'Not available as UE to Programme:'
         self.keywords['grade'] = 'Grade Type:'
-        self.semesters = ['1', '2', 'S', 'T']
+        self.terms = [
+            { 'year': 2020, 'semester': '1', 'index': 1 },
+            { 'year': 2019, 'semester': '2', 'index': 2 },
+            { 'year': 2019, 'semester': 'S', 'index': 4 },
+            { 'year': 2019, 'semester': 'T', 'index': 5 },
+        ]
 
     def get_prerequisite_text(self, course_texts):
         prereq_texts = []
@@ -43,7 +48,7 @@ class Command(BaseCommand):
         values = {
             'acadsem': '',
             'boption': 'Search',
-            'acad': '2019',
+            'acad': '',
             'semester': '',
         }
         headers = {
@@ -53,10 +58,11 @@ class Command(BaseCommand):
         # Log number of courses found, saved, and missed for each semester
         course_statistics = {}
 
-        # Extract courses for each semester
-        for sem in self.semesters:
-            # Modify semester in values
-            values['semester'] = sem
+        # Extract courses for each term
+        for term in self.terms:
+            # Modify year and semester in values
+            values['acad'] = term['year']
+            values['semester'] = term['semester']
 
             # Encode values and construct request
             data = urllib.parse.urlencode(values)
@@ -77,10 +83,10 @@ class Command(BaseCommand):
                 print('%d courses found' % num_of_courses)
 
                 # Initialize count of courses saved for this semester
-                course_statistics[sem] = {}
-                course_statistics[sem]['saved'] = 0
-                course_statistics[sem]['missed'] = 0
-                course_statistics[sem]['total'] = num_of_courses
+                course_statistics[term['semester']] = {}
+                course_statistics[term['semester']]['saved'] = 0
+                course_statistics[term['semester']]['missed'] = 0
+                course_statistics[term['semester']]['total'] = num_of_courses
 
                 # Extract course content
                 for i, index in enumerate(course_start_indices):
@@ -121,11 +127,12 @@ class Command(BaseCommand):
                             }
                         )
                         
-                        course_statistics[sem]['saved'] += 1
+                        course_statistics[term['semester']]['saved'] += 1
                         print('%s added' % course_code)
                     except:
-                        print('Failed to extract or save course %d' % (i,))
-                        course_statistics[sem]['missed'] += 1
+                        e = sys.exc_info()
+                        print('Failed to extract or save course %d due to %s' % (i, sys.exc_info()[0],))
+                        course_statistics[term['semester']]['missed'] += 1
 
         print(course_statistics)
         print('job complete')
