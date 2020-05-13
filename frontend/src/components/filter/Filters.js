@@ -63,7 +63,7 @@ export class Filters extends Component {
                             <a href="https://github.com/alanwuha/ntucourses" className="nav-link" target="blank">
                                 <li>GitHub</li>
                             </a>
-                            <a href="https://ntu-courses.df.r.appspot.com/" className="nav-link" target="blank">
+                            <a href="http://api.ntucourses.com/" className="nav-link" target="blank">
                                 <li>API</li>
                             </a>
                             {/* <Link to="contact" className="nav-link">
