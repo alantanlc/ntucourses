@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import * as uuid from 'uuid'
+import _ from 'lodash';
 
 export class Timetable extends Component {
     constructor(props) {
@@ -9,7 +10,7 @@ export class Timetable extends Component {
             time: ['0800','0900','1000','1100','1200','1300','1400','1500','1600','1700','1800','1900','2000','2100','2200'],
             day: ['MON', 'TUE', 'WED', 'THU', 'FRI'],
             semester: "",
-            group: "",
+            index: "",
         }
     }
 
@@ -62,12 +63,14 @@ export class Timetable extends Component {
         return result;
     }
 
-    renderClasses = (day, time, semester, group) => {
+    renderClasses = (day, time, semester, index) => {
         let result;
+
         if(this.props.classes) {
-            result = this.props.classes
+            if(index) {
+                result = this.props.classes
                 .filter(cls => cls.start_time && cls.end_time && cls.day)
-                .filter(cls => { if(group) { return cls.group === group} else { return cls }})
+                .filter(cls => { if(index) { return cls.index === index} else { return cls }})
                 .filter(cls => cls.semester === semester)
                 .filter(cls => cls.day === day)
                 .filter(cls => cls.start_time.slice(0, 2) === time.slice(0, 2))
@@ -81,11 +84,30 @@ export class Timetable extends Component {
                     const btnStyle = {marginLeft: marginLeft, marginTop: marginTop, width: width}
                     return <button key={uuid.v4()} type="button" className="btn btn-dark btn-block btn-sm" style={btnStyle}>{cls.class_type} [{cls.group}]<br/>{cls.venue}<br/>{cls.remark}</button>
                 });
+            } else {
+                result = _.uniqBy(this.props.classes, cls => [cls.group, cls.venue, cls.remark, cls.day, cls.start_time, cls.end_time].join())
+                .filter(cls => cls.start_time && cls.end_time && cls.day)
+                .filter(cls => { if(index) { return cls.index === index} else { return cls }})
+                .filter(cls => cls.semester === semester)
+                .filter(cls => cls.day === day)
+                .filter(cls => cls.start_time.slice(0, 2) === time.slice(0, 2))
+                .map(cls => {
+                    const start = new Date('1970-01-01 ' + cls.start_time)
+                    const end = new Date('1970-01-01 ' + cls.end_time)
+                    const duration = (end.getTime() - start.getTime()) / (1000 * 60 * 60)
+                    const marginLeft = (cls.start_time.split(':')[1] === "30") ? "50%" : "0";
+                    const marginTop = this.getMarginTop(day, start, cls.semester)
+                    const width = (104.99 * duration).toString() + 'px';
+                    const btnStyle = {marginLeft: marginLeft, marginTop: marginTop, width: width}
+                    return <button key={uuid.v4()} type="button" className="btn btn-dark btn-block btn-sm" style={btnStyle}>{cls.class_type} [{cls.group}]<br/>{cls.venue}<br/>{cls.remark}</button>
+                });
+            }
         }
+
         return result;
     }
 
-    renderTimetable = (semester, group) => {
+    renderTimetable = (semester, index) => {
         let result;
         result = this.state.day.map(day => {
             return (
@@ -94,7 +116,7 @@ export class Timetable extends Component {
                     {
                         this.state.time.map(time => {
                             return <td key={time}>
-                                {this.renderClasses(day, time, semester, group)}
+                                {this.renderClasses(day, time, semester, index)}
                             </td>
                         })
                     }
@@ -107,15 +129,15 @@ export class Timetable extends Component {
     semesterOnChange = (e) => {       
         this.setState({
             semester: parseInt(e.target.value),
-            group: ''
+            index: ''
         })
 
         this.resizeTimetable(parseInt(e.target.value))
     }
 
-    groupOnChange = (e) => {
+    indexOnChange = (e) => {
         this.setState({
-            group: e.target.value
+            index: e.target.value
         })
     }
 
@@ -144,14 +166,12 @@ export class Timetable extends Component {
                                 .map(sem => <option key={sem} value={sem}>{this.getSemesterDisplay(sem)}</option>)
                         }
                     </select>
-                    <select value={this.state.group} onChange={this.groupOnChange} className="form-control form-control-sm select" style={{fontSize: '0.8rem', maxWidth: '120px', display: 'inline', marginRight: '5px'}}>
-                        <option value="">All groups</option>
+                    <select value={this.state.index} onChange={this.indexOnChange} className="form-control form-control-sm select" style={{fontSize: '0.8rem', maxWidth: '120px', display: 'inline', marginRight: '5px'}}>
+                        <option value="">All indexes</option>
                         {
-                            this.props.classes
+                            _.uniqBy(this.props.classes, 'index')
                                 .filter(cls => cls.semester === this.state.semester)
-                                .map(cls => cls.group)
-                                .filter((v, i, a) => a.indexOf(v) === i)
-                                .map(group => <option key={group} value={group}>{group}</option>)
+                                .map(cls => <option key={cls.index} value={cls.index}>{cls.index} - {cls.group}</option>)
                         }
                     </select>
                 </div>
@@ -177,7 +197,7 @@ export class Timetable extends Component {
                             </tr>
                             </thead>
                         <tbody>
-                            { this.renderTimetable(this.state.semester, this.state.group) }
+                            { this.renderTimetable(this.state.semester, this.state.index) }
                         </tbody>
                     </table>
                 </div>
