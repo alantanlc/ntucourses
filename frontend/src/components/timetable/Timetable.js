@@ -143,11 +143,11 @@ export class Timetable extends Component {
 
     getSemesterDisplay = (sem) => {
         if (sem <= 3) {
-            return 'Sem ' + sem
+            return 'Semester ' + sem
         } else if(sem === 4) {
-            return 'Special Term 1'
+            return 'Special Term I'
         } else if(sem === 5) {
-            return 'Special Term 2'
+            return 'Special Term II'
         } else {
             return ''
         }

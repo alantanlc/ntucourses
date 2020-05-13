@@ -17,11 +17,11 @@ export class Courses extends Component {
         },
         keyword: '',
         semesters: [
-            {id: 1, display: 'Semester 1', value: 1, isChecked: false},
-            {id: 2, display: 'Semester 2', value: 2, isChecked: false},
+            {id: 1, display: 'Semester 1', acadSem: 'AY 20/21', value: 1, isChecked: false},
+            {id: 2, display: 'Semester 2', acadSem: 'AY 19/20', value: 2, isChecked: false},
             // {id: 3, display: 'Semester 3', value: 3, isChecked: false},
-            {id: 4, display: 'Special Term 1', value: 4, isChecked: false},
-            {id: 5, display: 'Special Term 2', value: 5, isChecked: false}
+            {id: 4, display: 'Special Term I', acadSem: 'AY 19/20', value: 4, isChecked: false},
+            {id: 5, display: 'Special Term II', acadSem: 'AY 19/20', value: 5, isChecked: false}
         ],
         no_exam: [
             {id: 1, display: 'No Exam', value: 'true', isChecked: false},
