@@ -158,7 +158,7 @@ export class Timetable extends Component {
         if (this.props.type === "timetable") {
             result = (
                 <div className="form-group">
-                    <select onChange={this.semesterOnChange} className="form-control form-control-sm select" style={{fontSize: '0.8rem', maxWidth: '130px', display: 'inline', marginRight: '5px'}}>
+                    <select onChange={this.semesterOnChange} className="form-control form-control-sm select" style={{fontSize: '0.8rem', maxWidth: '130px', display: 'inline', marginRight: '5px', border: '0', backgroundColor: '#f5f5f5', borderRadius: '0', borderBottom: '1px solid #ccc'}}>
                         {
                             this.props.classes
                                 .map(cls => cls.semester)
@@ -166,7 +166,7 @@ export class Timetable extends Component {
                                 .map(sem => <option key={sem} value={sem}>{this.getSemesterDisplay(sem)}</option>)
                         }
                     </select>
-                    <select value={this.state.index} onChange={this.indexOnChange} className="form-control form-control-sm select" style={{fontSize: '0.8rem', maxWidth: '120px', display: 'inline', marginRight: '5px'}}>
+                    <select value={this.state.index} onChange={this.indexOnChange} className="form-control form-control-sm select" style={{fontSize: '0.8rem', maxWidth: '120px', display: 'inline', marginRight: '5px', border: '0', backgroundColor: '#f5f5f5', borderRadius: '0', borderBottom: '1px solid #ccc'}}>
                         <option value="">All indexes</option>
                         {
                             _.uniqBy(this.props.classes, 'index')
