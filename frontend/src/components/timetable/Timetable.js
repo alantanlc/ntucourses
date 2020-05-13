@@ -20,7 +20,7 @@ export class Timetable extends Component {
             semester: Math.min(...this.props.classes.map(cls => cls.semester))
         })
 
-        this.resizeTimetable(Math.max(...this.props.classes.map(cls => cls.semester)))
+        this.resizeTimetable(Math.min(...this.props.classes.map(cls => cls.semester)))
     }
 
     resizeTimetable = (semester) => {
