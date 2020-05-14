@@ -9,13 +9,18 @@
 - [ ] Data last synced date
 - [ ] Filter set #2 (programme, minor, ue, pe, online)
 - [ ] Clear search text button
+- [x] Create DEV environment (a new ntucourse-dev App Engine application on GCloud and spin up cloud sql, frontend dev on Netlify)
+- [ ] Update frontend api url based on environment variable
+- [ ] Update django DEBUG config based on environment variable
 - [ ] Expand pagination with page numbers
 - [ ] Contact
 - [ ] Timetable
 - [ ] Rate course
 - [ ] Bookmark course
 - [ ] List venues
+- [ ] Link class to venue
 - [ ] Venue detail (map + timetable)
+- [ ] Venue to 'Class Venue' mapping
 - [ ] About
 - [ ] Privacy
 - [ ] Terms & Conditions
@@ -28,3 +33,5 @@
 - [ ] Allow users to update Professor/Lecturer for each course, year, and semester
 - [ ] Allow users to add external course site
 - [ ] Report errors in course detail page
+- [ ] Scraper API + CRON jobs
+- [ ] Elastic Search with Django
