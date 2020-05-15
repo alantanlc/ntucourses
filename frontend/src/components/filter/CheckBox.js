@@ -2,7 +2,11 @@ import React from 'react'
 
 function getAcadSem(acadSem) {
     if (acadSem) {
-        return <small>{acadSem}</small>
+        if (acadSem === 'AY 20/21') {
+            return <small style={{backgroundColor: 'lightgreen', padding: '3px'}}>{acadSem}</small>
+        } else {
+            return <small>{acadSem}</small>
+        }
     }
     return ''
 }
