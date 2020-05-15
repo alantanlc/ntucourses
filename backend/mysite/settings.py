@@ -11,10 +11,10 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
 import environ
 import google.auth
 from google.cloud import secretmanager_v1beta1 as sm
+import logging
 
 # Import settings with django-environ
 env = environ.Env()
@@ -33,7 +33,6 @@ if not os.path.isfile('.env'):
         with open(env_file, "w") as f:
             f.write(payload)
 
-env = environ.Env()
 env.read_env(env_file)
 
 # Pull values from environment
@@ -41,8 +40,6 @@ DATABASE_HOST = env('DATABASE_HOST')
 DATABASE_NAME = env('DATABASE_NAME')
 DATABASE_USER = env('DATABASE_USER')
 DATABASE_PASSWORD = env('DATABASE_PASSWORD')
-
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = int(env('DEBUG'))
 
 # Quick-start development settings - unsuitable for production
@@ -118,30 +115,17 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 if os.getenv('GAE_APPLICATION', None):
-    if (DEBUG):
-        # Running on development App Engine application, so connect to Google Cloud SQL using
-        # the unix socket at /cloudsql/<your-cloudsql-connection string>
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql',
-                'HOST': DATABASE_HOST,
-                'NAME': DATABASE_NAME,
-                'USER': DATABASE_USER,
-                'PASSWORD': DATABASE_PASSWORD,
-            }
+    # Running on App Engine, so connect to Google Cloud SQL using
+    # the unix socket at /cloudsql/<your-cloudsql-connection string>
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'HOST': DATABASE_HOST,
+            'NAME': DATABASE_NAME,
+            'USER': DATABASE_USER,
+            'PASSWORD': DATABASE_PASSWORD,
         }
-    else:
-        # Running on production App Engine application, so connect to Google Cloud SQL using
-        # the unix socket at /cloudsql/<your-cloudsql-connection string>
-        DATABASES = {
-            'default': {
-                'ENGINE': 'django.db.backends.postgresql',
-                'HOST': DATABASE_HOST,
-                'NAME': DATABASE_NAME,
-                'USER': DATABASE_USER,
-                'PASSWORD': DATABASE_PASSWORD,
-            }
-        }
+    }
 else:
     # Running locally so connect to either a local PostgreSQL instance or connect to
     # Cloud SQL via the proxy. To start the proxy via command line:

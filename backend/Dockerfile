@@ -1,4 +1,4 @@
-# USe an official lightweight Python image.
+# Use an official lightweight Python image.
 # https://hub.docker.com/_/python
 FROM python:3.7
 
@@ -12,7 +12,7 @@ ADD . /app
 RUN pip install -r requirements.txt
 
 # Collect static files
-# RUN echo yes | ./manage.py collectstatic
+RUN echo yes | ./manage.py collectstatic
 
 # Migrate database
 # RUN echo yes | ./manage.py migrate
