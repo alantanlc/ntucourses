@@ -19,7 +19,7 @@ __pycache__/
 /setup.cfg
 
 # Others
-cloud_sql_proxy
-models.drawio
-.env
-static
+backend/cloud_sql_proxy
+backend/models.drawio
+backend/.env
+backend/static
