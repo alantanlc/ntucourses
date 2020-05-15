@@ -15,7 +15,6 @@ RUN pip install -r requirements.txt
 CMD exec python manage.py collectstatic --no-input
 
 # Migrate database
-CMD exec python manage.py makemigrations --no-input
 CMD exec python manage.py migrate --no-input
 
 # Service must listen to $PORT environment variable.

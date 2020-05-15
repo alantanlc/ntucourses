@@ -17,9 +17,3 @@
 __pycache__/
 # Ignored by the build system
 /setup.cfg
-
-# Others
-backend/cloud_sql_proxy
-backend/models.drawio
-backend/.env
-backend/static

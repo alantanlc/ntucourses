@@ -41,7 +41,6 @@ class Course(BaseModel):
     not_available_as_pe_to_programme = models.TextField(blank=True)
     not_available_as_ue_to_programme = models.TextField(blank=True)
     grade_type = models.BooleanField(default=False)
-    unrestricted_elective = models.BooleanField(default=False)
 
     # Metadata
     class Meta:
