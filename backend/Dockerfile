@@ -12,10 +12,10 @@ ADD . /app
 RUN pip install -r requirements.txt
 
 # Collect static files
-RUN echo yes | ./manage.py collectstatic
+# RUN echo yes | ./manage.py collectstatic
 
 # Migrate database
-RUN echo yes | ./manage.py migrate
+# RUN echo yes | ./manage.py migrate
 
 # Service must listen to $PORT environment variable.
 # This default value facilitates local development.
@@ -25,4 +25,6 @@ ENV PORT 8080
 # webserver, with one work process and 8 threads.
 # For environments with multiple CPU cores, increase the number of workers
 # to be equal to the cores available.
+CMD exec python manage.py collectstatic --no-input
+CMD exec python manage.py migrate --no-input
 CMD exec gunicorn --bind 0.0.0.0:$PORT --workers 1 --threads 8 --timeout 0 mysite.wsgi:application
