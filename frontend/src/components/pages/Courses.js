@@ -131,7 +131,7 @@ export class Courses extends Component {
         this.setState({
             is_loading: true
         })
-        axios.get(`https://ntu-courses.df.r.appspot.com/courses/${this.props.location.search}`)
+        axios.get(`https://api.ntucourses.com/courses/${this.props.location.search}`)
             .then(res => {
                 // console.log(res.data)
                 this.setState({

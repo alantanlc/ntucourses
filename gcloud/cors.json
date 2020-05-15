@@ -1,0 +1,8 @@
+[
+  {
+    "origin": ["https://ntucourses.com", "http://localhost:3000"],
+    "responseHeader": ["Content-Type"],
+    "method": ["GET"],
+    "maxAgeSeconds": 3600
+  }
+]
