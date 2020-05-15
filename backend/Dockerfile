@@ -15,7 +15,7 @@ RUN pip install -r requirements.txt
 RUN echo yes | ./manage.py collectstatic
 
 # Migrate database
-# RUN echo yes | ./manage.py migrate
+RUN echo yes | ./manage.py migrate
 
 # Service must listen to $PORT environment variable.
 # This default value facilitates local development.
