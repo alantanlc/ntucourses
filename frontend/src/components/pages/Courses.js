@@ -305,6 +305,17 @@ export class Courses extends Component {
         window.scrollTo(0, 0)
     }
 
+    clearInput = (e) => {
+        e.preventDefault();
+
+        let query = queryString.parse(this.props.location.search, {arrayFormat: 'comma'})
+        delete query.search
+
+        this.props.history.replace({
+            search: queryString.stringify(query, {arrayFormat: 'comma', skipNull: true})
+        })
+    }
+
     render() {
         return (
             <div className="container-lg">
@@ -322,7 +333,7 @@ export class Courses extends Component {
                             academic_units={this.state.academic_units} />
                     </div>
                     <div className="col">
-                        <SearchCourse search={this.search} keyword={this.state.keyword} />
+                        <SearchCourse search={this.search} clearInput={this.clearInput} keyword={this.state.keyword} />
                         <br />
                         { this.renderLoading() }
                         <p>{this.state.data.count} results found</p>

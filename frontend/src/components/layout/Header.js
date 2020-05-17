@@ -6,9 +6,10 @@ function Header() {
     return (
         <header style={headerStyle}>
             <div className="container-lg d-flex">
-                <Link to="/">
+                <Link to="/" className="mx-auto">
                     <img src="../../../ntumods_logo.svg" width="30px" />
                 </Link>
+                {/* <Nav /> */}
             </div>
         </header>
     )

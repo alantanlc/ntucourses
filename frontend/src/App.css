@@ -140,16 +140,17 @@ tbody th {
     font-size: 0.7rem;
 }
 
-.menu {
-    margin-top: 10px;
+.menu li.nav-item {
+    margin-left: 30px;
 }
 
 .menu a.nav-link {
-    color: #fff;
+    color: #eee;
     font-weight: 600;
+    padding: 0;
 }
 
 .menu a.active {
     color: #fff;
-    border-bottom:  3px solid #fff;
+    /* border-bottom:  3px solid #fff; */
 }

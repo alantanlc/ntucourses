@@ -3,16 +3,16 @@ import {Link} from 'react-router-dom'
 
 export default function Nav() {
     return (
-        <ul class="menu nav">
-            <li class="nav-item">
-                <Link class="nav-link" to="/courses">Courses</Link>
+        <ul className="menu nav ml-auto" style={{alignItems: 'center'}}>
+            <li className="nav-item">
+                <Link className="nav-link active" to="/courses">Courses</Link>
             </li>
-            <li class="nav-item">
-                <Link class="nav-link" to="/timetable">Timetable</Link>
+            {/* <li className="nav-item">
+                <Link className="nav-link" to="/timetable">Timetable</Link>
             </li>
-            <li class="nav-item">
-                <Link class="nav-link" to="/venues">Venues</Link>
-            </li>
+            <li className="nav-item">
+                <Link className="nav-link" to="/venues">Venues</Link>
+            </li> */}
         </ul>
     )
 }
