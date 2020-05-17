@@ -133,7 +133,6 @@ export class Courses extends Component {
         })
         axios.get(`https://api.ntucourses.com/courses/${this.props.location.search}`)
             .then(res => {
-                console.log(res)
                 this.setState({
                     data: res.data,
                     is_loading: false
@@ -310,6 +309,10 @@ export class Courses extends Component {
 
         let query = queryString.parse(this.props.location.search, {arrayFormat: 'comma'})
         delete query.search
+
+        this.setState({
+            keyword: ''
+        })
 
         this.props.history.replace({
             search: queryString.stringify(query, {arrayFormat: 'comma', skipNull: true})
