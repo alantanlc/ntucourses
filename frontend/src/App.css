@@ -139,3 +139,17 @@ tbody th {
     padding: 3px 5px;
     font-size: 0.7rem;
 }
+
+.menu {
+    margin-top: 10px;
+}
+
+.menu a.nav-link {
+    color: #fff;
+    font-weight: 600;
+}
+
+.menu a.active {
+    color: #fff;
+    border-bottom:  3px solid #fff;
+}
