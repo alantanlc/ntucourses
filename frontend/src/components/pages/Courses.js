@@ -133,7 +133,7 @@ export class Courses extends Component {
         })
         axios.get(`https://api.ntucourses.com/courses/${this.props.location.search}`)
             .then(res => {
-                // console.log(res.data)
+                console.log(res)
                 this.setState({
                     data: res.data,
                     is_loading: false

@@ -17,7 +17,7 @@ export class CourseDetail extends Component {
     }
 
     componentDidMount() {
-        axios.get(`https://api.ntucourses.com/courses/${this.props.match.params.course_code}`)
+        axios.get(`https://api.ntucourses.com/courses/${this.props.match.params.course_code}/`) // need to include a forward slash at the end to avoid double api call
             .then(res => {
                 // console.log(res.data);
                 this.setState({
