@@ -50,6 +50,39 @@ class Course(BaseModel):
     def __str__(self):
         return f'{self.course_code}, {self.title}'
 
+class Programme(BaseModel):
+
+    # Fields
+    programme_code = models.CharField(max_length=50, primary_key=True)
+    description = models.CharField(max_length=200)
+
+    # Metadata
+    class Meta:
+        ordering = ['programme_code', 'description']
+
+    # Methods
+    def __str__(self):
+        return f'{self.programme_code}, {self.description}'
+
+class ProgrammeCourse(BaseModel):
+
+    # Fields
+    programme_code = models.ForeignKey(Programme, related_name='Programme', on_delete=models.CASCADE)
+    course_code = models.ForeignKey(Course, related_name='Course', on_delete=models.CASCADE)
+    year = models.PositiveIntegerField(validators=[MinValueValidator(2019), MaxValueValidator(9999)])
+    semester = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(4)])
+
+    # Metadata
+    class Meta:
+        ordering = ['programme_code', 'course_code', '-year', '-semester']
+        constraints = [
+            models.UniqueConstraint(fields=['programme_code', 'course_code', 'year', 'semester'], name='unique_programme_course')
+        ]
+
+    # Methods
+    def __str__(self):
+        return f'{self.programme_code}, {self.course_code}'
+
 class Venue(BaseModel):
 
     # Choices

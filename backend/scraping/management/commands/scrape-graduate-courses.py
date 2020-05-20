@@ -59,21 +59,7 @@ class Command(BaseCommand):
 
     # Define logic of command
     def handle(self, *args, **options):
-
-        # url = 'https://wish.wis.ntu.edu.sg/pls/webexe/pgr$subrs_web.examTimetable'
-        # values = {
-        #     'choiceProg': '',
-        #     'choiceSubj': '',
-        #     'choiceSort': '',
-        #     'bOption': 'Next',
-        #     'p1': '',
-        #     'p2': '',
-        #     'sid': '',
-        #     'acadYear': 2019,
-        #     'acadTerm': 2,
-        #     'prdType': 'SEMESTER',
-        # }
-
+        
         # Extract courses for each semester
         for sem in self.semesters:
             # Modify semester in values
