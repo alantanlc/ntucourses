@@ -1,4 +1,4 @@
-from scraping.models import Course, Venue, Class, Exam
+from scraping.models import Course, Venue, Class, Exam, Programme
 from rest_framework import serializers
 
 class FilteredListSerializer(serializers.ListSerializer):
@@ -67,3 +67,9 @@ class CourseDetailSerializer(serializers.HyperlinkedModelSerializer):
             'exams', 
             'classes',
         ]
+
+class ProgrammeSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = Programme
+        fields = ['programme_code', 'description', 'programme_type']

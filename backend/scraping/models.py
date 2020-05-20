@@ -52,9 +52,20 @@ class Course(BaseModel):
 
 class Programme(BaseModel):
 
+    # Choices
+    PROGRAMME_TYPE = (
+        ('SD', 'Single Degree'),
+        ('DD', 'Double Degree'),
+        ('MI', 'Minor'),
+        ('GE', 'General Education'),
+        ('SP', 'Scholars'),
+        ('UE', 'Unrestricted Electives'),
+    )
+
     # Fields
-    programme_code = models.CharField(max_length=50, primary_key=True)
+    programme_code = models.CharField(max_length=20, primary_key=True)
     description = models.CharField(max_length=200)
+    programme_type = models.CharField(max_length=2, choices=PROGRAMME_TYPE, blank=True)
 
     # Metadata
     class Meta:

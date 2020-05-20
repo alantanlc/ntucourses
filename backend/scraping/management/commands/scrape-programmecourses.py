@@ -23,6 +23,20 @@ class Command(BaseCommand):
             { 'year': 2019, 'semester': 'T', 'index': 5 },
         ]
 
+        # Programme types
+        self.programme_types = {
+            'SD': 'SD',
+            'DD': 'DD',
+            'MLOAD': 'MI',
+            'GERP': 'GE',
+            'CNY': 'SP',
+            'USP': 'SP',
+            'GLOAD': 'UE'
+        }
+
+        # Double degree index
+        self.double_degree_index = 0
+
         # Course statistics
         self.mapping_statistics = {}
 
@@ -49,6 +63,14 @@ class Command(BaseCommand):
             'acad': '',
             'semester': '',
         }
+
+    def get_programme_type(self, programme_code, index):
+        if programme_code.split('-')[0] in self.programme_types:
+            return self.programme_types[programme_code.split('-')[0]]
+        elif self.double_degree_index == 0 or index < self.double_degree_index:
+            return self.programme_types['SD']
+        else:
+            return self.programme_types['DD']
         
     def get_programme_codes(self, year, sem):
         # Modify semester in values
@@ -72,6 +94,10 @@ class Command(BaseCommand):
 
             # Get all programme codes
             codes = [[programme.attrs['value'].replace(';', '-'), programme.next.strip()] for programme in programmes if programme.attrs['value']]
+
+            # Update self.double_degree_index
+            self.double_degree_index = next(i for i, code in enumerate(codes) if code[0][:4] == 'ACBS')
+
         return codes
 
     # Define logic of command
@@ -93,7 +119,7 @@ class Command(BaseCommand):
             self.mapping_statistics[term['semester']]['total'] = 0
 
             # Extract courses for each programme
-            for code in programme_codes:
+            for i, code in enumerate(programme_codes):
                 # Modify code in course_url_values
                 self.course_url_values['r_course_yr'] = code[0].replace('-', ';')
 
@@ -102,7 +128,8 @@ class Command(BaseCommand):
                     Programme.objects.update_or_create(
                         programme_code=code[0],
                         defaults={
-                            'description': code[1]
+                            'description': code[1],
+                            'programme_type': self.get_programme_type(code[0], i)
                         }
                     )
                     print('Programme %s added' % (code[0]))

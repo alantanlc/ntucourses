@@ -1,6 +1,6 @@
-from scraping.models import Course, Venue, Class, Exam
-from api.serializers import CourseSerializer, CourseDetailSerializer, ExamSerializer, ClassSerializer
-from rest_framework import viewsets
+from scraping.models import Course, Venue, Class, Exam, Programme
+from api.serializers import CourseSerializer, CourseDetailSerializer, ExamSerializer, ClassSerializer, ProgrammeSerializer
+from rest_framework import viewsets, pagination
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
@@ -87,7 +87,34 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
 
 class ExamViewSet(viewsets.ReadOnlyModelViewSet):
     """
-    API endpoint that allows courses to be viewed or edited.
+    API endpoint for listing or retrieving exams.
     """
     queryset = Exam.objects.all().order_by('-year', '-semester', 'date', 'time', 'course_code')
     serializer_class = ExamSerializer
+
+class ProgrammeViewSet(viewsets.ReadOnlyModelViewSet):
+    """
+    API endpoint for listing or retrieving programmes.
+    """
+    queryset = Programme.objects.all()
+    serializer_class = ProgrammeSerializer
+
+    # Programme list
+    def list(self, request):
+        # Get queryset
+        queryset = self.get_queryset()
+
+        # Programme type filter
+        if 'type' in request.query_params.keys():
+            programme_type = request.query_params['type'].upper()
+            queryset = queryset.filter(programme_type=programme_type)
+
+        # Paginate result
+        pagination.PageNumberPagination.page_size = len(queryset)
+        page = self.paginate_queryset(queryset)
+        if page is not None:
+            serializer = self.get_serializer(page, many=True)
+            return self.get_paginated_response(serializer.data)
+
+        serializer = self.get_serializer(page, many=True)
+        return Response(serializer.data)

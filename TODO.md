@@ -8,10 +8,10 @@
 - [x] Course detail timetable with filter by semester and index
 - [ ] Data last synced date
 - [ ] Filter set #2 (programme, minor, ue, pe, online)
-- [ ] Clear search text button
+- [x] Clear search text button
 - [x] Create DEV environment (a new ntucourse-dev App Engine application on GCloud and spin up cloud sql, frontend dev on Netlify)
 - [ ] Update frontend api url based on environment variable
-- [ ] Update django DEBUG config based on environment variable
+- [x] Update django DEBUG config based on environment variable
 - [ ] Expand pagination with page numbers
 - [ ] Contact
 - [ ] Timetable
