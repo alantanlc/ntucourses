@@ -146,7 +146,7 @@ class Command(BaseCommand):
                             pass
                         except ValidationError:
                             print('ValidationError %s %s %s %s due to %s' % (code[0], course, term['year'], term['semester'], sys.exc_info()[0],))
-                            class_statistics[term['semester']]['missed'] += 1
+                            self.mapping_statistics[term['semester']]['missed'] += 1
                         except:
                             print('Failed to extract or save mapping %s %s %s %s due to %s' % (code[0], course, term['year'], term['semester'], sys.exc_info()[0],))
                             self.mapping_statistics[term['semester']]['missed'] += 1
