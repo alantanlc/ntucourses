@@ -67,8 +67,8 @@ class Programme(BaseModel):
 class ProgrammeCourse(BaseModel):
 
     # Fields
-    programme_code = models.ForeignKey(Programme, related_name='Programme', on_delete=models.CASCADE)
-    course_code = models.ForeignKey(Course, related_name='Course', on_delete=models.CASCADE)
+    programme_code = models.ForeignKey(Programme, on_delete=models.CASCADE)
+    course_code = models.ForeignKey(Course, related_name='programmes', on_delete=models.CASCADE)
     year = models.PositiveIntegerField(validators=[MinValueValidator(2019), MaxValueValidator(9999)])
     semester = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(4)])
 
