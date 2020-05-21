@@ -61,9 +61,9 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
                 queryset = queryset.filter(exams__isnull=no_exam)
         
         # Programmes filter
-        # if 'prog' in request.query_params.keys():
-        #     programme = [p for p in request.query_params['prog'].split(',') if p]
-        #     queryset = queryset.filter(programmes__programme_code__in=programme).distinct('course_code')
+        if 'prog' in request.query_params.keys():
+            programme = [p for p in request.query_params['prog'].split(',') if p]
+            queryset = queryset.filter(programmes__programme_code__in=programme).distinct('course_code')
 
         # Order by course code
         queryset = queryset.order_by('course_code')
