@@ -386,7 +386,7 @@ export class Courses extends Component {
         if(this.state.is_loading) {
             result = (
                 <div className="d-flex align-items-center">
-                    <strong>Wait ah...</strong>
+                    <strong>Wait ah...</strong>&nbsp;<i>Performance usually gets better after 2-3 API calls...</i>
                     <div className="spinner-border ml-auto" role="status" aria-hidden="true"></div>
                 </div>
             )
