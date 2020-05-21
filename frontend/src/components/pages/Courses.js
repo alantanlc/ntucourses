@@ -186,8 +186,7 @@ export class Courses extends Component {
         this.setState({
             is_loading: true
         })
-        return axios.get(`http://localhost:8000/courses/${this.props.location.search}`)
-        // return axios.get(`https://ntu-courses-cloudrun-l25eysxcaq-de.a.run.app/courses/${this.props.location.search}`)
+        return axios.get(`https://ntu-courses-cloudrun-l25eysxcaq-de.a.run.app/courses/${this.props.location.search}`)
     }
 
     getProgrammes() {
