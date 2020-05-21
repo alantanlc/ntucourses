@@ -442,7 +442,7 @@ export class Courses extends Component {
     render() {
         return (
             <div className="container-lg">
-                <div className="row" style={{marginTop: '20px'}}>
+                <div className="row" style={{marginTop: '20px', marginBottom: '40px'}}>
                     <div className="col-md-3 collapse d-md-block hide stick-md-top" id="filters" style={{backgroundColor: '#f5f6fa'}}>
                         <Filters
                         results={this.state.data.count}
@@ -472,7 +472,7 @@ export class Courses extends Component {
                                 <Pagination hasNext={this.state.data.next} hasPrevious={this.state.data.previous} goToTop={this.goToT} goToPrevious={this.goToPrevious} goToNext={this.goToNext} />
                             </div>
                             <div className="ml-auto">
-                                <button data-toggle="tooltip" title="And stay there!" onClick={this.goToTop} type="button" className="page-link" style={topBtnStyle}>The only way is up!</button>
+                                <button data-toggle="tooltip" title="Go to top" onClick={this.goToTop} type="button" className="page-link" style={topBtnStyle}>The only way is up!</button>
                             </div>
                         </div>
                     </div>
@@ -485,13 +485,12 @@ export class Courses extends Component {
 
 const filterBtnStyle = {
     position: 'fixed',
-    bottom: '20px',
-    right: '20px',
+    bottom: '15px',
+    right: '15px',
     width: '80px',
-    height: '40px',
+    height: '35px',
     zIndex: '99999',
     fontWeight: '600',
-    borderRadius: '0',
     backgroundColor: '#243a81',
     color: '#eee',
     border: 0,
@@ -500,13 +499,12 @@ const filterBtnStyle = {
 
 const filterLoadingBtnStyle = {
     position: 'fixed',
-    bottom: '20px',
-    right: '20px',
+    bottom: '15px',
+    right: '15px',
     width: '120px',
-    height: '40px',
+    height: '35px',
     zIndex: '99999',
     fontWeight: '600',
-    borderRadius: '0',
     backgroundColor: '#243a81',
     color: '#eee',
     border: 0,
