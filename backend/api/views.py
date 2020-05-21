@@ -110,7 +110,7 @@ class ProgrammeViewSet(viewsets.ReadOnlyModelViewSet):
             queryset = queryset.filter(programme_type=programme_type)
 
         # Paginate result
-        pagination.PageNumberPagination.page_size = len(queryset)
+        # pagination.PageNumberPagination.page_size = len(queryset)
         page = self.paginate_queryset(queryset)
         if page is not None:
             serializer = self.get_serializer(page, many=True)
