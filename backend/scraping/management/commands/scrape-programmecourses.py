@@ -96,7 +96,7 @@ class Command(BaseCommand):
             codes = [[programme.attrs['value'].replace(';', '-'), programme.next.strip()] for programme in programmes if programme.attrs['value']]
 
             # Update self.double_degree_index
-            self.double_degree_index = next(i for i, code in enumerate(codes) if code[0][:4] == 'ACBS')
+            self.double_degree_index = next((i for i, code in enumerate(codes) if code[0][:4] == 'ACBS'), 0)
 
         return codes
 

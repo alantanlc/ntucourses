@@ -65,7 +65,7 @@ class Programme(BaseModel):
     # Fields
     programme_code = models.CharField(max_length=20, primary_key=True)
     description = models.CharField(max_length=200)
-    programme_type = models.CharField(max_length=2, choices=PROGRAMME_TYPE, blank=True)
+    programme_type = models.CharField(max_length=2, choices=PROGRAMME_TYPE)
 
     # Metadata
     class Meta:
