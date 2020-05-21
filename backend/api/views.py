@@ -109,12 +109,5 @@ class ProgrammeViewSet(viewsets.ReadOnlyModelViewSet):
             programme_type = request.query_params['type'].upper()
             queryset = queryset.filter(programme_type=programme_type)
 
-        # Paginate result
-        # pagination.PageNumberPagination.page_size = len(queryset)
-        page = self.paginate_queryset(queryset)
-        if page is not None:
-            serializer = self.get_serializer(page, many=True)
-            return self.get_paginated_response(serializer.data)
-
-        serializer = self.get_serializer(page, many=True)
+        serializer = ProgrammeSerializer(queryset, many=True)
         return Response(serializer.data)
