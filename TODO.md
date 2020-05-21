@@ -35,3 +35,5 @@
 - [ ] Report errors in course detail page
 - [ ] Scraper API + CRON jobs
 - [ ] Elastic Search with Django
+- [ ] Serve gunicorn using nginx
+- [ ] Include django migrations in automated build pipeline
