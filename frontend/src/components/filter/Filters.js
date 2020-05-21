@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import ProgrammeFilter from './ProgrammeFilter';
 import CheckBox from './CheckBox';
 
-export class Filters extends Component {    
+export class Filters extends Component {
     render() {
         return (
             <div className="filter">
 
                 <div className="course-filters__header">
                     <span>Filters</span>
+                    <span className="d-md-none">{this.props.results} results found</span>
                     <button onClick={this.props.clearFilters}>Clear all</button>
                 </div>
 
@@ -38,6 +40,7 @@ export class Filters extends Component {
                         }
                     </div>
                     <div className="course-filter">
+                        <button onClick={this.props.clearAuFilter} style={clearBtnStyle}>Clear</button>
                         <h4>Academic Units</h4>
                         {
                             this.props.academic_units.map((academic_units) => {
@@ -45,19 +48,15 @@ export class Filters extends Component {
                             })
                         }
                     </div>
-
-                    {/* <div className="course-filter">
+                    <div className="course-filter">
+                        <button onClick={this.props.clearProgrammeFilter} style={clearBtnStyle}>Clear</button>
                         <h4>Programme</h4>
-                        <select className="form-control form-control-sm">
-                            <option></option>
-                            <option>Accountancy</option>
-                            <option>Business</option>
-                            <option>Computer Science</option>
-                        </select>
-                    </div> */}
+                        <ProgrammeFilter programmes={this.props.programmes} filter={this.props.filterProgrammes} />
+                    </div>
                 </div>
 
                 <div className="job-filters__footer">
+                    <p>© NTUCourses 2020</p>
                     <nav>
                         <ul>
                             <a href="https://github.com/alanwuha/ntucourses" className="nav-link" target="blank">
@@ -77,7 +76,6 @@ export class Filters extends Component {
                             </Link> */}
                         </ul>
                     </nav>
-                    <p>© NTUCourses 2020</p>
                     <small>Data last synced on 8-MAY-2020 FRI 09:00:00</small>
                 </div>
 
@@ -86,13 +84,14 @@ export class Filters extends Component {
     }
 }
 
-const scrollCheckBoxStyle = {
-    height: '135px',
-    backgroundColor: '#fff',
-    border: 'thin solid #ced4da',
-    borderRadius: '.2rem',
-    padding: '.25rem .5rem',
-    overflow: 'auto'
+const clearBtnStyle = {
+    color: '#4d83f3',
+    fontWeight: 600,
+    fontSize: '0.8rem',
+    backgroundColor: 'transparent',
+    border: 0,
+    padding: 0,
+    float: 'right',
 }
 
 export default Filters

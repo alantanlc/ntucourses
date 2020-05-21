@@ -41,7 +41,9 @@ export class Courses extends Component {
             {id: 9, display: '8', value: 8, isChecked: false},
             {id: 10, display: '12', value: 12, isChecked: false},
         ],
-        programmes: []
+        programmes: [
+            {id: 1, display: '0', value: 0, type: 0, isChecked: false},
+        ]
     }
 
     componentDidMount() {
@@ -53,7 +55,9 @@ export class Courses extends Component {
             this.setState({
                 is_loading: false,
                 data: res[0].data,
-                programmes: res[1].data
+                programmes: res[1].data.map(p => {
+                    return { id: p.programme_code, display: p.description, value: p.programme_code, type: p.programme_type, isChecked: false }
+                })
             })
         })
 
@@ -122,6 +126,20 @@ export class Courses extends Component {
             })
         }
 
+        // Programmes
+        let newProgrammes = [...this.state.programmes]
+        if(values.prog) {
+            if(!Array.isArray(values.prog)) {
+                values.prog = [values.prog]
+            }
+            values.prog.forEach((programme) => {
+                const index = newProgrammes.findIndex(p => p.value === programme)
+                if(index >= 0) {
+                    newProgrammes[index] = {...newProgrammes[index], isChecked: true}
+                }
+            })
+        }
+
         // Update state
         this.setState({
             keyword: keyword,
@@ -129,6 +147,7 @@ export class Courses extends Component {
             no_exam: newNoExam,
             pass_fail: newPassFail,
             academic_units: newAcademicUnits,
+            programmes: newProgrammes,
         })
     }
 
@@ -186,12 +205,17 @@ export class Courses extends Component {
         let newAcademicUnits = [...this.state.academic_units]
         newAcademicUnits.forEach(academic_unit => academic_unit.isChecked = false)
 
+        // Academic Units
+        let newProgrammes = [...this.state.programmes]
+        newProgrammes.forEach(programme => programme.isChecked = false)
+
         // Update state
         this.setState({
             semesters: newSemesters,
             no_exam: newNoExam,
             pass_fail: newPassFail,
-            academic_units: newAcademicUnits
+            academic_units: newAcademicUnits,
+            programmes: newProgrammes,
         })
         
         let query = queryString.parse(this.props.location.search, {arrayFormat: 'comma'})
@@ -199,7 +223,32 @@ export class Courses extends Component {
         delete query.no_exam
         delete query.pass_fail
         delete query.au
+        delete query.prog
         delete query.page
+
+        this.props.history.replace({
+            search: queryString.stringify(query, {arrayFormat: 'comma', skipNull: true})
+        })
+    }
+
+    clearProgrammeFilter = (e) => {
+        let newProgrammes = [...this.state.programmes]
+        newProgrammes.forEach(p => p.isChecked = false)
+
+        let query = queryString.parse(this.props.location.search, {arrayFormat: 'comma'})
+        delete query.prog
+
+        this.props.history.replace({
+            search: queryString.stringify(query, {arrayFormat: 'comma', skipNull: true})
+        })
+    }
+
+    clearAuFilter = (e) => {
+        let newAu = [...this.state.academic_units]
+        newAu.forEach(au => au.isChecked = false)
+
+        let query = queryString.parse(this.props.location.search, {arrayFormat: 'comma'})
+        delete query.au
 
         this.props.history.replace({
             search: queryString.stringify(query, {arrayFormat: 'comma', skipNull: true})
@@ -278,6 +327,24 @@ export class Courses extends Component {
         })
     }
 
+    filterProgrammes = (e) => {
+        const index = this.state.programmes.findIndex(p => p.value === e.target.value)
+        let newProgrammes = [...this.state.programmes]
+        newProgrammes[index] = {...newProgrammes[index], isChecked: !newProgrammes[index].isChecked}
+
+        this.setState({
+            programmes: newProgrammes
+        })
+
+        let query = queryString.parse(this.props.location.search, {arrayFormat: 'comma'})
+        query.prog = newProgrammes.filter(prog => prog.isChecked).map(prog => prog.value)
+        delete query.page
+
+        this.props.history.replace({
+            search: queryString.stringify(query, {arrayFormat: 'comma', skipNull: true})
+        })
+    }
+
     goToPrevious = (e) => {
         e.preventDefault();
         this.props.history.replace({
@@ -306,7 +373,7 @@ export class Courses extends Component {
         if(this.state.is_loading) {
             result = (
                 <div className="d-flex align-items-center">
-                    <strong>Loading...</strong>
+                    <strong>Wait ah...</strong>
                     <div className="spinner-border ml-auto" role="status" aria-hidden="true"></div>
                 </div>
             )
@@ -334,21 +401,30 @@ export class Courses extends Component {
         })
     }
 
+    getFilterText = () => {
+        return (this.state.is_loading) ? 'Wait ah!' : 'Filters';
+    }
+
     render() {
         return (
             <div className="container-lg">
                 <div className="row" style={{marginTop: '20px'}}>
-                    <div className="col-3 d-none d-md-block">
+                    <div className="col-md-3 collapse d-md-block hide stick-md-top" id="filters" style={{backgroundColor: '#f5f6fa'}}>
                         <Filters
-                            clearFilters={this.clearFilters}
-                            filterSemesters={this.filterSemesters}
-                            filterNoExam={this.filterNoExam}
-                            filterPassFail={this.filterPassFail}
-                            filterAcademicUnits={this.filterAcademicUnits}
-                            semesters={this.state.semesters}
-                            no_exam={this.state.no_exam}
-                            pass_fail={this.state.pass_fail}
-                            academic_units={this.state.academic_units} />
+                        results={this.state.data.count}
+                        clearFilters={this.clearFilters}
+                        clearAuFilter={this.clearAuFilter}
+                        clearProgrammeFilter={this.clearProgrammeFilter}
+                        filterSemesters={this.filterSemesters}
+                        filterNoExam={this.filterNoExam}
+                        filterPassFail={this.filterPassFail}
+                        filterAcademicUnits={this.filterAcademicUnits}
+                        filterProgrammes={this.filterProgrammes}
+                        semesters={this.state.semesters}
+                        no_exam={this.state.no_exam}
+                        pass_fail={this.state.pass_fail}
+                        academic_units={this.state.academic_units}
+                        programmes={this.state.programmes} />
                     </div>
                     <div className="col">
                         <SearchCourse search={this.search} clearInput={this.clearInput} keyword={this.state.keyword} />
@@ -365,10 +441,36 @@ export class Courses extends Component {
                             </div>
                         </div>
                     </div>
-                </div> 
+                </div>
+                <button style={filterBtnStyle} className="btn btn-sm btn-primary d-md-none" type="button" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters" onClick={this.goToTop}>
+                    {this.getFilterText()}
+                </button>
+                
             </div>
         )
     }
+}
+
+const filterBtnStyle = {
+    position: 'fixed',
+    bottom: '20px',
+    right: '20px',
+    width: '80px',
+    height: '40px',
+    zIndex: '99999',
+    fontWeight: '600',
+    borderRadius: '0',
+    backgroundColor: '#243a81',
+    color: '#eee',
+    border: 0,
+    borderBottom: '3px solid #007fff'
+}
+
+const spinnerStyle = {
+    position: 'relative',
+    top: '-50px',
+    left: 0,
+    zIndex: '99999',
 }
 
 export default Courses;

@@ -43,7 +43,7 @@ export class CourseDetail extends Component {
         if(this.state.is_loading) {
             result = (
                 <div className="d-flex align-items-center">
-                    <strong>Loading...</strong>
+                    <strong>Wait ah...</strong>
                     <div className="spinner-border ml-auto" role="status" aria-hidden="true"></div>
                 </div>
             )
@@ -74,7 +74,7 @@ export class CourseDetail extends Component {
         return (
             <div className="container-lg">
                 <div style={{textDecoration: 'none', textAlign: 'center', marginTop: '10px', marginBottom: '10px'}}>
-                    <button type="button" className="btn btn-sm btn-link" onClick={this.props.history.goBack}>« Back to All Courses</button>
+                    <button type="button" style={backBtnStyle} className="btn btn-sm btn-link" onClick={this.props.history.goBack}>« Back to All Courses</button>
                 </div>
                 { this.renderLoading() }
                 <div style={courseDetailStyle}>
@@ -131,6 +131,10 @@ const btnStyle = {
     borderRadius: '5px',
     fontSize: '0.9rem',
     marginTop: '10px'
+}
+
+const backBtnStyle = {
+    color: '#243a81',
 }
 
 export default CourseDetail;
