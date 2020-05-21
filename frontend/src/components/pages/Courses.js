@@ -60,7 +60,24 @@ export class Courses extends Component {
                 is_loading: false,
                 data: res[0].data,
                 programmes: res[1].data.map(p => {
-                    return { id: p.programme_code, display: p.description, value: p.programme_code, tooltip: p.programme_code, type: p.programme_type, isChecked: false }
+
+                    let values = queryString.parse(this.props.location.search, {arrayFormat: 'comma', parseNumbers: true})
+                    if(values.prog) {
+                        if(!Array.isArray(values.prog)) {
+                            values.prog = [values.prog]
+                        }
+                    } else {
+                        values.prog = []
+                    }
+
+                    return { 
+                        id: p.programme_code,
+                        display: p.description,
+                        value: p.programme_code,
+                        tooltip: p.programme_code,
+                        type: p.programme_type,
+                        isChecked: values.prog.findIndex(code => code === p.programme_code) >= 0
+                    }
                 })
             })
         })
