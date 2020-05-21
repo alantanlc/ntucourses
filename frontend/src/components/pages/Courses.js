@@ -27,6 +27,9 @@ export class Courses extends Component {
         no_exam: [
             {id: 1, display: 'No Exam', value: 'true', tooltip: 'Yay, no need to mug!', isChecked: false},
         ],
+        online: [
+            {id: 1, display: 'Online', value: 'true', tooltip: 'No need to travel to Pulau NTU!', isChecked: false},
+        ],
         pass_fail: [
             {id: 1, display: 'Pass / Fail', value: 'true', tooltip: 'Still waiting for the day when we can opt for S/U AFTER knowing our grades >:(', isChecked: false}
         ],
@@ -99,6 +102,20 @@ export class Courses extends Component {
             })
         }
 
+        // Online
+        let newOnline = [...this.state.online]
+        if(values.online) {
+            if(!Array.isArray(values.online)) {
+                values.online = [values.online]
+            }
+            values.online.forEach((online) => {
+                const index = newOnline.findIndex(e => e.value === online)
+                if(index >= 0) {
+                    newOnline[index] = {...newOnline[index], isChecked: true}
+                }
+            })
+        }
+
         // Pass Fail
         let newPassFail = [...this.state.pass_fail]
         if(values.pass_fail) {
@@ -146,6 +163,7 @@ export class Courses extends Component {
             keyword: keyword,
             semesters: newSemesters,
             no_exam: newNoExam,
+            online: newOnline,
             pass_fail: newPassFail,
             academic_units: newAcademicUnits,
             programmes: newProgrammes,
@@ -168,7 +186,8 @@ export class Courses extends Component {
         this.setState({
             is_loading: true
         })
-        return axios.get(`https://ntu-courses-cloudrun-l25eysxcaq-de.a.run.app/courses/${this.props.location.search}`)
+        return axios.get(`http://localhost:8000/courses/${this.props.location.search}`)
+        // return axios.get(`https://ntu-courses-cloudrun-l25eysxcaq-de.a.run.app/courses/${this.props.location.search}`)
     }
 
     getProgrammes() {
@@ -204,6 +223,10 @@ export class Courses extends Component {
         let newNoExam = [...this.state.no_exam]
         newNoExam.forEach(no_exam => no_exam.isChecked = false)
 
+        // Online
+        let newOnline = [...this.state.online]
+        newOnline.forEach(online => online.isChecked = false)
+
         // Pass Fail
         let newPassFail = [...this.state.pass_fail]
         newPassFail.forEach(pass_fail => pass_fail.isChecked = false)
@@ -220,6 +243,7 @@ export class Courses extends Component {
         this.setState({
             semesters: newSemesters,
             no_exam: newNoExam,
+            online: newOnline,
             pass_fail: newPassFail,
             academic_units: newAcademicUnits,
             programmes: newProgrammes,
@@ -228,6 +252,7 @@ export class Courses extends Component {
         let query = queryString.parse(this.props.location.search, {arrayFormat: 'comma'})
         delete query.sem
         delete query.no_exam
+        delete query.online
         delete query.pass_fail
         delete query.au
         delete query.prog
@@ -291,6 +316,24 @@ export class Courses extends Component {
 
         let query = queryString.parse(this.props.location.search, {arrayFormat: 'comma'})
         query.no_exam = newNoExam.filter(no_exam => no_exam.isChecked).map(no_exam => no_exam.value)
+        delete query.page
+
+        this.props.history.replace({
+            search: queryString.stringify(query, {arrayFormat: 'comma', skipNull: true})
+        })
+    }
+
+    filterOnline = (e) => {
+        const index = this.state.online.findIndex(online => online.value === e.target.value)
+        let newOnline = [...this.state.online]
+        newOnline[index] = {...newOnline[index], isChecked: !newOnline[index].isChecked}
+
+        this.setState({
+            online: newOnline,
+        })
+
+        let query = queryString.parse(this.props.location.search, {arrayFormat: 'comma'})
+        query.online = newOnline.filter(online => online.isChecked).map(online => online.value)
         delete query.page
 
         this.props.history.replace({
@@ -451,11 +494,13 @@ export class Courses extends Component {
                         clearProgrammeFilter={this.clearProgrammeFilter}
                         filterSemesters={this.filterSemesters}
                         filterNoExam={this.filterNoExam}
+                        filterOnline={this.filterOnline}
                         filterPassFail={this.filterPassFail}
                         filterAcademicUnits={this.filterAcademicUnits}
                         filterProgrammes={this.filterProgrammes}
                         semesters={this.state.semesters}
                         no_exam={this.state.no_exam}
+                        online={this.state.online}
                         pass_fail={this.state.pass_fail}
                         academic_units={this.state.academic_units}
                         programmes={this.getFilteredProgrammes()}

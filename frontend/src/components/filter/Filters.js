@@ -24,12 +24,24 @@ export class Filters extends Component {
                         }
                     </div>
                     <div className="course-filter">
-                        <h4 data-toggle="tooltip" title="Sigh, the bane of our existence.">Exams</h4>
-                        {
-                            this.props.no_exam.map((no_exam) => {
-                                return <CheckBox key={no_exam.id} filter={this.props.filterNoExam} {...no_exam} /> 
-                            })
-                        }
+                        <div className="d-flex">
+                        <div className="flex mr-5">
+                                <h4 data-toggle="tooltip" title="Sigh, the bane of our existence.">Exams</h4>
+                                {
+                                    this.props.no_exam.map((no_exam) => {
+                                        return <CheckBox key={no_exam.id} filter={this.props.filterNoExam} {...no_exam} /> 
+                                    })
+                                }
+                            </div>
+                            <div className="flex">
+                                <h4 data-toggle="tooltip" title="Yay technology~">Online</h4>
+                                {
+                                    this.props.online.map((online) => {
+                                        return <CheckBox key={online.id} filter={this.props.filterOnline} {...online} />
+                                    })
+                                }
+                            </div>
+                        </div>
                     </div>
                     <div className="course-filter">
                         <h4 data-toggle="tooltip" title="There's no such thing as a free lunch in the world">Grade Type</h4>

@@ -59,6 +59,20 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
                     queryset = queryset.filter(exams__semester__in=sem)
             else:
                 queryset = queryset.filter(exams__isnull=no_exam)
+
+        # Online filter
+        if 'online' in request.query_params.keys():
+            online = True if request.query_params['online'].lower() == 'true' else False
+            queryset = queryset.filter(
+                Q(description__icontains='online course') |
+                Q(description__icontains='online learning') |
+                Q(description__icontains='online discussion') |
+                Q(description__icontains='online lecture') |
+                Q(description__icontains='online assignment') |
+                # Q(description__icontains=' e-learning') |
+                Q(classes__remark__icontains='online') |
+                Q(classes__venue__icontains='online')
+            ).distinct('course_code')
         
         # Programmes filter
         if 'prog' in request.query_params.keys():
