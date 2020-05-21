@@ -2,7 +2,6 @@ import React from 'react'
 import CheckBox from './CheckBox'
 
 export default function CourseFilter(props) {
-    console.log(props)
     return (
         <div className="course-filter">
             <h4>{props.filter.heading}</h4>

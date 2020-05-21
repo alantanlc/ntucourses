@@ -5,11 +5,11 @@ function Pagination(props) {
     let previous;
 
     if(props.hasPrevious) {
-        previous = <li className="page-item"><button onClick={props.goToPrevious} type="button" className="page-link">Previous</button></li>
+        previous = <li className="page-item"><button onClick={props.goToPrevious} type="button" className="page-link" style={btnStyle}>If I could turn <span style={blueTextStyle}>back</span> time</button></li>
     }
 
     if(props.hasNext) {
-        next = <li className="page-item"><button onClick={props.goToNext} type="button" className="page-link">Next</button></li>
+        next = <li className="page-item"><button onClick={props.goToNext} type="button" className="page-link" style={btnStyle}>Thank you, <span style={blueTextStyle}>next</span></button></li>
     }
 
     return (
@@ -20,6 +20,17 @@ function Pagination(props) {
             </ul>
         </nav>
     )
+}
+
+const btnStyle = {
+    backgroundColor: '#fff',
+    color: '#aaa',
+    fontWeight: '600',
+    borderBottom: '3px solid #007fff',
+}
+
+const blueTextStyle = {
+    color: '#243a81'
 }
 
 export default Pagination;

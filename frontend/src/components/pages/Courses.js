@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Profiler } from 'react';
 
 import axios from 'axios';
 import queryString from 'query-string';
@@ -16,33 +16,34 @@ export class Courses extends Component {
             results: []
         },
         keyword: '',
+        progKeyword: '',
         semesters: [
-            {id: 1, display: 'Semester 1', acadSem: 'AY 20/21', value: 1, isChecked: false},
-            {id: 2, display: 'Semester 2', acadSem: 'AY 19/20', value: 2, isChecked: false},
-            // {id: 3, display: 'Semester 3', value: 3, isChecked: false},
-            {id: 4, display: 'Special Term I', acadSem: 'AY 19/20', value: 4, isChecked: false},
-            {id: 5, display: 'Special Term II', acadSem: 'AY 19/20', value: 5, isChecked: false}
+            {id: 1, display: 'Semester 1', acadSem: 'AY 20/21', value: 1, tooltip: 'Start of something new!', isChecked: false},
+            {id: 2, display: 'Semester 2', acadSem: 'AY 19/20', value: 2, tooltip: 'Hang in there!', isChecked: false},
+            // {id: 3, display: 'Semester 3', value: 3, tooltip: '', isChecked: false},
+            {id: 4, display: 'Special Term I', acadSem: 'AY 19/20', value: 4, tooltip: 'Why holiday also want to chiong?', isChecked: false},
+            {id: 5, display: 'Special Term II', acadSem: 'AY 19/20', value: 5, tooltip: 'Remember to take a break okay!', isChecked: false}
         ],
         no_exam: [
-            {id: 1, display: 'No Exam', value: 'true', isChecked: false},
+            {id: 1, display: 'No Exam', value: 'true', tooltip: 'Yay, no need to mug!', isChecked: false},
         ],
         pass_fail: [
-            {id: 1, display: 'Pass / Fail', value: 'true', isChecked: false}
+            {id: 1, display: 'Pass / Fail', value: 'true', tooltip: 'Still waiting for the day when we can opt for S/U AFTER knowing our grades >:(', isChecked: false}
         ],
         academic_units: [
-            {id: 1, display: '0', value: 0, isChecked: false},
-            {id: 2, display: '1', value: 1, isChecked: false},
-            // {id: 3, display: '1.5', value: 1.5, isChecked: false},
-            {id: 4, display: '2', value: 2, isChecked: false},
-            {id: 5, display: '3', value: 3, isChecked: false},
-            {id: 6, display: '4', value: 4, isChecked: false},
-            {id: 7, display: '5', value: 5, isChecked: false},
-            {id: 8, display: '6', value: 6, isChecked: false},
-            {id: 9, display: '8', value: 8, isChecked: false},
-            {id: 10, display: '12', value: 12, isChecked: false},
+            {id: 1, display: '0', value: 0, tooltip: '', tooltip: 'Why you waste my time?', isChecked: false},
+            {id: 2, display: '1', value: 1, tooltip: 'Quite boliao hor?', isChecked: false},
+            // {id: 3, display: '1.5', value: 1.5, tooltip: '', isChecked: false},
+            {id: 4, display: '2', value: 2, tooltip: 'Still not enough!!', isChecked: false},
+            {id: 5, display: '3', value: 3, tooltip: 'Okay, finally we\'re talking!', isChecked: false},
+            {id: 6, display: '4', value: 4, tooltip: 'Starting to feel shag...', isChecked: false},
+            {id: 7, display: '5', value: 5, tooltip: 'Unfortunately, most of us can\'t take these...', isChecked: false},
+            {id: 8, display: '6', value: 6, tooltip: 'Specially for TCM students (oh, and REP)', isChecked: false},
+            {id: 9, display: '8', value: 8, tooltip: 'Lai liao, that one big final one', isChecked: false},
+            {id: 10, display: '12', value: 12, tooltip: 'Woohoo, seems fun!', isChecked: false},
         ],
         programmes: [
-            {id: 1, display: '0', value: 0, type: 0, isChecked: false},
+            {id: 1, display: '', value: '', tooltip: '', type: '', isChecked: false},
         ]
     }
 
@@ -56,7 +57,7 @@ export class Courses extends Component {
                 is_loading: false,
                 data: res[0].data,
                 programmes: res[1].data.map(p => {
-                    return { id: p.programme_code, display: p.description, value: p.programme_code, type: p.programme_type, isChecked: false }
+                    return { id: p.programme_code, display: p.description, value: p.programme_code, tooltip: p.programme_code, type: p.programme_type, isChecked: false }
                 })
             })
         })
@@ -186,6 +187,12 @@ export class Courses extends Component {
         this.props.history.replace({
             search: queryString.stringify(query, {arrayFormat: 'comma', skipNull: true})
         });
+    }
+
+    searchProgramme = (keyword) => {
+        this.setState({
+            progKeyword: keyword
+        })
     }
 
     clearFilters = (e) => {
@@ -363,7 +370,13 @@ export class Courses extends Component {
 
     getParams = (link) => {
         if(link) {
-            link = link.split('?')[1].replace(/%2C/g, ',')
+            let linkSplit = link.split('?')
+
+            if (linkSplit.length > 1) {
+                link = linkSplit[1].replace(/%2C/g, ',')
+            } else {
+                link = null
+            }
         }
         return link
     }
@@ -401,8 +414,29 @@ export class Courses extends Component {
         })
     }
 
-    getFilterText = () => {
-        return (this.state.is_loading) ? 'Wait ah!' : 'Filters';
+    getFilterButton = () => {
+        if(this.state.is_loading) {
+            return (
+                <button style={filterLoadingBtnStyle} className="btn btn-sm btn-primary d-md-none" type="button" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters" onClick={this.goToTop}>
+                    <span className="spinner-border spinner-border-sm" role="status" aria-hidden="true" style={{marginRight: '10px'}}></span>
+                    Wait ah
+                </button>
+            )
+        } else {
+            return (
+                <button style={filterBtnStyle} className="btn btn-sm btn-primary d-md-none" type="button" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters" onClick={this.goToTop}>
+                    Filters
+                </button>
+            )
+        }
+    }
+
+    getFilteredProgrammes = () => {
+        let keyword = this.state.progKeyword.toLowerCase()
+        let programmes = [...this.state.programmes]
+            .filter(p => p.value.toLowerCase().includes(keyword)
+                || p.display.toLowerCase().includes(keyword))
+        return programmes
     }
 
     render() {
@@ -424,7 +458,8 @@ export class Courses extends Component {
                         no_exam={this.state.no_exam}
                         pass_fail={this.state.pass_fail}
                         academic_units={this.state.academic_units}
-                        programmes={this.state.programmes} />
+                        programmes={this.getFilteredProgrammes()}
+                        searchProgramme={this.searchProgramme} />
                     </div>
                     <div className="col">
                         <SearchCourse search={this.search} clearInput={this.clearInput} keyword={this.state.keyword} />
@@ -437,15 +472,12 @@ export class Courses extends Component {
                                 <Pagination hasNext={this.state.data.next} hasPrevious={this.state.data.previous} goToTop={this.goToT} goToPrevious={this.goToPrevious} goToNext={this.goToNext} />
                             </div>
                             <div className="ml-auto">
-                                <button onClick={this.goToTop} type="button" className="page-link">Back to top</button>
+                                <button data-toggle="tooltip" title="And stay there!" onClick={this.goToTop} type="button" className="page-link" style={topBtnStyle}>The only way is up!</button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button style={filterBtnStyle} className="btn btn-sm btn-primary d-md-none" type="button" data-toggle="collapse" data-target="#filters" aria-expanded="false" aria-controls="filters" onClick={this.goToTop}>
-                    {this.getFilterText()}
-                </button>
-                
+                {this.getFilterButton()}
             </div>
         )
     }
@@ -466,11 +498,35 @@ const filterBtnStyle = {
     borderBottom: '3px solid #007fff'
 }
 
+const filterLoadingBtnStyle = {
+    position: 'fixed',
+    bottom: '20px',
+    right: '20px',
+    width: '120px',
+    height: '40px',
+    zIndex: '99999',
+    fontWeight: '600',
+    borderRadius: '0',
+    backgroundColor: '#243a81',
+    color: '#eee',
+    border: 0,
+    borderBottom: '3px solid #007fff'
+}
+
 const spinnerStyle = {
     position: 'relative',
     top: '-50px',
     left: 0,
     zIndex: '99999',
+}
+
+const topBtnStyle = {
+    backgroundColor: '#243a81',
+    color: '#fff',
+    fontWeight: '600',
+    border: 0,
+    borderBottom: '3px solid #007fff',
+    borderRadius: '3px',
 }
 
 export default Courses;
