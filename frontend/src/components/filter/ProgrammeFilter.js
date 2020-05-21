@@ -23,7 +23,7 @@ export class ProgrammeFilter extends Component {
                         })
                 }
 
-                <div style={{color: '#999', fontWeight: '600', fontSize: '1.2rem'}}>Double Degree</div>
+                <div style={{color: '#999', fontWeight: '600', fontSize: '1.2rem', marginTop: '6rem'}}>Double Degree</div>
                 {
                     this.props.programmes
                         .filter(prog => prog.type === 'DD')
@@ -32,7 +32,7 @@ export class ProgrammeFilter extends Component {
                         })
                 }
 
-                <div style={{color: '#999', fontWeight: '600', fontSize: '1.2rem'}}>Minor</div>
+                <div style={{color: '#999', fontWeight: '600', fontSize: '1.2rem', marginTop: '6rem'}}>Minor</div>
                 {
                     this.props.programmes
                         .filter(prog => prog.type === 'MI')
@@ -41,7 +41,7 @@ export class ProgrammeFilter extends Component {
                         })
                 }
 
-                <div style={{color: '#999', fontWeight: '600', fontSize: '1.2rem'}}>General Education</div>
+                <div style={{color: '#999', fontWeight: '600', fontSize: '1.2rem', marginTop: '6rem'}}>General Education</div>
                 {
                     this.props.programmes
                         .filter(prog => prog.type === 'GE')
@@ -50,7 +50,7 @@ export class ProgrammeFilter extends Component {
                         })
                 }                
 
-                <div style={{color: '#999', fontWeight: '600', fontSize: '1.2rem'}}>Scholars</div>
+                <div style={{color: '#999', fontWeight: '600', fontSize: '1.2rem', marginTop: '6rem'}}>Scholars</div>
                 {
                     this.props.programmes
                         .filter(prog => prog.type === 'SP')
@@ -59,7 +59,7 @@ export class ProgrammeFilter extends Component {
                         })
                 }
 
-                <div style={{color: '#999', fontWeight: '600', fontSize: '1.2rem'}}>Unrestricted Electives</div>
+                <div style={{color: '#999', fontWeight: '600', fontSize: '1.2rem', marginTop: '6rem'}}>Unrestricted Electives</div>
                 {
                     this.props.programmes
                         .filter(prog => prog.type === 'UE')
