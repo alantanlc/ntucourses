@@ -6,6 +6,10 @@ export class SearchCourse extends Component {
         this.timeout = 0;
     }
 
+    componentWillUnmount = () => {
+        clearTimeout(this.timeout)
+    }
+
     onChange = (e) => {
         const searchText = e.target.value
 

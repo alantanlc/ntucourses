@@ -40,11 +40,22 @@ export class Courses extends Component {
             {id: 8, display: '6', value: 6, isChecked: false},
             {id: 9, display: '8', value: 8, isChecked: false},
             {id: 10, display: '12', value: 12, isChecked: false},
-        ]
+        ],
+        programmes: []
     }
 
     componentDidMount() {
-        this.getData()
+
+        Promise.all([
+            this.getCourses(),
+            this.getProgrammes(),
+        ]).then(res => {
+            this.setState({
+                is_loading: false,
+                data: res[0].data,
+                programmes: res[1].data
+            })
+        })
 
         // Param values
         let values = queryString.parse(this.props.location.search, {arrayFormat: 'comma', parseNumbers: true})
@@ -123,21 +134,25 @@ export class Courses extends Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.match.params !== this.props.match.params) {
-            this.getData();
+            Promise.all([this.getCourses()])
+                .then(res => {
+                    this.setState({
+                        is_loading: false,
+                        data: res[0].data
+                    })
+                })
         }
     }
 
-    getData() {
+    getCourses() {
         this.setState({
             is_loading: true
         })
-        axios.get(`https://ntu-courses-cloudrun-l25eysxcaq-de.a.run.app/courses/${this.props.location.search}`)
-            .then(res => {
-                this.setState({
-                    data: res.data,
-                    is_loading: false
-                })
-            })
+        return axios.get(`https://ntu-courses-cloudrun-l25eysxcaq-de.a.run.app/courses/${this.props.location.search}`)
+    }
+
+    getProgrammes() {
+        return axios.get(`https://ntu-courses-cloudrun-l25eysxcaq-de.a.run.app/programmes/`)
     }
 
     search = (keyword) => {
