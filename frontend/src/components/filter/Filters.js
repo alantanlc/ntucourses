@@ -74,7 +74,7 @@ export class Filters extends Component {
                             <a data-toggle="tooltip" title="We're always looking out for contributors!" href="https://github.com/alanwuha/ntucourses" className="nav-link" target="_blank">
                                 <li>GitHub</li>
                             </a>
-                            <a data-toggle="tooltip" title="Take a look if you're interested!" href="https://api.ntucourses.com/?format=json" className="nav-link" target="_blank">
+                            <a data-toggle="tooltip" title="Take a look if you're interested!" href="https://ntu-courses.df.r.appspot.com/" className="nav-link" target="_blank">
                                 <li>API</li>
                             </a>
                             {/* <Link to="contact" className="nav-link">
