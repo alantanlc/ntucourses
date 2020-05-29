@@ -12,7 +12,7 @@ class ExamSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         # list_serializer_class = FilteredListSerializer
         model = Exam
-        fields = ['date', 'day', 'time', 'duration', 'year', 'semester']
+        fields = ['course_code_id', 'date', 'day', 'time', 'duration', 'year', 'semester']
 
 class ClassSerializer(serializers.HyperlinkedModelSerializer):
 
@@ -40,8 +40,8 @@ class CourseSerializer(serializers.HyperlinkedModelSerializer):
             'not_available_as_pe_to_programme',
             'not_available_as_ue_to_programme',
             'grade_type',
-            'exams', 
-            'url'
+            'exams',
+            'url',
         ]
 
 class CourseDetailSerializer(serializers.HyperlinkedModelSerializer):

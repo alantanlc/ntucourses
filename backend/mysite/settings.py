@@ -11,36 +11,14 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import environ
-import google.auth
-from google.cloud import secretmanager_v1beta1 as sm
 import logging
 
-# Import settings with django-environ
-env = environ.Env()
-
-# Import settings from Secret Manager
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-env_file = os.path.join(BASE_DIR,  ".env")
-
-if not os.path.isfile('.env'):
-    _, project = google.auth.default()
-    if project:
-        client = sm.SecretManagerServiceClient()
-        path = client.secret_version_path(project, "django-settings", "1")
-        payload = client.access_secret_version(path).payload.data.decode("UTF-8")
-
-        with open(env_file, "w") as f:
-            f.write(payload)
-
-env.read_env(env_file)
-
 # Pull values from environment
-DATABASE_HOST = env('DATABASE_HOST')
-DATABASE_NAME = env('DATABASE_NAME')
-DATABASE_USER = env('DATABASE_USER')
-DATABASE_PASSWORD = env('DATABASE_PASSWORD')
-DEBUG = int(env('DEBUG'))
+DATABASE_HOST = ''
+DATABASE_NAME = ''
+DATABASE_USER = ''
+DATABASE_PASSWORD = ''
+DEBUG = False
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -60,24 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    'django_filters',
     'scraping',
     'api',
     'corsheaders',
-    'elasticapm.contrib.django'
 ]
-
-ELASTIC_APM = {
-  # Set required service name. Allowed characters:
-  # a-z, A-Z, 0-9, -, _, and space
-  'SERVICE_NAME': 'ntucourses',
-
-  # Use if APM Server requires a token
-  'SECRET_TOKEN': 'lNAoZdzpIFTCW52QBi',
-
-  # Set custom APM Server URL (default: http://localhost:8200)
-  'SERVER_URL': 'https://74e49c406bc94717bc4fa9571e294283.apm.asia-southeast1.gcp.elastic-cloud.com:443',
-}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -88,7 +52,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'elasticapm.contrib.django.middleware.TracingMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
@@ -113,7 +76,6 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
 if os.getenv('GAE_APPLICATION', None):
     # Running on App Engine, so connect to Google Cloud SQL using
     # the unix socket at /cloudsql/<your-cloudsql-connection string>
@@ -134,14 +96,13 @@ else:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'HOST': DATABASE_HOST,
+            'HOST': '127.0.0.1',
             'PORT': '5432',
             'NAME': DATABASE_NAME,
             'USER': DATABASE_USER,
             'PASSWORD': DATABASE_PASSWORD,
         }
     }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -188,14 +149,14 @@ STATIC_ROOT = 'static'
 REST_FRAMEWORK = {
     # User Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticed users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ],
-    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    'PAGE_SIZE': 10,
-    'DEFAULT_FILTER_BACKENDS': [
-        'django_filters.rest_framework.DjangoFilterBackend',
-    ]
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    # ],
+    # 'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    # 'PAGE_SIZE': 10,
+    # 'DEFAULT_FILTER_BACKENDS': [
+    #     'django_filters.rest_framework.DjangoFilterBackend',
+    # ]
 }
 
 CORS_ORIGIN_ALLOW_ALL = True

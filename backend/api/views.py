@@ -4,6 +4,9 @@ from rest_framework import viewsets, pagination
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from django.db.models import Q
+from rest_framework import status
+from api.pagination import StandardResultsSetPagination
+from rest_framework.decorators import api_view
 
 class CourseViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -11,6 +14,7 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = Course.objects.all()
     serializer_class = CourseSerializer
+    pagination_class = StandardResultsSetPagination
 
     # Course List
     def list(self, request):
@@ -69,7 +73,6 @@ class CourseViewSet(viewsets.ReadOnlyModelViewSet):
                 Q(description__icontains='online discussion') |
                 Q(description__icontains='online lecture') |
                 Q(description__icontains='online assignment') |
-                # Q(description__icontains=' e-learning') |
                 Q(classes__remark__icontains='online') |
                 Q(classes__venue__icontains='online')
             ).distinct('course_code')
@@ -105,6 +108,7 @@ class ExamViewSet(viewsets.ReadOnlyModelViewSet):
     """
     queryset = Exam.objects.all().order_by('-year', '-semester', 'date', 'time', 'course_code')
     serializer_class = ExamSerializer
+    pagination_class = StandardResultsSetPagination
 
 class ProgrammeViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -125,3 +129,7 @@ class ProgrammeViewSet(viewsets.ReadOnlyModelViewSet):
 
         serializer = ProgrammeSerializer(queryset, many=True)
         return Response(serializer.data)
+
+@api_view(['GET'])
+def scrape_courses(request):
+    return Response(status=status.HTTP_200_OK)
