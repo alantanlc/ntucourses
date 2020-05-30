@@ -18,7 +18,12 @@ DATABASE_HOST = ''
 DATABASE_NAME = ''
 DATABASE_USER = ''
 DATABASE_PASSWORD = ''
-DEBUG = False
+
+# Debug:
+if os.getenv('GAE_APPLICATION', None):
+    DEBUG = True
+else:
+    DEBUG = False
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -41,6 +46,7 @@ INSTALLED_APPS = [
     'scraping',
     'api',
     'corsheaders',
+    'django_crontab',
 ]
 
 MIDDLEWARE = [
@@ -158,5 +164,9 @@ REST_FRAMEWORK = {
     #     'django_filters.rest_framework.DjangoFilterBackend',
     # ]
 }
+
+CRONJOBS = [
+    ('0 0 * * *', 'django.core.management.call_command', ['scrapecourses', 'scrapeprogrammecourses', 'scrapeexams', 'scrapeclasses', 'scrapevenues']),
+]
 
 CORS_ORIGIN_ALLOW_ALL = True

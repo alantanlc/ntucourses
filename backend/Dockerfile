@@ -17,6 +17,10 @@ RUN python manage.py collectstatic --no-input
 # Migrate database
 # CMD exec python manage.py migrate --no-input
 
+# Install and add cron jobs
+RUN apt-get update && apt-get -y install cron
+RUN python manage.py crontab add
+
 # Service must listen to $PORT environment variable.
 # This default value facilitates local development.
 ENV PORT 8000
