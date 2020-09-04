@@ -19,7 +19,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -91,7 +90,7 @@ DATABASES = {
         'HOST': os.getenv('HOST', None),
         'PORT': os.getenv('PORT', None),
         'NAME': os.getenv('NAME', None),
-        'USER': os.getenv('USER', None),
+        'USER': os.getenv('DATABASE_USER', None),
         'PASSWORD': os.getenv('PASSWORD', None),
     }
 }
