@@ -22,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'b^q%exmwr0k3*x6bup4luv_oa6=a3-v01%rpu91kvzubs8e0%&'
-SECRET_KEY = os.getenv('NTUCOURSES_DJANGO_SECRET_KEY', None);
+SECRET_KEY = os.getenv('SECRET_KEY', None);
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.getenv('NTUCOURSES_ENVIRONMENT', None) == 'PROD':
+if os.getenv('ENVIRONMENT', None) == 'PROD':
     DEBUG = False
 else:
     DEBUG = True
@@ -87,11 +87,11 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'HOST': os.getenv('NTUCOURSES_POSTGRES_HOST', '127.0.0.1'),
-        'PORT': os.getenv('NTUCOURSES_POSTGRES_PORT', '5432'),
-        'NAME': os.getenv('NTUCOURSES_POSTGRES_NAME', None),
-        'USER': os.getenv('NTUCOURSES_POSTGRES_USER', None),
-        'PASSWORD': os.getenv('NTUCOURSES_POSTGRES_PASSWORD', None),
+        'HOST': os.getenv('HOST', None),
+        'PORT': os.getenv('PORT', None),
+        'NAME': os.getenv('NAME', None),
+        'USER': os.getenv('USER', None),
+        'PASSWORD': os.getenv('PASSWORD', None),
     }
 }
 
