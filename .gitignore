@@ -128,5 +128,9 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-# AWS
+# AWS private key file
 *.pem
+
+# Docker mounts
+nginx/
+postgresql/
