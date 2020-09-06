@@ -445,7 +445,7 @@ export class Courses extends Component {
         if(this.state.is_loading) {
             result = (
                 <div className="d-flex align-items-center">
-                    <strong>Wait ah...</strong>&nbsp;<i>Performance usually gets better after 2-3 API calls...</i>
+                    {/* <strong>Wait ah...</strong>&nbsp;<i>Performance usually gets better after 2-3 API calls...</i> */}
                     <div className="spinner-border ml-auto" role="status" aria-hidden="true"></div>
                 </div>
             )
@@ -533,7 +533,7 @@ export class Courses extends Component {
                                 <Pagination hasNext={this.state.data.next} hasPrevious={this.state.data.previous} goToTop={this.goToT} goToPrevious={this.goToPrevious} goToNext={this.goToNext} />
                             </div>
                             <div className="ml-auto">
-                                <button data-toggle="tooltip" title="Go to top" onClick={this.goToTop} type="button" className="page-link" style={topBtnStyle}>The only way is up!</button>
+                                <button data-toggle="tooltip" title="Go to top" onClick={this.goToTop} type="button" className="page-link" style={topBtnStyle}>Back to top</button>
                             </div>
                         </div>
                     </div>
