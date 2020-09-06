@@ -29,8 +29,4 @@ const btnStyle = {
     borderBottom: '3px solid #007fff',
 }
 
-const blueTextStyle = {
-    color: '#243a81'
-}
-
 export default Pagination;

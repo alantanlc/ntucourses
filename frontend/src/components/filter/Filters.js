@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import ProgrammeFilter from './ProgrammeFilter';
 import CheckBox from './CheckBox';
 
@@ -71,10 +70,10 @@ export class Filters extends Component {
                     <p data-toggle="tooltip" title="Thank you for your support!">© NTUCourses 2020</p>
                     <nav>
                         <ul>
-                            <a data-toggle="tooltip" title="We're always looking out for contributors!" href="https://github.com/alanwuha/ntucourses" className="nav-link" target="_blank">
+                            <a data-toggle="tooltip" title="We're always looking out for contributors!" href="https://github.com/alanwuha/ntucourses" className="nav-link" target="_blank" rel="noopener noreferrer">
                                 <li>GitHub</li>
                             </a>
-                            <a data-toggle="tooltip" title="Take a look if you're interested!" href="https://ntucoursesprod.df.r.appspot.com/" className="nav-link" target="_blank">
+                            <a data-toggle="tooltip" title="Take a look if you're interested!" href="http://api.ntucourses.com/?format=json" className="nav-link" target="_blank" rel="noopener noreferrer">
                                 <li>API</li>
                             </a>
                             {/* <Link to="contact" className="nav-link">

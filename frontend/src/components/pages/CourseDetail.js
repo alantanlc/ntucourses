@@ -120,18 +120,18 @@ const ulStyle = {
     listStyleType: 'none',
 }
 
-const btnStyle = {
-    backgroundColor: '#4d83f3',
-    color: '#fff',
-    border: '0',
-    fontWeight: '600',
-    padding: '10px',
-    width: '100%',
-    maxWidth: '300px',
-    borderRadius: '5px',
-    fontSize: '0.9rem',
-    marginTop: '10px'
-}
+// const btnStyle = {
+//     backgroundColor: '#4d83f3',
+//     color: '#fff',
+//     border: '0',
+//     fontWeight: '600',
+//     padding: '10px',
+//     width: '100%',
+//     maxWidth: '300px',
+//     borderRadius: '5px',
+//     fontSize: '0.9rem',
+//     marginTop: '10px'
+// }
 
 const backBtnStyle = {
     color: '#243a81',

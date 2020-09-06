@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Timetable from '../timetable/Timetable';
-import SearchCourse from '../search/SearchCourse';
 
 export class Plan extends Component {
     constructor(props) {
@@ -29,7 +28,7 @@ export class Plan extends Component {
                 <input type="text" style={{border: '0', borderBottom: 'thin solid #e7e7e7'}} className="form-control form-control-sm mb-3" placeholder="Search course by course code or title" />
                 <div className="row">
                     <div className="col-sm-6 col-md-4 mb-4">
-                        <a href="#">CZ3007 Compiler Techniques</a>
+                        {/* <a href="#">CZ3007 Compiler Techniques</a> */}
                         <br />
                         <small>Exam: 05-MAY-2020 FRI 9:00:00 2HRS</small>
                         <select className="form-control form-control-sm mt-2" style={{fontSize: '0.7rem', width: '110px', border: '0', backgroundColor: '#f5f5f5', borderRadius: '0', borderBottom: '1px solid #ccc'}}>

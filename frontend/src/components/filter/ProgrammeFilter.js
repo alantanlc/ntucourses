@@ -97,8 +97,4 @@ export class ProgrammeFilter extends Component {
     }
 }
 
-const optionStyle = {
-    backgroundColor: '#e7e7e7'
-}
-
 export default ProgrammeFilter

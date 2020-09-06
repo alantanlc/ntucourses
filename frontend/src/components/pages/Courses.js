@@ -1,4 +1,4 @@
-import React, { Component, Profiler } from 'react';
+import React, { Component } from 'react';
 
 import axios from 'axios';
 import queryString from 'query-string';
@@ -34,7 +34,7 @@ export class Courses extends Component {
             {id: 1, display: 'Pass / Fail', value: 'true', tooltip: 'Still waiting for the day when we can opt for S/U AFTER knowing our grades >:(', isChecked: false}
         ],
         academic_units: [
-            {id: 1, display: '0', value: 0, tooltip: '', tooltip: 'Why you waste my time?', isChecked: false},
+            {id: 1, display: '0', value: 0, tooltip: 'Why you waste my time?', isChecked: false},
             {id: 2, display: '1', value: 1, tooltip: 'Quite boliao hor?', isChecked: false},
             // {id: 3, display: '1.5', value: 1.5, tooltip: '', isChecked: false},
             {id: 4, display: '2', value: 2, tooltip: 'Still not enough!!', isChecked: false},
@@ -570,13 +570,6 @@ const filterLoadingBtnStyle = {
     color: '#eee',
     border: 0,
     borderBottom: '3px solid #007fff'
-}
-
-const spinnerStyle = {
-    position: 'relative',
-    top: '-50px',
-    left: 0,
-    zIndex: '99999',
 }
 
 const topBtnStyle = {
