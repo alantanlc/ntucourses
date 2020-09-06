@@ -36,18 +36,18 @@ Here are some useful links that will get you up to speed with Django. It's a lot
 1. [Django documentation](https://docs.djangoproject.com/en/3.0/)
 1. ["How-to" guides](https://docs.djangoproject.com/en/3.0/howto/)
 1. [What to read next](https://docs.djangoproject.com/en/3.0/intro/whatsnext/)
-1. [Writing your first patch for Django](https://docs.djangoproject.com/en/3.0/intro/contributing/) - Not relevant to our NTUMods project, but good to know if you're into contributing to Django!
-
-## Installation Guides
-- [Install Postgresql Server on Ubuntu](https://tecadmin.net/install-postgresql-server-on-ubuntu/)
-- [Python3 Connect PostgreSQL With Psycopg2 on Ubuntu](https://www.codevoila.com/post/2/python3-connect-postgresql-with-psycopg2-on-ubuntu)
-- [Install Psycopg2](https://www.codevoila.com/post/2/python3-connect-postgresql-with-psycopg2-on-ubuntu)
-- 
+1. [Writing your first patch for Django](https://docs.djangoproject.com/en/3.0/intro/contributing/) - Not relevant to our NTUCourses project, but good to know if you're into contributing to Django!
 
 \* Important
 
+## Installation Guides
+- [Install pip and virtualenv on Ubuntu 20.04 LTS](https://github.com/alanwuha/installing-pip-and-virtualenv-ubuntu-20.04)
+- [Install Postgresql Server on Ubuntu](https://help.ubuntu.com/18.04/serverguide/serverguide.pdf#page=243&zoom=100,72,96)
+- [Install nginx](http://nginx.org/en/linux_packages.html#Ubuntu)
+- [Enabling HTTPS on Nginx on Ubuntu 20.04 using Certbot](https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx)
+
 ## API Reference
-Here's where our API reference lives [here](https://ntumods.com/api).
+Here's where our API reference lives [here](https://api.ntucourses.com).
 
 ## Tests
 Django's unit tests use Python standard library module: [unittest](https://docs.python.org/3/library/unittest.html#module-unittest). Learn more about writing and running tests with Django [here](https://docs.djangoproject.com/en/3.0/topics/testing/overview/) and [here](https://docs.djangoproject.com/en/3.0/intro/tutorial05/). Our test script resides [here](#). 
@@ -56,7 +56,7 @@ Django's unit tests use Python standard library module: [unittest](https://docs.
 
 In your terminal, run the test script with:
 ```
-python manage.py test ntumods
+python manage.py test ntucourses
 ```
 
 and you'll see something like:
@@ -95,18 +95,18 @@ mysite/asgi.py                                      4      4     0%
 mysite/settings.py                                 18      0   100%
 mysite/urls.py                                      3      0   100%
 mysite/wsgi.py                                      4      4     0%
-ntumods/__init__.py                                 0      0   100%
-ntumods/admin.py                                    4      0   100%
-ntumods/apps.py                                     3      0   100%
-ntumods/migrations/0001_initial.py                  5      0   100%
-ntumods/migrations/0002_choice.py                   5      0   100%
-ntumods/migrations/0003_auto_20200229_2005.py       4      0   100%
-ntumods/migrations/0004_choice_question.py          6      0   100%
-ntumods/migrations/__init__.py                      0      0   100%
-ntumods/models.py                                  18      1    94%
-ntumods/tests.py                                   57      0   100%
-ntumods/urls.py                                     4      0   100%
-ntumods/views.py                                   28      8    71%
+ntucourses/__init__.py                              0      0   100%
+ntucourses/admin.py                                 4      0   100%
+ntucourses/apps.py                                  3      0   100%
+ntucourses/migrations/0001_initial.py               5      0   100%
+ntucourses/migrations/0002_choice.py                5      0   100%
+ntucourses/migrations/0003_auto_20200229_2005.py    4      0   100%
+ntucourses/migrations/0004_choice_question.py       6      0   100%
+ntucourses/migrations/__init__.py                   0      0   100%
+ntucourses/models.py                               18      1    94%
+ntucourses/tests.py                                57      0   100%
+ntucourses/urls.py                                  4      0   100%
+ntucourses/views.py                                28      8    71%
 -------------------------------------------------------------------
 TOTAL                                             175     19    89%
 ```
@@ -117,4 +117,3 @@ TOTAL                                             175     19    89%
 1. Automatic module scheduler (e.g A-star algorithm)
 1. Link to exam papers
 1. Module index swapper?
-1. 
