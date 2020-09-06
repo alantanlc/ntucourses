@@ -8,12 +8,12 @@
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "disqus-react": "^1.0.8",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "query-string": "^6.12.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.4.1",
+    "react-scripts": "^3.4.3",
     "uuid": "^8.0.0"
   },
   "scripts": {
