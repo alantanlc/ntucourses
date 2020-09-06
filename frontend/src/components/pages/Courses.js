@@ -203,11 +203,11 @@ export class Courses extends Component {
         this.setState({
             is_loading: true
         })
-        return axios.get(`https://ntucoursesprod.df.r.appspot.com/courses/${this.props.location.search}`)
+        return axios.get(`http://api.ntucourses.com/courses/${this.props.location.search}`)
     }
 
     getProgrammes() {
-        return axios.get(`https://ntucoursesprod.df.r.appspot.com/programmes/`)
+        return axios.get(`http://api.ntucourses.com/programmes/`)
     }
 
     search = (keyword) => {
