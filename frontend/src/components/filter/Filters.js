@@ -73,7 +73,7 @@ export class Filters extends Component {
                             <a data-toggle="tooltip" title="We're always looking out for contributors!" href="https://github.com/alanwuha/ntucourses" className="nav-link" target="_blank" rel="noopener noreferrer">
                                 <li>GitHub</li>
                             </a>
-                            <a data-toggle="tooltip" title="Take a look if you're interested!" href="https://api.ntucourses.com/?format=json" className="nav-link" target="_blank" rel="noopener noreferrer">
+                            <a data-toggle="tooltip" title="Take a look if you're interested!" href="https://api.ntucourses.com/" className="nav-link" target="_blank" rel="noopener noreferrer">
                                 <li>API</li>
                             </a>
                             {/* <Link to="contact" className="nav-link">
@@ -87,7 +87,7 @@ export class Filters extends Component {
                             </Link> */}
                         </ul>
                     </nav>
-                    <small data-toggle="tooltip" title="We sync our data on a daily basis to provide you with the most up-to-date information!">Data last synced on 21-MAY-2020 THU 09:00:00</small>
+                    <small data-toggle="tooltip" title="We sync our data on a daily basis to provide you with the most up-to-date information!">Data last synced on 5-SEP-2020 MON 00:00:00</small>
                 </div>
 
             </div>
