@@ -10,5 +10,4 @@ router.register(r'programmes', views.ProgrammeViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('scrapecourses/', views.scrape_courses)
 ]
