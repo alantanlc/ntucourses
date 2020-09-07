@@ -18,32 +18,32 @@ export class Courses extends Component {
         keyword: '',
         progKeyword: '',
         semesters: [
-            {id: 1, display: 'Semester 1', acadSem: 'AY 20/21', value: 1, tooltip: 'Start of something new!', isChecked: false},
-            {id: 2, display: 'Semester 2', acadSem: 'AY 19/20', value: 2, tooltip: 'Hang in there!', isChecked: false},
+            {id: 1, display: 'Semester 1', acadSem: 'AY 20/21', value: 1, tooltip: '', isChecked: false},
+            {id: 2, display: 'Semester 2', acadSem: 'AY 19/20', value: 2, tooltip: '', isChecked: false},
             // {id: 3, display: 'Semester 3', value: 3, tooltip: '', isChecked: false},
-            {id: 4, display: 'Special Term I', acadSem: 'AY 19/20', value: 4, tooltip: 'Why holiday also want to chiong?', isChecked: false},
-            {id: 5, display: 'Special Term II', acadSem: 'AY 19/20', value: 5, tooltip: 'Remember to take a break okay!', isChecked: false}
+            {id: 4, display: 'Special Term I', acadSem: 'AY 19/20', value: 4, tooltip: '', isChecked: false},
+            {id: 5, display: 'Special Term II', acadSem: 'AY 19/20', value: 5, tooltip: '', isChecked: false}
         ],
         no_exam: [
-            {id: 1, display: 'No Exam', value: 'true', tooltip: 'Yay, no need to mug!', isChecked: false},
+            {id: 1, display: 'No Exam', value: 'true', tooltip: '', isChecked: false},
         ],
         online: [
-            {id: 1, display: 'Online', value: 'true', tooltip: 'No need to travel to Pulau NTU!', isChecked: false},
+            {id: 1, display: 'Online', value: 'true', tooltip: '', isChecked: false},
         ],
         pass_fail: [
-            {id: 1, display: 'Pass / Fail', value: 'true', tooltip: 'Still waiting for the day when we can opt for S/U AFTER knowing our grades >:(', isChecked: false}
+            {id: 1, display: 'Pass / Fail', value: 'true', tooltip: '', isChecked: false}
         ],
         academic_units: [
-            {id: 1, display: '0', value: 0, tooltip: 'Why you waste my time?', isChecked: false},
-            {id: 2, display: '1', value: 1, tooltip: 'Quite boliao hor?', isChecked: false},
+            {id: 1, display: '0', value: 0, tooltip: '', isChecked: false},
+            {id: 2, display: '1', value: 1, tooltip: '', isChecked: false},
             // {id: 3, display: '1.5', value: 1.5, tooltip: '', isChecked: false},
-            {id: 4, display: '2', value: 2, tooltip: 'Still not enough!!', isChecked: false},
-            {id: 5, display: '3', value: 3, tooltip: 'Okay, finally we\'re talking!', isChecked: false},
-            {id: 6, display: '4', value: 4, tooltip: 'Starting to feel shag...', isChecked: false},
-            {id: 7, display: '5', value: 5, tooltip: 'Unfortunately, most of us can\'t take these...', isChecked: false},
-            {id: 8, display: '6', value: 6, tooltip: 'Specially for TCM students (oh, and REP)', isChecked: false},
-            {id: 9, display: '8', value: 8, tooltip: 'Lai liao, that one big final one', isChecked: false},
-            {id: 10, display: '12', value: 12, tooltip: 'Woohoo, seems fun!', isChecked: false},
+            {id: 4, display: '2', value: 2, tooltip: '', isChecked: false},
+            {id: 5, display: '3', value: 3, tooltip: '', isChecked: false},
+            {id: 6, display: '4', value: 4, tooltip: '', isChecked: false},
+            {id: 7, display: '5', value: 5, tooltip: '', isChecked: false},
+            {id: 8, display: '6', value: 6, tooltip: '', isChecked: false},
+            {id: 9, display: '8', value: 8, tooltip: '', isChecked: false},
+            {id: 10, display: '12', value: 12, tooltip: '', isChecked: false},
         ],
         programmes: [
             {id: 1, display: '', value: '', tooltip: '', type: '', isChecked: false},
