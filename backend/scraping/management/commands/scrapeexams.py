@@ -19,6 +19,14 @@ class Command(BaseCommand):
             { 'year': 2019, 'p_plan_no': 6, 'semester': 'T', 'index': 5 },
         ]
 
+    def get_duration(self, duration_string):
+        arr = duration_string.split()
+        if len(arr) == 2:
+            return float(arr[0])
+        elif len(arr) == 4:
+            return float(arr[0]) + float(arr[2]) / 60
+        return float(0)
+
     # Define logic of command
     def handle(self, *args, **options):
         # Construct URL request information
@@ -93,7 +101,7 @@ class Command(BaseCommand):
                         day = exam_texts[1][:3].upper()
                         time = datetime.datetime.strptime(exam_texts[2], '%I.%M %p').time()
                         course_code = exam_texts[3]
-                        duration = exam_texts[5]
+                        duration = self.get_duration(exam_texts[5])
 
                         # Save in db
                         Exam.objects.update_or_create(
