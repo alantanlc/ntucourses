@@ -5,7 +5,6 @@ Course planner for Nanyang Technological University.
 
 |  Site | Status |
 | - | - |
-| [dev.ntucourses.com](https://dev.ntucourses.com) | [![Netlify Status](https://api.netlify.com/api/v1/badges/5d8074f4-a3ac-41be-93fc-a4ac9b9cc97b/deploy-status)](https://app.netlify.com/sites/ntucourses-dev/deploys) |
 | [ntucourses.com](https://ntucourses.com) | [![Netlify Status](https://api.netlify.com/api/v1/badges/8f2c85b7-ec80-4d99-802c-498d2271a297/deploy-status)](https://app.netlify.com/sites/ntucourses/deploys) |
 
 ## Motivation
