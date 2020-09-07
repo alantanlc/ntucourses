@@ -576,7 +576,7 @@ const topBtnStyle = {
     backgroundColor: '#243a81',
     color: '#fff',
     fontWeight: '600',
-    border: 0,
+    border: '0',
     borderBottom: '3px solid #007fff',
     borderRadius: '3px',
 }
