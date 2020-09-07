@@ -129,7 +129,3 @@ class ProgrammeViewSet(viewsets.ReadOnlyModelViewSet):
 
         serializer = ProgrammeSerializer(queryset, many=True)
         return Response(serializer.data)
-
-@api_view(['GET'])
-def scrape_courses(request):
-    return Response(status=status.HTTP_200_OK)
