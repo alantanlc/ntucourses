@@ -1,4 +1,4 @@
-![logo](./design/mockups/ntumods_logo_150_150.svg)
+![logo](./docs/design/mockups/ntumods_logo_150_150.svg)
 
 ## NTU Courses
 Course planner for Nanyang Technological University.
