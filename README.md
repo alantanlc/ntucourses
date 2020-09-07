@@ -15,8 +15,6 @@ This project integrates the following publicly available NTU course content and 
 1. [Class schedule](https://wish.wis.ntu.edu.sg/webexe/owa/aus_schedule.main)
 1. [Course vacancy](https://wish.wis.ntu.edu.sg/webexe/owa/aus_vacancy.check_vacancy)
 1. [Exam timetable](https://wis.ntu.edu.sg/webexe/owa/exam_timetable_und.main)
-1. [Tutorial rooms](https://www.ntu.edu.sg/odfm/usefulinfo/academicfacilities/seatingcapacity/Pages/tr.aspx)
-1. [Lecture halls](https://www.ntu.edu.sg/odfm/usefulinfo/academicfacilities/seatingcapacity/Pages/lt.aspx)
 1. [Venues](https://maps.ntu.edu.sg/a/search)
 1. [GER-PE](https://wish.wis.ntu.edu.sg/webexe/owa/aus_subj_cont2.main)
 
