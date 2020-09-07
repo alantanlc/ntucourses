@@ -18,32 +18,32 @@ export class Courses extends Component {
         keyword: '',
         progKeyword: '',
         semesters: [
-            {id: 1, display: 'Semester 1', acadSem: 'AY 20/21', value: 1, tooltip: '', isChecked: false},
-            {id: 2, display: 'Semester 2', acadSem: 'AY 19/20', value: 2, tooltip: '', isChecked: false},
+            {id: 1, display: 'Semester 1', acadSem: 'AY 20/21', value: 1, tooltip: 'Semester 1', isChecked: false},
+            {id: 2, display: 'Semester 2', acadSem: 'AY 19/20', value: 2, tooltip: 'Semester 2', isChecked: false},
             // {id: 3, display: 'Semester 3', value: 3, tooltip: '', isChecked: false},
-            {id: 4, display: 'Special Term I', acadSem: 'AY 19/20', value: 4, tooltip: '', isChecked: false},
-            {id: 5, display: 'Special Term II', acadSem: 'AY 19/20', value: 5, tooltip: '', isChecked: false}
+            {id: 4, display: 'Special Term I', acadSem: 'AY 19/20', value: 4, tooltip: 'Special Term I', isChecked: false},
+            {id: 5, display: 'Special Term II', acadSem: 'AY 19/20', value: 5, tooltip: 'Special Term II', isChecked: false}
         ],
         no_exam: [
-            {id: 1, display: 'No Exam', value: 'true', tooltip: '', isChecked: false},
+            {id: 1, display: 'No Exam', value: 'true', tooltip: 'No Exam', isChecked: false},
         ],
         online: [
-            {id: 1, display: 'Online', value: 'true', tooltip: '', isChecked: false},
+            {id: 1, display: 'Online', value: 'true', tooltip: 'Online', isChecked: false},
         ],
         pass_fail: [
-            {id: 1, display: 'Pass / Fail', value: 'true', tooltip: '', isChecked: false}
+            {id: 1, display: 'Pass / Fail', value: 'true', tooltip: 'Pass / Fail', isChecked: false}
         ],
         academic_units: [
-            {id: 1, display: '0', value: 0, tooltip: '', isChecked: false},
-            {id: 2, display: '1', value: 1, tooltip: '', isChecked: false},
+            {id: 1, display: '0', value: 0, tooltip: '0', isChecked: false},
+            {id: 2, display: '1', value: 1, tooltip: '1', isChecked: false},
             // {id: 3, display: '1.5', value: 1.5, tooltip: '', isChecked: false},
-            {id: 4, display: '2', value: 2, tooltip: '', isChecked: false},
-            {id: 5, display: '3', value: 3, tooltip: '', isChecked: false},
-            {id: 6, display: '4', value: 4, tooltip: '', isChecked: false},
-            {id: 7, display: '5', value: 5, tooltip: '', isChecked: false},
-            {id: 8, display: '6', value: 6, tooltip: '', isChecked: false},
-            {id: 9, display: '8', value: 8, tooltip: '', isChecked: false},
-            {id: 10, display: '12', value: 12, tooltip: '', isChecked: false},
+            {id: 4, display: '2', value: 2, tooltip: '2', isChecked: false},
+            {id: 5, display: '3', value: 3, tooltip: '3', isChecked: false},
+            {id: 6, display: '4', value: 4, tooltip: '4', isChecked: false},
+            {id: 7, display: '5', value: 5, tooltip: '5', isChecked: false},
+            {id: 8, display: '6', value: 6, tooltip: '6', isChecked: false},
+            {id: 9, display: '8', value: 8, tooltip: '8', isChecked: false},
+            {id: 10, display: '12', value: 12, tooltip: '12', isChecked: false},
         ],
         programmes: [
             {id: 1, display: '', value: '', tooltip: '', type: '', isChecked: false},
