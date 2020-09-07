@@ -22,13 +22,6 @@ function Pagination(props) {
     )
 }
 
-// const btnStyle = {
-//     backgroundColor: '#fff',
-//     color: '#243a81',
-//     fontWeight: '600',
-//     borderBottom: '3px solid #007fff',
-// }
-
 const btnStyle = {
     backgroundColor: '#243a81',
     color: '#fff',
