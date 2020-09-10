@@ -12,9 +12,9 @@ Group=ubuntu
 # DynamicUser=yes
 # see http://0pointer.net/blog/dynamic-users-with-systemd.html
 RuntimeDirectory=gunicorn
-WorkingDirectory=~/ntucourses/backend
-Environment="PATH=~/ntucourses/backend/env/bin"
-ExecStart=~/ntucourses/backend/env/bin/gunicorn -b 0.0.0.0:8000 mysite.wsgi
+WorkingDirectory=/home/ubuntu/ntucourses/backend
+Environment="PATH=/home/ubuntu/ntucourses/backend/env/bin"
+ExecStart=/home/ubuntu/ntucourses/backend/env/bin/gunicorn -b 0.0.0.0:8000 mysite.wsgi
 ExecReload=/bin/kill -s HUP $MAINPID
 KillMode=mixed
 TimeoutStopSec=5
