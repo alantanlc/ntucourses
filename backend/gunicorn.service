@@ -6,15 +6,15 @@ After=network.target
 [Service]
 Type=notify
 # the specific user that our service will run as
-User=$(whoami)
-Group=$(whoami)
+User=ubuntu
+Group=ubuntu
 # another option for an even more restricted service is
 # DynamicUser=yes
 # see http://0pointer.net/blog/dynamic-users-with-systemd.html
 RuntimeDirectory=gunicorn
-WorkingDirectory=/home/$(whoami)/ntucourses/backend
-Environment="PATH=/home/$(whoami)/ntucourses/backend/env/bin:$PATH"
-ExecStart=/home/$(whoami)/ntucourses/backend/env/bin/gunicorn -b 0.0.0.0:8000 mysite.wsgi
+WorkingDirectory=~/ntucourses/backend
+Environment="PATH=~/ntucourses/backend/env/bin"
+ExecStart=~/ntucourses/backend/env/bin/gunicorn -b 0.0.0.0:8000 mysite.wsgi
 ExecReload=/bin/kill -s HUP $MAINPID
 KillMode=mixed
 TimeoutStopSec=5
