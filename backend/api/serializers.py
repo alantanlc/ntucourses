@@ -1,6 +1,14 @@
 from scraping.models import Course, Venue, Class, Exam, Programme
 from rest_framework import serializers
 
+class SyncSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = Course
+        fields = [
+            'last_updated_datetime',
+        ]
+
 class FilteredListSerializer(serializers.ListSerializer):
 
     def to_representation(self, data):

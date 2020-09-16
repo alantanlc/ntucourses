@@ -1,5 +1,5 @@
 from scraping.models import Course, Venue, Class, Exam, Programme
-from api.serializers import CourseSerializer, CourseDetailSerializer, ExamSerializer, ClassSerializer, ProgrammeSerializer
+from api.serializers import CourseSerializer, CourseDetailSerializer, ExamSerializer, ClassSerializer, ProgrammeSerializer, SyncSerializer
 from rest_framework import viewsets, pagination
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
@@ -7,6 +7,7 @@ from django.db.models import Q
 from rest_framework import status
 from api.pagination import StandardResultsSetPagination
 from rest_framework.decorators import api_view
+from django.http import HttpResponse
 
 class CourseViewSet(viewsets.ReadOnlyModelViewSet):
     """
@@ -128,4 +129,14 @@ class ProgrammeViewSet(viewsets.ReadOnlyModelViewSet):
             queryset = queryset.filter(programme_type=programme_type)
 
         serializer = ProgrammeSerializer(queryset, many=True)
+        return Response(serializer.data)
+
+class SyncViewSet(viewsets.ViewSet):
+    """
+    API endpoint to retrieve last sync datetime.
+    """
+
+    def list(self, request):
+        queryset = Course.objects.all().order_by('-last_updated_datetime')[0]
+        serializer = SyncSerializer(queryset, many=False)
         return Response(serializer.data)
