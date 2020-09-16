@@ -25,7 +25,7 @@ Data is scraped from the following sources:
 The application is a course planning site called "NTUCourses". You can view the live site over at [https://ntucourses.com/](https://ntucourses.com)
 
 __General functionality:__
-- GET and display paginated lists of courses
+- GET and display paginated list of courses
 - GET and display course details
 
 __The general page breakdown looks like this:__
