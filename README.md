@@ -34,7 +34,7 @@ __The general page breakdown looks like this:__
     - Filter options
     - Pagination
     - Back to top button
-- Course details page (URL: /courses/<course-code-here)
+- Course details page (URL: /courses/<course-code-here>)
     - Course details
     - Timetable
     - Comments
