@@ -22,7 +22,7 @@ Data is scraped from the following sources:
 
 ## Functionality overview
 
-The application is a course planning site called "NTUCourses". It uses a custom API for all requests. You can view the live site over at [https://ntucourses.com/](https://ntucourses.com)
+The application is a course planning site called "NTUCourses". You can view the live site over at [https://ntucourses.com/](https://ntucourses.com)
 
 __General functionality:__
 - GET and display paginated lists of courses
