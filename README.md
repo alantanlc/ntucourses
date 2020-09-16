@@ -27,7 +27,6 @@ The application is a course planning site called "NTUCourses". You can view the 
 __General functionality:__
 - GET and display paginated lists of courses
 - GET and display course details
-- Bookmark courses
 
 __The general page breakdown looks like this:__
 - Home page (URL: /courses)
