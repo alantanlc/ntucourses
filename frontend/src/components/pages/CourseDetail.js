@@ -99,7 +99,7 @@ export class CourseDetail extends Component {
                     <h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>Course description</h4>
                     <p>{description}</p>
 
-                    <h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>Timetable</h4>
+                    <h4 style={{fontWeight: '600', fontSize: '1rem', marginTop: '30px'}}>Class Schedule</h4>
                     {this.renderTimetable()}
 
                     {this.renderDisqus()}
