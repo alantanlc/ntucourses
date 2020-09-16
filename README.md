@@ -46,7 +46,7 @@ __The general page breakdown looks like this:__
     - Back to top button
 - Course details page (URL: /courses/course-code-here)
     - Course details
-    - Timetable
+    - Class Schedule
     - Comments
 
 ## Built with
