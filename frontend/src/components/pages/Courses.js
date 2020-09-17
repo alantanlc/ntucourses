@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-
 import axios from 'axios';
 import queryString from 'query-string';
-
 import CourseList from '../course-list/CourseList';
 import Filters from '../filter/Filters';
 import SearchCourse from '../search/SearchCourse';
 import Pagination from '../course-list/Pagination';
+import moment from 'moment';
 
 export class Courses extends Component {
     state = {
@@ -47,20 +46,20 @@ export class Courses extends Component {
         ],
         programmes: [
             { id: 1, display: '', value: '', tooltip: '', type: '', isChecked: false },
-        ]
+        ],
+        last_updated_datetime: moment(),
     }
 
     componentDidMount() {
-
         Promise.all([
             this.getCourses(),
             this.getProgrammes(),
+            this.getLastUpdatedDatetime(),
         ]).then(res => {
             this.setState({
                 is_loading: false,
                 data: res[0].data,
                 programmes: res[1].data.map(p => {
-
                     let values = queryString.parse(this.props.location.search, { arrayFormat: 'comma', parseNumbers: true })
                     if (values.prog) {
                         if (!Array.isArray(values.prog)) {
@@ -69,7 +68,6 @@ export class Courses extends Component {
                     } else {
                         values.prog = []
                     }
-
                     return {
                         id: p.programme_code,
                         display: p.description,
@@ -78,7 +76,8 @@ export class Courses extends Component {
                         type: p.programme_type,
                         isChecked: values.prog.findIndex(code => code === p.programme_code) >= 0
                     }
-                })
+                }),
+                last_updated_datetime: moment(res[2].data.last_updated_datetime),
             })
         })
 
@@ -208,6 +207,10 @@ export class Courses extends Component {
 
     getProgrammes() {
         return axios.get(`https://api.ntucourses.com/programmes/`)
+    }
+
+    getLastUpdatedDatetime() {
+        return axios.get(`https://api.ntucourses.com/sync/`)
     }
 
     search = (keyword) => {
@@ -519,7 +522,8 @@ export class Courses extends Component {
                             pass_fail={this.state.pass_fail}
                             academic_units={this.state.academic_units}
                             programmes={this.getFilteredProgrammes()}
-                            searchProgramme={this.searchProgramme} />
+                            searchProgramme={this.searchProgramme}
+                            last_updated_datetime={this.state.last_updated_datetime} />
                     </div>
                     <div className="col">
                         <SearchCourse search={this.search} clearInput={this.clearInput} keyword={this.state.keyword} />

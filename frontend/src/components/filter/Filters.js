@@ -87,9 +87,7 @@ export class Filters extends Component {
                             </Link> */}
                         </ul>
                     </nav>
-                    <small>
-                        Data last synced on 5-SEP-2020 MON 00:00:00
-                    </small>
+                    <small>Data last synced on <b>{this.props.last_updated_datetime.format('ddd DD-MMM-yyyy h:mm A')}</b></small>
                 </div>
 
             </div>
@@ -107,4 +105,4 @@ const clearBtnStyle = {
     float: 'right',
 }
 
-export default Filters
+export default Filters;
