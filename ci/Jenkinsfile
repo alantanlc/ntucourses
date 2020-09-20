@@ -9,6 +9,7 @@ pipeline {
                 sh 'cd backend'
                 sh 'virtualenv env'
                 sh 'source env/bin/activate'
+                sh 'which python3'
                 sh 'pip install -r requirements.txt'
                 sh 'python manage.py collectstatic'
             }
@@ -18,6 +19,7 @@ pipeline {
                 /* sh 'cd backend' */
                 /* sh 'python manage.py test' */
                 sh 'pwd'
+                sh 'which python3'
             }
         }
         stage('Deploy - Staging') {
