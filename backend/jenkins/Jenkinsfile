@@ -1,26 +1,35 @@
 pipeline {
     agent any
     stages {
-        stage('build') {
+        stage('Build') {
             steps {
-                sh 'echo "build"'
-                sh 'ls'
+                sh 'cd backend'
+                sh 'virtualenv env'
+                sh 'source env/bin/activate'
+                sh 'pip install -r requirements.txt'
+                sh 'python manage.py collectstatic'
             }
         }
-        stage('test') {
+        stage('Test') {
             steps {
-                sh 'echo "test"'
+                /* sh 'cd backend' */
+                /* sh 'python manage.py test' */
+                sh 'pwd'
             }
         }
-        stage('deploy') {
+        stage('Deploy - Staging') {
             steps {
-                sh 'echo "deploy"'
+                sh 'echo "Staging"'
+            }
+        }
+        stage('Deploy - Production') {
+            steps {
+                sh 'echo "Production"'
             }
         }
     }
     post {
         always {
-            echo 'This will always run'
             deleteDir() /* clean up our workspace */
         }
         success {
