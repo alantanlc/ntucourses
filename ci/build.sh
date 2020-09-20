@@ -1,14 +1,15 @@
 #!/bin/bash
 
 # Print current directory
-echo "Current directory: ${pwd}"
+echo "Current directory:"
+pwd
 echo
 
 # Allow backend directory to be writable
-chmod 777 backend
+chmod 775 backend
 
 # Print contents and verify modify permissions of backend directory
-echo "Contents in ${pwd}:"
+echo "List files and directories in $(pwd):"
 ls -l
 echo
 
@@ -18,15 +19,19 @@ cd backend
 # Create virtual environment and download python packages
 virtualenv env
 source env/bin/activate
-echo "Python path: ${which python3}"
+echo "Python path:"
+which python3
+echo
+echo "Install python packages using pip:"
 pip install -r requirements.txt
 echo
 
 # Generate static assets
+echo "Django collect static:"
 python manage.py collectstatic
 echo
 
 # List contents to check if static directory is generated
-echo "Contents in ${pwd}:"
-ls
+echo "List files and directories in $(pwd):"
+ls -l
 echo

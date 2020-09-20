@@ -131,6 +131,5 @@ dmypy.json
 # AWS private key file
 *.pem
 
-# Docker mounts
-nginx/
-postgresql/
+# Django static assets directory
+static/
