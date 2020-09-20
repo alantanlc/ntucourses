@@ -17,8 +17,10 @@ echo
 cd backend
 
 # Create virtual environment and download python packages
+echo "Create virtual environment:"
 virtualenv env
 source env/bin/activate
+echo
 echo "Python path:"
 which python3
 echo
@@ -35,3 +37,4 @@ echo
 echo "List files and directories in $(pwd):"
 ls -l
 echo
+
