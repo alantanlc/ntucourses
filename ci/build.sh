@@ -30,7 +30,7 @@ echo
 
 # Generate static assets
 echo "Django collect static:"
-python manage.py collectstatic
+python manage.py collectstatic --no-input
 echo
 
 # List contents to check if static directory is generated
