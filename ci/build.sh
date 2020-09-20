@@ -15,9 +15,12 @@ echo
 
 # Go into backend directory
 cd backend
+echo "Current directory:"
+pwd
+echo
 
 # Create virtual environment and download python packages
-echo "Create virtual environment:"
+echo "Create virtual environment in $(pwd):"
 virtualenv env
 source env/bin/activate
 echo
