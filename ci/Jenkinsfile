@@ -3,15 +3,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'pwd'
-                sh 'ls'
-                sh 'chmod 777 backend'
-                sh 'cd backend'
-                sh 'virtualenv env'
-                sh 'source env/bin/activate'
-                sh 'which python3'
-                sh 'pip install -r requirements.txt'
-                sh 'python manage.py collectstatic'
+                sh './ci/build.sh'
             }
         }
         stage('Test') {
