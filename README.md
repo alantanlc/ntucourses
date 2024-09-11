@@ -10,6 +10,8 @@
 
 Unofficial course planner for Nanyang Technological University.
 
+<img src="https://raw.githubusercontent.com/alantanlc/ntucourses/master/design/mockups/mockup.png" />
+
 ## Data Sources
 
 Data is scraped from the following sources:
